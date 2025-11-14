@@ -1,9 +1,13 @@
 import { PageHeader } from "../components";
 
-// ResponsiveUnitsTheory (enriched)
-// - This theory file is a reference and should NOT use exercise helpers like
-//   ExpectedOutcome (those belong in exercises). Theory includes inline
-//   examples and copyable snippets for learners.
+/* ============================================
+  THEORY: Responsive Units & Fluid Scaling - Reference
+  GOAL: Teach responsive CSS units and techniques for fluid scaling across viewports
+  CONCEPTS INTRODUCED: rem/em/vw/vh, clamp(), fluid typography, responsive spacing, images
+  WHY THIS MATTERS: Smooth scaling improves readability and reduces layout breakage across devices
+  TRY THIS: Implement clamp() and a root --space variable in exercises
+  ACCESSIBILITY: See the Accessibility section below (font sizing, reduced motion, touch targets)
+  ============================================ */
 
 export default function ResponsiveUnitsTheory(): JSX.Element {
   return (

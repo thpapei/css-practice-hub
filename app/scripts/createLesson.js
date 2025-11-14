@@ -15,7 +15,7 @@ const styles = path.join(__dirname, "..", "src", "styles");
 const fileName = `${name}.tsx`;
 const cssName = `phase-${name.toLowerCase()}.css`;
 
-const content = `import React from 'react';\nimport { PageHeader } from '../components';\nimport './${cssName}';\n\nexport default function ${name}() {\n  return (\n    <div>\n      <PageHeader title="${
+const content = `import React from 'react';\nimport { PageHeader } from '../components';\nimport '../styles/${cssName}';\n\nexport default function ${name}() {\n  return (\n    <div>\n      <PageHeader title="${
   title || name
 }" />\n      <p>New lesson scaffolded. Replace this content with exercises.</p>\n    </div>\n  );\n}\n`;
 

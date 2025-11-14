@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: CSS Grid Layout - Reference
+  GOAL: Teach two-dimensional layouts, track sizing, placement, areas and responsive patterns
+  CONCEPTS INTRODUCED: grid-template, fr/minmax/repeat, placement, alignment, template-areas, subgrid
+  WHY THIS MATTERS: Grid is the most powerful tool for page-level layout
+  TRY THIS: Exercises at the end to experiment with minmax and auto-fit
+  ACCESSIBILITY: Use sensible DOM order and avoid relying on visual-only placement for semantic content
+  ============================================ */
+
 export default function GridTheory(): JSX.Element {
   return (
     <div className="theory-content">
@@ -753,6 +762,34 @@ export default function GridTheory(): JSX.Element {
               </div>
             </div>
           </div>
+        </section>
+        <section id="accessibility">
+          <h2>Accessibility Notes</h2>
+          <ul>
+            <li>
+              Avoid moving important content out of DOM order purely for visual
+              reasons — screen readers follow DOM order.
+            </li>
+            <li>
+              Use grid for layout but keep headings and landmarks in logical
+              reading order.
+            </li>
+          </ul>
+        </section>
+
+        <section id="try">
+          <h2>Try this</h2>
+          <ol>
+            <li>
+              Build a responsive card grid using{" "}
+              <code>repeat(auto-fit, minmax(...))</code> and resize the window
+              to see how cards wrap.
+            </li>
+            <li>
+              Try creating a named area layout and place a banner that spans
+              columns.
+            </li>
+          </ol>
         </section>
 
         <div className="warning-box">

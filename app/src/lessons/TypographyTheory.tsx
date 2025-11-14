@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: Typography - Reference
+  GOAL: Explain typographic fundamentals: font stacks, sizes, weight, line-height and spacing
+  CONCEPTS INTRODUCED: rem/em/px units, line-height, font-weight, text-transform, letter & word spacing
+  WHY THIS MATTERS: Good typography improves readability and accessibility
+  TRY THIS: See 'Try this' section below for quick experiments
+  ACCESSIBILITY: Notes below about contrast and scalable units
+  ============================================ */
+
 export function TypographyTheory() {
   return (
     <div className="theory-content">
@@ -642,6 +651,35 @@ export function TypographyTheory() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section id="accessibility">
+        <h3>Accessibility Notes</h3>
+        <ul>
+          <li>
+            Use relative units like <code>rem</code> so users can scale the UI
+            via browser settings.
+          </li>
+          <li>Respect contrast ratios (WCAG) for body and heading text.</li>
+          <li>
+            Ensure line-height and font-size provide readable measure,
+            especially on small screens.
+          </li>
+        </ul>
+      </section>
+
+      <section id="try">
+        <h3>Try this</h3>
+        <ol>
+          <li>
+            Switch the root font-size and observe how <code>rem</code>-based
+            text scales.
+          </li>
+          <li>
+            Try different <code>line-height</code> values (1.2, 1.5, 2.0) and
+            compare readability.
+          </li>
+        </ol>
       </section>
     </div>
   );

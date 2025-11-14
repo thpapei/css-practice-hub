@@ -7,6 +7,7 @@ import {
   Phase2Grid,
   Phase2Positioning,
   Phase3MediaQueries,
+  Phase3MobileFirst,
   Phase3ResponsiveUnits,
 } from "../lessons";
 
@@ -100,6 +101,9 @@ function Hub() {
               </button>
               <button onClick={() => navigate("/phase3-responsiveunits")}>
                 3.2 Responsive Units
+              </button>
+              <button onClick={() => navigate("/phase3-mobile-first")}>
+                3.3 Mobile-first
               </button>
             </div>
           </div>
@@ -213,6 +217,14 @@ export default function MainPage(): JSX.Element {
         }
       />
       {/* test lesson route removed (created during script test) */}
+      <Route
+        path="/phase3-mobile-first"
+        element={
+          <LessonLayout>
+            <Phase3MobileFirst />
+          </LessonLayout>
+        }
+      />
     </Routes>
   );
 }

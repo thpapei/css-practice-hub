@@ -613,3 +613,12 @@ import { useProgress } from "../hooks/useProgress";
 ---
 
 **Last Updated**: Follow these guidelines for every new phase to maintain consistency and quality! 🚀
+
+## Additional Theory Guidelines
+
+We maintain a separate, focused document describing the theory-page standards and why they matter. See `app/THEORY_GUIDELINES.md` for the authoritative guidance. In short:
+
+- Theory pages are the canonical reference for students — invest time to make them clear and useful.
+- Theory pages must follow the convention in `app/THEORY_GUIDELINES.md` (header block, TOC, inline visual examples, Accessibility Notes, Try this, and no `ExpectedOutcome`).
+
+When updating or creating theory files, consult `app/THEORY_GUIDELINES.md` and follow the quick checklist at the top of that file.

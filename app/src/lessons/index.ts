@@ -17,3 +17,4 @@ export { PositioningTheory } from "./PositioningTheory";
 export { default as ResponsiveUnitsTheory } from "./ResponsiveUnitsTheory";
 export { default as SelectorsTheory } from "./SelectorsTheory";
 export { TypographyTheory } from "./TypographyTheory";
+export { default as Phase3MobileFirst } from "./Phase3MobileFirst";

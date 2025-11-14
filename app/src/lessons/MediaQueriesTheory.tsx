@@ -1,11 +1,13 @@
 import { PageHeader } from "../components";
 
-/*
-  MediaQueriesTheory (improved)
-  - Comprehensive overview of media queries, breakpoint strategy, mobile-first
-    patterns, fluid units, and small practical examples students can read and
-    apply directly inside exercises.
-*/
+/* ============================================
+   THEORY: Media Queries & Responsive Strategies - Reference
+   GOAL: Explain how to adapt layouts across viewports using media queries and fluid primitives
+   CONCEPTS INTRODUCED: @media, mobile-first, min-width breakpoints, fluid units, container vs viewport queries
+   WHY THIS MATTERS: Responsiveness and graceful scaling are essential for modern web UIs
+   TRY THIS: Add a mobile-first media query at 768px and convert a fixed layout to a fluid one
+   ACCESSIBILITY: See Accessibility & Performance section for keyboard, motion, and image considerations
+   ============================================ */
 
 export default function MediaQueriesTheory(): JSX.Element {
   return (

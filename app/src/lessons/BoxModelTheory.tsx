@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: Box Model - Reference
+  GOAL: Explain how element size is calculated (content, padding, border, margin)
+  CONCEPTS INTRODUCED: content-box vs border-box, padding, border, margin, margin-collapse
+  WHY THIS MATTERS: Fundamental for layout, spacing, and predictable sizing
+  TRY THIS: Small experiments listed in the `Try this` section below
+  ACCESSIBILITY: Consider readable sizes, avoid tiny text when changing box sizing
+  ============================================ */
+
 export function BoxModelTheory() {
   return (
     <div className="theory-content">
@@ -546,6 +555,36 @@ box-sizing: border-box;
           <strong>💡 Pro Tip:</strong> To prevent margin collapse, use padding
           instead, or add a border/padding to the parent element.
         </div>
+      </section>
+
+      {/* Accessibility */}
+      <section id="accessibility">
+        <h3>Accessibility Notes</h3>
+        <ul>
+          <li>
+            Use readable font sizes when adjusting box sizes so content remains
+            legible.
+          </li>
+          <li>
+            Ensure interactive elements keep sufficient hit target size even
+            when padding or margin changes.
+          </li>
+        </ul>
+      </section>
+
+      {/* Try this */}
+      <section id="try">
+        <h3>Try this</h3>
+        <ol>
+          <li>
+            Toggle <code>box-sizing</code> between <code>content-box</code> and{" "}
+            <code>border-box</code> and observe layout differences.
+          </li>
+          <li>
+            Create two boxes with different padding/border and see how their
+            total sizes change.
+          </li>
+        </ol>
       </section>
 
       {/* Best Practices */}

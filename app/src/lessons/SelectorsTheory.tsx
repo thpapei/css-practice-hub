@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: Selectors & Specificity - Reference
+  GOAL: Teach how to target elements using selectors and understand specificity & the cascade
+  CONCEPTS INTRODUCED: element/class/id/attribute selectors, combinators, pseudo-classes/elements, specificity
+  WHY THIS MATTERS: Predictable styling and maintainable CSS
+  TRY THIS: See the 'Try this' section at the end for short experiments
+  ACCESSIBILITY: Use selectors that don't rely on presentational markup for important semantics
+  ============================================ */
+
 export default function SelectorsTheory(): JSX.Element {
   return (
     <div className="theory-content">
@@ -316,6 +325,34 @@ div#special.text { color: orange; }`}</code>
             </li>
             <li>
               <strong>Order:</strong> Later rules override earlier ones
+            </li>
+          </ol>
+        </section>
+
+        <section id="accessibility">
+          <h2>Accessibility Notes</h2>
+          <ul>
+            <li>
+              Avoid relying on visual-only selectors (like :hover) for critical
+              interactions — provide focus styles.
+            </li>
+            <li>
+              Prefer semantic HTML and classes for styling rather than using IDs
+              to convey meaning.
+            </li>
+          </ul>
+        </section>
+
+        <section id="try">
+          <h2>Try this</h2>
+          <ol>
+            <li>
+              Build a small list and style its <code>:first-child</code> and{" "}
+              <code>:nth-child(odd)</code> items differently.
+            </li>
+            <li>
+              Use attribute selectors to style links that end with{" "}
+              <code>.pdf</code> differently.
             </li>
           </ol>
         </section>

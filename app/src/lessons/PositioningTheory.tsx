@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: Positioning - Reference
+  GOAL: Explain CSS positioning modes and positioning context
+  CONCEPTS INTRODUCED: static/relative/absolute/fixed/sticky, z-index, positioning context
+  WHY THIS MATTERS: Use positioning for overlays, badges, and UI elements that break the flow
+  TRY THIS: Small tasks in the 'Try this' section below
+  ACCESSIBILITY: Notes below about stacking contexts and focus order
+  ============================================ */
+
 export function PositioningTheory() {
   return (
     <div className="theory-content">
@@ -688,6 +697,34 @@ export function PositioningTheory() {
             </li>
           </ul>
         </div>
+      </section>
+
+      <section id="accessibility">
+        <h3>Accessibility Notes</h3>
+        <ul>
+          <li>
+            Be careful when layering content with z-index — ensure focusable
+            elements are reachable.
+          </li>
+          <li>
+            Avoid moving interactive controls off-screen visually while keeping
+            them focusable unless intentionally hidden.
+          </li>
+        </ul>
+      </section>
+
+      <section id="try">
+        <h3>Try this</h3>
+        <ol>
+          <li>
+            Create a badge using <code>position: absolute</code> on a relatively
+            positioned parent.
+          </li>
+          <li>
+            Build a sticky section header using{" "}
+            <code>position: sticky; top: 0;</code> and test scrolling behavior.
+          </li>
+        </ol>
       </section>
     </div>
   );

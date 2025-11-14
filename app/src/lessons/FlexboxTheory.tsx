@@ -1,3 +1,12 @@
+/* ============================================
+  THEORY: Flexbox - Reference
+  GOAL: Explain one-dimensional layouts with Flexbox and common container/item properties
+  CONCEPTS INTRODUCED: flex container, main/cross axis, justify-content, align-items, flex-wrap, flex-grow/shrink/basis
+  WHY THIS MATTERS: Use Flexbox for robust component-level alignment and spacing
+  TRY THIS: Short exercises at the end
+  ACCESSIBILITY: Notes below about DOM order and the visual order property
+  ============================================ */
+
 export function FlexboxTheory() {
   return (
     <div className="theory-content">
@@ -897,6 +906,35 @@ export function FlexboxTheory() {
           property only changes visual order, not DOM order. Screen readers will
           still read items in their original order.
         </div>
+      </section>
+
+      <section id="accessibility">
+        <h3>Accessibility Notes</h3>
+        <ul>
+          <li>
+            <strong>Order</strong>: The <code>order</code> property only changes
+            visual order — it does not change DOM order. Keep DOM order
+            meaningful for screen readers.
+          </li>
+          <li>
+            Ensure focus order and reading order remain logical when changing
+            visual order.
+          </li>
+        </ul>
+      </section>
+
+      <section id="try">
+        <h3>Try this</h3>
+        <ol>
+          <li>
+            Create a navigation bar using Flexbox and center the items both
+            horizontally and vertically.
+          </li>
+          <li>
+            Experiment with <code>flex: 1 1 300px</code> vs{" "}
+            <code>flex: 0 0 300px</code> for card layouts.
+          </li>
+        </ol>
       </section>
 
       {/* Best Practices */}
