@@ -1,4 +1,4 @@
-import { ExpectedOutcome, PageHeader } from "../components";
+import { PageHeader } from "../components";
 
 /*
   MediaQueriesTheory (improved)
@@ -141,22 +141,19 @@ export default function MediaQueriesTheory(): JSX.Element {
           </pre>
 
           <h3>Live demo</h3>
-          <ExpectedOutcome description="Two-column grid on wide screens; single column on mobile">
-            <div
-              style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}
-            >
-              <div
-                style={{ background: "#667eea", color: "white", padding: 12 }}
-              >
-                Demo A
-              </div>
-              <div
-                style={{ background: "#fa709a", color: "white", padding: 12 }}
-              >
-                Demo B
-              </div>
+          <p>
+            Example (inline): two items stack on mobile and show as two columns
+            on wider screens. This is a plain demo for reference — exercises
+            will include the interactive ExpectedOutcome widget.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
+            <div style={{ background: "#667eea", color: "white", padding: 12 }}>
+              Demo A
             </div>
-          </ExpectedOutcome>
+            <div style={{ background: "#fa709a", color: "white", padding: 12 }}>
+              Demo B
+            </div>
+          </div>
         </section>
 
         <section id="pro-tips">

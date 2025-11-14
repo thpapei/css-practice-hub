@@ -1,0 +1,51 @@
+/* ============================================
+   EXERCISE: Phase 3.2 - Responsive Units
+   ============================================
+
+   GOAL: Practice clamp(), rem/em, vw/vh, and responsive spacing.
+
+   TODO: Only edit properties that are the learning target (font-size, --space, max-width).
+*/
+
+.ru-box {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 16px;
+}
+
+.ru-headline .ru-test {
+  font-size: 18px;
+}
+
+.ru-spacing {
+  padding: 12px;
+}
+
+.ru-vw {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ru-image {
+  padding: 24px;
+  background: linear-gradient(90deg, #667eea, #fa709a);
+  color: white;
+}
+
+.ru-final {
+  padding: 16px;
+  background: #f8f9fa;
+}
+
+/* TODO: Add responsive rules below (clamp, --space, min/max) */
+@media (min-width: 768px) {
+  /* TODO: Increase .ru-headline .ru-test font-size using clamp or fixed px */
+}
+
+@media (min-width: 768px) {
+  /* TODO: Set :root --space to a larger value for wider screens */
+}
