@@ -94,7 +94,9 @@ function Hub() {
               layouts.
             </p>
             <div className="phase-card-buttons">
-              <button onClick={() => navigate("/phase3-mediaqueries")}>3.1 Media Queries</button>
+              <button onClick={() => navigate("/phase3-mediaqueries")}>
+                3.1 Media Queries
+              </button>
             </div>
           </div>
 

@@ -11,7 +11,7 @@ export { default as Phase3MediaQueries } from "./Phase3MediaQueries";
 export { BoxModelTheory } from "./BoxModelTheory";
 export { FlexboxTheory } from "./FlexboxTheory";
 export { default as GridTheory } from "./GridTheory";
+export { default as MediaQueriesTheory } from "./MediaQueriesTheory";
 export { PositioningTheory } from "./PositioningTheory";
 export { default as SelectorsTheory } from "./SelectorsTheory";
 export { TypographyTheory } from "./TypographyTheory";
-export { default as MediaQueriesTheory } from "./MediaQueriesTheory";

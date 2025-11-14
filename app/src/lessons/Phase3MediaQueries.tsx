@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  PageHeader,
   ExerciseCard,
   ExpectedOutcome,
-  TheoryModal,
   LessonSidebar,
+  PageHeader,
   PhaseLayout,
+  TheoryModal,
 } from "../components";
 import { useProgress } from "../hooks/useProgress";
-import MediaQueriesTheory from "./MediaQueriesTheory";
 import "../styles/phase3-mediaqueries.css";
+import MediaQueriesTheory from "./MediaQueriesTheory";
 
 const lessons = [
   { id: "mq1", title: "Exercise 1: Simple breakpoint" },
@@ -58,9 +58,19 @@ export default function Phase3MediaQueries() {
           onToggleComplete={() => toggleComplete("mq1")}
         >
           <ExpectedOutcome description="Two-column layout on larger screens">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
-              <div style={{ background: "#667eea", color: "white", padding: 12 }}>A</div>
-              <div style={{ background: "#fa709a", color: "white", padding: 12 }}>B</div>
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}
+            >
+              <div
+                style={{ background: "#667eea", color: "white", padding: 12 }}
+              >
+                A
+              </div>
+              <div
+                style={{ background: "#fa709a", color: "white", padding: 12 }}
+              >
+                B
+              </div>
             </div>
           </ExpectedOutcome>
 
@@ -79,7 +89,11 @@ export default function Phase3MediaQueries() {
         >
           <ExpectedOutcome description="Hamburger on small screens, horizontal nav on wide screens">
             <nav style={{ display: "flex", gap: 12 }}>
-              <div style={{ padding: 8, background: "#667eea", color: "white" }}>Logo</div>
+              <div
+                style={{ padding: 8, background: "#667eea", color: "white" }}
+              >
+                Logo
+              </div>
               <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
                 <div style={{ padding: 8 }}>Home</div>
                 <div style={{ padding: 8 }}>About</div>
@@ -104,7 +118,9 @@ export default function Phase3MediaQueries() {
           onToggleComplete={() => toggleComplete("mq3")}
         >
           <ExpectedOutcome description="Text scales between 16px and 20px using clamp()">
-            <p style={{ fontSize: "clamp(16px, 2vw, 20px)" }}>Responsive headline</p>
+            <p style={{ fontSize: "clamp(16px, 2vw, 20px)" }}>
+              Responsive headline
+            </p>
           </ExpectedOutcome>
 
           <div className="mq-box mq-typography">
@@ -120,8 +136,12 @@ export default function Phase3MediaQueries() {
         >
           <ExpectedOutcome description="Swap image layout from stacked to side-by-side at 768px">
             <div style={{ display: "flex", gap: 12 }}>
-              <div style={{ flex: 1, background: "#eee", padding: 12 }}>Img</div>
-              <div style={{ flex: 1, background: "#ddd", padding: 12 }}>Caption</div>
+              <div style={{ flex: 1, background: "#eee", padding: 12 }}>
+                Img
+              </div>
+              <div style={{ flex: 1, background: "#ddd", padding: 12 }}>
+                Caption
+              </div>
             </div>
           </ExpectedOutcome>
 
@@ -138,7 +158,9 @@ export default function Phase3MediaQueries() {
           onToggleComplete={() => toggleComplete("mq5")}
         >
           <ExpectedOutcome description="Show example but students focus on media queries first">
-            <div style={{ padding: 12 }}>Container queries (optional modern feature)</div>
+            <div style={{ padding: 12 }}>
+              Container queries (optional modern feature)
+            </div>
           </ExpectedOutcome>
 
           <div className="mq-box mq-container-query">
@@ -153,8 +175,14 @@ export default function Phase3MediaQueries() {
           onToggleComplete={() => toggleComplete("mq6")}
         >
           <ExpectedOutcome description="Practice creating breakpoints for three sizes">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>
-              <div style={{ background: "#667eea", color: "white", padding: 12 }}>Block</div>
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}
+            >
+              <div
+                style={{ background: "#667eea", color: "white", padding: 12 }}
+              >
+                Block
+              </div>
             </div>
           </ExpectedOutcome>
 
@@ -186,7 +214,11 @@ export default function Phase3MediaQueries() {
           onToggleComplete={() => toggleComplete("mq8")}
         >
           <ExpectedOutcome description="Combine grid/flex + breakpoints to produce a small responsive layout">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}>Challenge</div>
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12 }}
+            >
+              Challenge
+            </div>
           </ExpectedOutcome>
 
           <div className="mq-box mq-final">Combine layouts and breakpoints</div>
