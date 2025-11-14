@@ -1,0 +1,475 @@
+/* ============================================
+   PHASE 1.2: BOX MODEL EXERCISES
+   ============================================
+   
+   Box Model CSS Naming Convention: .boxmodel-*
+   
+   IMPORTANT: This CSS file contains UNSOLVED exercises!
+   Students will add box model properties (padding, border, margin, box-sizing).
+   All decorative styling (colors, fonts, backgrounds) is pre-filled.
+   
+   ============================================ */
+
+/* ============================================
+   EXERCISE 1: Understanding Padding
+   ============================================
+   
+   GOAL: Add padding to create internal space
+   
+   CONCEPTS INTRODUCED:
+   - padding property adds space inside the element
+   - Space between content and border
+   - Transparent (takes element's background color)
+   
+   WHY THIS MATTERS:
+   Padding creates breathing room for content, making it
+   easier to read and more visually appealing.
+   
+   ============================================ */
+
+.boxmodel-padding-box {
+  /* 
+   * TODO: Add 30px padding on all sides
+   * HINT: padding: 30px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  background: #667eea;
+  color: white;
+  border: 2px solid #333;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 2: Padding Shorthand
+   ============================================
+   
+   GOAL: Use padding shorthand syntax
+   
+   CONCEPTS INTRODUCED:
+   - padding: 20px 40px; means vertical | horizontal
+   - Two-value shorthand for different axes
+   
+   WHY THIS MATTERS:
+   Shorthand reduces code and is faster to write.
+   Common pattern for buttons and cards.
+   
+   ============================================ */
+
+.boxmodel-padding-shorthand {
+  /* 
+   * TODO: Add padding using shorthand
+   * Vertical: 20px, Horizontal: 40px
+   * HINT: padding: 20px 40px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: inline-block;
+  background: #fa709a;
+  color: white;
+  border: 2px solid #333;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 3: Border Basics
+   ============================================
+   
+   GOAL: Add a solid border with width and color
+   
+   CONCEPTS INTRODUCED:
+   - border shorthand: width style color
+   - Syntax: border: 3px solid #667eea;
+   
+   WHY THIS MATTERS:
+   Borders define boundaries and create visual hierarchy.
+   Essential for cards, buttons, and containers.
+   
+   ============================================ */
+
+.boxmodel-border-basic {
+  /* 
+   * TODO: Add a 3px solid purple border
+   * HINT: border: 3px solid #667eea;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  padding: 20px;
+  background: white;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 4: Border Styles
+   ============================================
+   
+   GOAL: Experiment with different border styles
+   
+   CONCEPTS INTRODUCED:
+   - border-style values: solid, dashed, dotted, double
+   - Each creates a different visual effect
+   
+   WHY THIS MATTERS:
+   Different styles communicate different meanings
+   (dashed for draft, solid for final, etc.)
+   
+   ============================================ */
+
+.boxmodel-border-styles {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.boxmodel-dashed {
+  /* 
+   * TODO: Add a 3px dashed border in purple
+   * HINT: border: 3px dashed #667eea;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 16px;
+  background: white;
+  text-align: center;
+}
+
+.boxmodel-dotted {
+  /* 
+   * TODO: Add a 3px dotted border in pink
+   * HINT: border: 3px dotted #fa709a;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 16px;
+  background: white;
+  text-align: center;
+}
+
+.boxmodel-double {
+  /* 
+   * TODO: Add a 4px double border in purple
+   * HINT: border: 4px double #667eea;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 16px;
+  background: white;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 5: Individual Borders
+   ============================================
+   
+   GOAL: Style each border side differently
+   
+   CONCEPTS INTRODUCED:
+   - border-top, border-right, border-bottom, border-left
+   - Each side can have different width, style, color
+   
+   WHY THIS MATTERS:
+   Useful for directional emphasis (underlines, accents, etc.)
+   Common in navigation, tabs, and highlights.
+   
+   ============================================ */
+
+.boxmodel-individual-borders {
+  /* 
+   * TODO: Add different borders to each side:
+   * - Top: 3px solid #667eea
+   * - Right: 3px dashed #fa709a
+   * - Bottom: 3px dotted #667eea
+   * - Left: 4px double #fa709a
+   * 
+   * HINT: Use border-top, border-right, border-bottom, border-left
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  padding: 24px;
+  background: white;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 6: Margin Basics
+   ============================================
+   
+   GOAL: Add margin to create external space
+   
+   CONCEPTS INTRODUCED:
+   - margin creates space OUTSIDE the border
+   - Separates elements from neighbors
+   - Always transparent (no background color)
+   
+   WHY THIS MATTERS:
+   Margin controls spacing between elements.
+   Essential for layouts, whitespace, and readability.
+   
+   ============================================ */
+
+.boxmodel-margin-container {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 10px;
+}
+
+.boxmodel-margin-box {
+  /* 
+   * TODO: Add 40px margin on all sides
+   * HINT: margin: 40px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  padding: 20px;
+  background: #667eea;
+  color: white;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 7: Centering with Margin Auto
+   ============================================
+   
+   GOAL: Center a block element horizontally
+   
+   CONCEPTS INTRODUCED:
+   - margin: 0 auto; centers block elements
+   - Only works on elements with a width
+   - auto calculates equal left/right margins
+   
+   WHY THIS MATTERS:
+   The most common way to center containers, cards, and layouts.
+   Used in almost every website for centered content.
+   
+   ============================================ */
+
+.boxmodel-centered {
+  /* 
+   * TODO: Center this box horizontally
+   * HINT: margin: 0 auto;
+   * (You also need width, which is already set)
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 250px;
+  padding: 20px;
+  background: #fa709a;
+  color: white;
+  text-align: center;
+  border: 2px solid #333;
+}
+
+/* ============================================
+   EXERCISE 8: Box-Sizing
+   ============================================
+   
+   GOAL: Understand content-box vs border-box
+   
+   CONCEPTS INTRODUCED:
+   - box-sizing: content-box (default) - padding/border adds to width
+   - box-sizing: border-box - width includes padding/border
+   - border-box is more intuitive and widely used
+   
+   WHY THIS MATTERS:
+   border-box makes sizing predictable. When you set width: 200px,
+   it stays 200px regardless of padding/border.
+   
+   ============================================ */
+
+.boxmodel-sizing-container {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.boxmodel-content-box {
+  /* 
+   * TODO: Set box-sizing to content-box
+   * HINT: box-sizing: content-box;
+   * 
+   * This will make the total width = 200px + 40px padding + 10px border = 250px
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  padding: 20px;
+  border: 5px solid #667eea;
+  background: #fee140;
+}
+
+.boxmodel-border-box {
+  /* 
+   * TODO: Set box-sizing to border-box
+   * HINT: box-sizing: border-box;
+   * 
+   * This will make the total width stay exactly 200px
+   * (padding and border are subtracted from content)
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  width: 200px;
+  padding: 20px;
+  border: 5px solid #fa709a;
+  background: #fee140;
+}
+
+/* ============================================
+   EXERCISE 9: Margin Collapse
+   ============================================
+   
+   GOAL: Observe vertical margin collapse
+   
+   CONCEPTS INTRODUCED:
+   - When vertical margins meet, they collapse
+   - The larger margin wins (not added together)
+   - Only happens with vertical margins
+   
+   WHY THIS MATTERS:
+   Understanding collapse prevents spacing bugs.
+   Common source of confusion for beginners.
+   
+   TRY THIS:
+   After completing, try changing margins to see the effect.
+   30px + 20px = 30px (collapsed), not 50px!
+   
+   ============================================ */
+
+.boxmodel-collapse-container {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 20px;
+}
+
+.boxmodel-collapse-box1 {
+  /* 
+   * TODO: Add 30px bottom margin
+   * HINT: margin-bottom: 30px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+}
+
+.boxmodel-collapse-box2 {
+  /* 
+   * TODO: Add 20px top margin
+   * HINT: margin-top: 20px;
+   * 
+   * The gap will be 30px (the larger margin), not 50px!
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+}
+
+.boxmodel-collapse-note {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* ============================================
+   EXERCISE 10: Complete Box Model
+   ============================================
+   
+   GOAL: Combine all box model properties
+   
+   CONCEPTS INTRODUCED:
+   - Using content, padding, border, and margin together
+   - Creating a complete, well-spaced card design
+   
+   WHY THIS MATTERS:
+   Real-world components use all box model properties.
+   This exercise brings everything together.
+   
+   YOUR TASK:
+   Create a centered card with proper spacing using:
+   - margin for external spacing and centering
+   - border for visual boundary
+   - padding for internal spacing
+   - border-radius for rounded corners (pre-filled)
+   
+   ============================================ */
+
+.boxmodel-complete-card {
+  /* 
+   * TODO: Add box model properties to create a card:
+   * 
+   * 1. Center horizontally: margin: 20px auto;
+   * 2. Set max-width: 300px;
+   * 3. Add internal spacing: padding: 24px;
+   * 4. Add visual border: border: 3px solid #667eea;
+   * 5. Use border-box: box-sizing: border-box;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  border-radius: 8px;
+  background: white;
+}
+
+.boxmodel-card-title {
+  /* 
+   * TODO: Remove default margin and add bottom spacing
+   * HINT: margin: 0 0 12px 0;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #667eea;
+}
+
+.boxmodel-card-text {
+  /* 
+   * TODO: Add bottom spacing
+   * HINT: margin: 0 0 16px 0;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #666;
+}
+
+.boxmodel-card-footer {
+  /* 
+   * TODO: Add internal spacing
+   * HINT: padding: 12px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* ============================================
+   🎉 CONGRATULATIONS!
+   ============================================
+   
+   You've completed all 10 Box Model exercises!
+   
+   YOU NOW KNOW:
+   ✓ How padding creates internal space
+   ✓ Using padding shorthand syntax
+   ✓ Adding and styling borders
+   ✓ Different border styles (solid, dashed, dotted, double)
+   ✓ Individual border sides
+   ✓ Creating external space with margin
+   ✓ Centering elements with margin: 0 auto;
+   ✓ content-box vs border-box sizing
+   ✓ Margin collapse behavior
+   ✓ Combining all properties for complete designs
+   
+   NEXT STEPS:
+   - Practice using box-sizing: border-box; in all projects
+   - Experiment with negative margins (carefully!)
+   - Learn about logical properties (margin-inline, padding-block)
+   - Explore advanced border properties (border-image, etc.)
+   
+   ============================================ */

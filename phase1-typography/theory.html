@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Colors & Typography - Theory Guide</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .content {
+        padding: 3rem 2.5rem;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        border-left: 4px solid #f5576c;
+      }
+
+      .toc h2 {
+        color: #f5576c;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .toc ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .toc li a {
+        color: #495057;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        border-radius: 6px;
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .toc li a:hover {
+        background: #f5576c;
+        color: white;
+        transform: translateX(4px);
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      h2 {
+        color: #f5576c;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #f5576c;
+      }
+
+      h3 {
+        color: #495057;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+      }
+
+      h4 {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+      }
+
+      code {
+        background: #f8f9fa;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border-left: 4px solid #f5576c;
+        line-height: 1.6;
+      }
+
+      pre code {
+        background: none;
+        padding: 0;
+        color: #ecf0f1;
+        font-size: 0.95rem;
+      }
+
+      .tip {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .tip strong {
+        color: #856404;
+        font-size: 1.1rem;
+      }
+
+      .tip p,
+      .tip ul {
+        margin-top: 0.5rem;
+        color: #856404;
+      }
+
+      .example {
+        background: #e7f3ff;
+        border-left: 4px solid #2196f3;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .color-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .color-box {
+        height: 80px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      ul,
+      ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        color: #495057;
+        font-weight: 600;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #e9ecef;
+        margin: 3rem 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      th {
+        background: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+      }
+
+      .font-demo {
+        font-size: 1.5rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎨 CSS Colors & Typography</h1>
+        <p>Essential Theory Guide</p>
+      </div>
+
+      <div class="content">
+        <div class="toc">
+          <h2>📚 Table of Contents</h2>
+          <ul>
+            <li><a href="#colors">Color Formats</a></li>
+            <li><a href="#opacity">Opacity & Transparency</a></li>
+            <li><a href="#fonts">Font Properties</a></li>
+            <li><a href="#text">Text Properties</a></li>
+            <li><a href="#spacing">Line Height & Spacing</a></li>
+            <li><a href="#web-fonts">Web Fonts</a></li>
+          </ul>
+        </div>
+
+        <section id="colors">
+          <h2>Color Formats</h2>
+          <p>
+            CSS supports multiple ways to define colors. Choose based on your
+            needs.
+          </p>
+
+          <h3>1. Hexadecimal (HEX)</h3>
+          <p>Most common format. Uses base-16 notation.</p>
+          <pre><code>color: #3498db;   /* Full hex: RRGGBB */
+color: #fff;      /* Shorthand: RGB (#ffffff) */
+color: #3498dbff; /* With alpha: RRGGBBAA */
+color: #fff8;     /* Shorthand with alpha */</code></pre>
+
+          <div class="color-demo">
+            <div class="color-box" style="background: #ff0000">#FF0000</div>
+            <div class="color-box" style="background: #00ff00">#00FF00</div>
+            <div class="color-box" style="background: #0000ff">#0000FF</div>
+            <div class="color-box" style="background: #000000">#000000</div>
+            <div
+              class="color-box"
+              style="background: #ffffff; color: black; border: 2px solid #ddd"
+            >
+              #FFFFFF
+            </div>
+          </div>
+
+          <h3>2. RGB & RGBA</h3>
+          <p>Red, Green, Blue values (0-255).</p>
+          <pre><code>color: rgb(52, 152, 219);         /* RGB */
+color: rgba(52, 152, 219, 0.5);   /* RGBA with 50% opacity */
+color: rgb(52 152 219);           /* Modern (no commas) */
+color: rgb(52 152 219 / 0.5);     /* Modern with alpha */</code></pre>
+
+          <ul>
+            <li><strong>R, G, B:</strong> 0-255 or 0%-100%</li>
+            <li><strong>Alpha:</strong> 0-1 (0 = transparent, 1 = opaque)</li>
+          </ul>
+
+          <h3>3. HSL & HSLA</h3>
+          <p>Hue, Saturation, Lightness - more intuitive for humans!</p>
+          <pre><code>color: hsl(204, 70%, 53%);        /* HSL */
+color: hsla(204, 70%, 53%, 0.5);  /* HSLA with opacity */
+color: hsl(204deg 70% 53%);       /* Modern syntax */
+color: hsl(204 70% 53% / 0.5);    /* Modern with alpha */</code></pre>
+
+          <table>
+            <tr>
+              <th>Component</th>
+              <th>Range</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td><strong>Hue</strong></td>
+              <td>0-360</td>
+              <td>Degrees on color wheel (0=Red, 120=Green, 240=Blue)</td>
+            </tr>
+            <tr>
+              <td><strong>Saturation</strong></td>
+              <td>0%-100%</td>
+              <td>0% = gray, 100% = full color</td>
+            </tr>
+            <tr>
+              <td><strong>Lightness</strong></td>
+              <td>0%-100%</td>
+              <td>0% = black, 50% = normal, 100% = white</td>
+            </tr>
+            <tr>
+              <td><strong>Alpha</strong></td>
+              <td>0-1</td>
+              <td>0 = transparent, 1 = opaque</td>
+            </tr>
+          </table>
+
+          <div class="tip">
+            <strong>💡 HSL Benefits:</strong>
+            <ul>
+              <li>Easy to create lighter/darker variations</li>
+              <li>Intuitive color adjustments</li>
+              <li>Great for color schemes</li>
+            </ul>
+            <pre><code>/* Same hue, different lightness */
+hsl(204, 70%, 30%)  /* Dark blue */
+hsl(204, 70%, 53%)  /* Normal blue */
+hsl(204, 70%, 80%)  /* Light blue */</code></pre>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem">
+              <div
+                style="
+                  flex: 1;
+                  padding: 1rem;
+                  background: hsl(204, 70%, 30%);
+                  color: white;
+                  border-radius: 8px;
+                  text-align: center;
+                "
+              >
+                30%
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  padding: 1rem;
+                  background: hsl(204, 70%, 53%);
+                  color: white;
+                  border-radius: 8px;
+                  text-align: center;
+                "
+              >
+                53%
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  padding: 1rem;
+                  background: hsl(204, 70%, 80%);
+                  color: #333;
+                  border-radius: 8px;
+                  text-align: center;
+                "
+              >
+                80%
+              </div>
+            </div>
+          </div>
+
+          <h3>4. Named Colors</h3>
+          <p>CSS has 140+ named colors.</p>
+          <pre><code>color: red;
+color: tomato;
+color: cornflowerblue;
+color: rebeccapurple;
+color: transparent;  /* Fully transparent */</code></pre>
+
+          <div class="tip">
+            <strong>✅ When to Use Each:</strong>
+            <ul>
+              <li><strong>HEX:</strong> Most common, compact, static colors</li>
+              <li>
+                <strong>RGB:</strong> Programmatic calculations, transparency
+              </li>
+              <li>
+                <strong>HSL:</strong> Color schemes, easy variations, best
+                readability
+              </li>
+              <li><strong>Named:</strong> Quick prototyping, common colors</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="opacity">
+          <h2>Opacity & Transparency</h2>
+
+          <h3>opacity Property</h3>
+          <p>Affects entire element including children.</p>
+          <pre><code>opacity: 1;    /* Fully opaque (default) */
+opacity: 0.5;  /* 50% transparent */
+opacity: 0;    /* Fully transparent (invisible) */</code></pre>
+
+          <div class="example">
+            <h4>Difference: opacity vs alpha</h4>
+            <pre><code>/* opacity affects everything (element + children) */
+.box {
+  background: red;
+  opacity: 0.5;  /* Text inside also 50% transparent */
+}
+
+/* Alpha only affects the property */
+.box {
+  background: rgba(255, 0, 0, 0.5);  /* Only background 50% */
+  /* Text remains fully opaque */
+}</code></pre>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                margin-top: 1rem;
+              "
+            >
+              <div>
+                <p style="font-weight: bold; margin-bottom: 0.5rem">
+                  opacity: 0.5 (everything fades)
+                </p>
+                <div
+                  style="
+                    background: red;
+                    opacity: 0.5;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: bold;
+                  "
+                >
+                  Text is also transparent
+                </div>
+              </div>
+              <div>
+                <p style="font-weight: bold; margin-bottom: 0.5rem">
+                  rgba(255,0,0,0.5) (only background)
+                </p>
+                <div
+                  style="
+                    background: rgba(255, 0, 0, 0.5);
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: bold;
+                  "
+                >
+                  Text stays opaque!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tip">
+            <strong>💡 Best Practice:</strong>
+            <p>
+              Use <strong>alpha channels</strong> (rgba/hsla) instead of
+              <code>opacity</code> when you only want to make the background
+              transparent, not the text.
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="fonts">
+          <h2>Font Properties</h2>
+
+          <h3>font-family</h3>
+          <p>Defines which font to use. Always provide fallbacks!</p>
+          <pre><code>font-family: Arial, Helvetica, sans-serif;
+font-family: 'Times New Roman', Times, serif;
+font-family: 'Courier New', Courier, monospace;
+font-family: Georgia, 'Times New Roman', serif;</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p
+              style="
+                font-family: Arial, sans-serif;
+                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+              This is Arial (sans-serif) - clean and modern
+            </p>
+            <p
+              style="
+                font-family: 'Times New Roman', serif;
+                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+              This is Times New Roman (serif) - classic and elegant
+            </p>
+            <p
+              style="
+                font-family: 'Courier New', monospace;
+                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+              This is Courier New (monospace) - code-like
+            </p>
+            <p
+              style="
+                font-family: Georgia, serif;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+              "
+            >
+              This is Georgia (serif) - beautiful for reading
+            </p>
+          </div>
+
+          <div class="tip">
+            <strong>✅ Font Stack Pattern:</strong>
+            <pre><code>font-family: 
+  'Preferred Font',    /* Your choice */
+  'Fallback Font',     /* Similar backup */
+  generic-family;      /* serif, sans-serif, monospace */</code></pre>
+          </div>
+
+          <h3>font-size</h3>
+          <pre><code>font-size: 16px;      /* Pixels (fixed) */
+font-size: 1rem;      /* Relative to root (html) */
+font-size: 1.2em;     /* Relative to parent */
+font-size: 100%;      /* Percentage of parent */
+font-size: larger;    /* Keyword */</code></pre>
+
+          <div class="example">
+            <h4>Common Sizes</h4>
+            <pre><code>html { font-size: 16px; }  /* Base size */
+
+h1 { font-size: 2.5rem; }   /* 40px */
+h2 { font-size: 2rem; }     /* 32px */
+h3 { font-size: 1.5rem; }   /* 24px */
+p  { font-size: 1rem; }     /* 16px */
+small { font-size: 0.875rem; } /* 14px */</code></pre>
+            <div
+              style="
+                background: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+              "
+            >
+              <p style="font-size: 2.5rem; margin-bottom: 0.5rem">
+                Heading 1 - 2.5rem (40px)
+              </p>
+              <p style="font-size: 2rem; margin-bottom: 0.5rem">
+                Heading 2 - 2rem (32px)
+              </p>
+              <p style="font-size: 1.5rem; margin-bottom: 0.5rem">
+                Heading 3 - 1.5rem (24px)
+              </p>
+              <p style="font-size: 1rem; margin-bottom: 0.5rem">
+                Paragraph - 1rem (16px)
+              </p>
+              <p style="font-size: 0.875rem; margin-bottom: 0">
+                Small text - 0.875rem (14px)
+              </p>
+            </div>
+          </div>
+
+          <h3>font-weight</h3>
+          <p>Thickness of characters.</p>
+          <pre><code>font-weight: normal;    /* 400 */
+font-weight: bold;      /* 700 */
+font-weight: lighter;   /* Lighter than parent */
+font-weight: bolder;    /* Bolder than parent */
+font-weight: 100;       /* Thin */
+font-weight: 400;       /* Normal */
+font-weight: 700;       /* Bold */
+font-weight: 900;       /* Black/Heavy */</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p
+              style="font-weight: 100; font-size: 1.3rem; margin-bottom: 0.5rem"
+            >
+              Font Weight 100 - Thin
+            </p>
+            <p
+              style="font-weight: 300; font-size: 1.3rem; margin-bottom: 0.5rem"
+            >
+              Font Weight 300 - Light
+            </p>
+            <p
+              style="font-weight: 400; font-size: 1.3rem; margin-bottom: 0.5rem"
+            >
+              Font Weight 400 - Normal
+            </p>
+            <p
+              style="font-weight: 600; font-size: 1.3rem; margin-bottom: 0.5rem"
+            >
+              Font Weight 600 - Semi-Bold
+            </p>
+            <p
+              style="font-weight: 700; font-size: 1.3rem; margin-bottom: 0.5rem"
+            >
+              Font Weight 700 - Bold
+            </p>
+            <p style="font-weight: 900; font-size: 1.3rem; margin-bottom: 0">
+              Font Weight 900 - Black
+            </p>
+          </div>
+
+          <h3>font-style</h3>
+          <pre><code>font-style: normal;
+font-style: italic;
+font-style: oblique;</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p
+              style="
+                font-style: normal;
+                font-size: 1.3rem;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Normal text - regular style
+            </p>
+            <p
+              style="
+                font-style: italic;
+                font-size: 1.3rem;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Italic text - slanted for emphasis
+            </p>
+            <p style="font-style: oblique; font-size: 1.3rem; margin-bottom: 0">
+              Oblique text - mechanically slanted
+            </p>
+          </div>
+
+          <h3>Shorthand: font</h3>
+          <pre><code>/* font: [style] [weight] size[/line-height] family */
+font: italic bold 16px/1.5 Arial, sans-serif;
+font: 1rem/1.6 'Helvetica Neue', sans-serif;</code></pre>
+        </section>
+
+        <hr />
+
+        <section id="text">
+          <h2>Text Properties</h2>
+
+          <h3>text-align</h3>
+          <pre><code>text-align: left;       /* Default */
+text-align: right;
+text-align: center;
+text-align: justify;    /* Stretches lines to fill width */</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p
+              style="
+                text-align: left;
+                background: white;
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-radius: 4px;
+              "
+            >
+              Text aligned left - This is the default alignment for most text in
+              western languages.
+            </p>
+            <p
+              style="
+                text-align: center;
+                background: white;
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-radius: 4px;
+              "
+            >
+              Text aligned center - Perfect for headings and hero sections.
+            </p>
+            <p
+              style="
+                text-align: right;
+                background: white;
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-radius: 4px;
+              "
+            >
+              Text aligned right - Useful for RTL languages or special layouts.
+            </p>
+            <p
+              style="
+                text-align: justify;
+                background: white;
+                padding: 0.75rem;
+                margin-bottom: 0;
+                border-radius: 4px;
+              "
+            >
+              Text justified - Stretches the text to fill the entire width,
+              creating clean edges on both sides. This is commonly used in
+              newspapers and magazines for a professional look.
+            </p>
+          </div>
+
+          <h3>text-decoration</h3>
+          <pre><code>text-decoration: none;           /* Remove underline from links */
+text-decoration: underline;
+text-decoration: overline;
+text-decoration: line-through;   /* Strikethrough */
+text-decoration: underline dotted red; /* Style + color */</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+              font-size: 1.2rem;
+            "
+          >
+            <p style="text-decoration: none; margin-bottom: 0.75rem">
+              No decoration - plain text
+            </p>
+            <p style="text-decoration: underline; margin-bottom: 0.75rem">
+              Underlined text - commonly used for links
+            </p>
+            <p style="text-decoration: overline; margin-bottom: 0.75rem">
+              Overline text - line above the text
+            </p>
+            <p style="text-decoration: line-through; margin-bottom: 0.75rem">
+              Strikethrough - showing deleted or invalid text
+            </p>
+            <p style="text-decoration: underline wavy red; margin-bottom: 0">
+              Wavy red underline - like spell check errors
+            </p>
+          </div>
+
+          <h3>text-transform</h3>
+          <pre><code>text-transform: none;
+text-transform: uppercase;    /* ALL CAPS */
+text-transform: lowercase;    /* all lowercase */
+text-transform: capitalize;   /* First Letter Of Each Word */</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+              font-size: 1.2rem;
+            "
+          >
+            <p style="text-transform: none; margin-bottom: 0.75rem">
+              none - Original Text As Written
+            </p>
+            <p style="text-transform: uppercase; margin-bottom: 0.75rem">
+              uppercase - all text becomes capitals
+            </p>
+            <p style="text-transform: lowercase; margin-bottom: 0.75rem">
+              LOWERCASE - ALL TEXT BECOMES LOWERCASE
+            </p>
+            <p style="text-transform: capitalize; margin-bottom: 0">
+              capitalize - first letter of each word
+            </p>
+          </div>
+
+          <h3>text-indent</h3>
+          <pre><code>text-indent: 2em;    /* Indent first line of paragraph */
+text-indent: 50px;</code></pre>
+
+          <h3>letter-spacing & word-spacing</h3>
+          <pre><code>letter-spacing: 2px;    /* Space between letters */
+letter-spacing: 0.1em;
+word-spacing: 5px;      /* Space between words */</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+              font-size: 1.2rem;
+            "
+          >
+            <p style="letter-spacing: 0; margin-bottom: 0.75rem">
+              Normal letter spacing (0)
+            </p>
+            <p style="letter-spacing: 2px; margin-bottom: 0.75rem">
+              Increased letter spacing (2px)
+            </p>
+            <p style="letter-spacing: 5px; margin-bottom: 0.75rem">
+              Wide letter spacing (5px)
+            </p>
+            <p style="word-spacing: 0; margin-bottom: 0.75rem">
+              Normal word spacing
+            </p>
+            <p style="word-spacing: 10px; margin-bottom: 0">
+              Increased word spacing (10px)
+            </p>
+          </div>
+
+          <h3>text-shadow</h3>
+          <pre><code>/* text-shadow: x-offset y-offset blur color */
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+text-shadow: 0 0 10px #00ff00;  /* Glow effect */
+
+/* Multiple shadows */
+text-shadow: 
+  2px 2px 0 red,
+  4px 4px 0 blue;</code></pre>
+
+          <div
+            style="
+              background: #2c3e50;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p
+              style="
+                text-shadow: none;
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+              "
+            >
+              No shadow - plain text
+            </p>
+            <p
+              style="
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+              "
+            >
+              Subtle shadow - adds depth
+            </p>
+            <p
+              style="
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+                color: white;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+              "
+            >
+              Glow effect - neon style!
+            </p>
+            <p
+              style="
+                text-shadow: 2px 2px 0 #e74c3c, 4px 4px 0 #3498db;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 0;
+              "
+            >
+              Multiple shadows - 3D effect
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="spacing">
+          <h2>Line Height & Spacing</h2>
+
+          <h3>line-height</h3>
+          <p>
+            Vertical space between lines of text.
+            <strong>Critical for readability!</strong>
+          </p>
+          <pre><code>line-height: 1.5;      /* Unitless (recommended) - multiplier */
+line-height: 24px;     /* Fixed pixels */
+line-height: 150%;     /* Percentage of font-size */</code></pre>
+
+          <div class="tip">
+            <strong>💡 Best Practices:</strong>
+            <ul>
+              <li>Use unitless values (1.5, 1.6) - they scale better</li>
+              <li>Body text: 1.5 - 1.8</li>
+              <li>Headings: 1.2 - 1.4</li>
+              <li>Tighter for large text, looser for small text</li>
+            </ul>
+          </div>
+
+          <div class="example">
+            <h4>Line Height Demo</h4>
+            <div
+              style="
+                background: #f8f9fa;
+                padding: 1rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+              "
+            >
+              <p style="line-height: 1">
+                line-height: 1 - Too tight, hard to read with longer text
+              </p>
+              <p style="line-height: 1.5; margin-top: 1rem">
+                line-height: 1.5 - Perfect! Comfortable and readable
+              </p>
+              <p style="line-height: 2.5; margin-top: 1rem">
+                line-height: 2.5 - Too loose, feels disconnected
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="web-fonts">
+          <h2>Web Fonts</h2>
+
+          <h3>Google Fonts</h3>
+          <p>Easiest way to use custom fonts.</p>
+
+          <div class="example">
+            <h4>Step 1: Add to HTML &lt;head&gt;</h4>
+            <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;</code></pre>
+
+            <h4>Step 2: Use in CSS</h4>
+            <pre><code>body {
+  font-family: 'Roboto', sans-serif;
+}</code></pre>
+          </div>
+
+          <h3>@font-face (Custom Fonts)</h3>
+          <pre><code>@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/myfont.woff2') format('woff2'),
+       url('fonts/myfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyFont', sans-serif;
+}</code></pre>
+
+          <div class="tip">
+            <strong>⚡ Performance Tips:</strong>
+            <ul>
+              <li>Only load weights/styles you actually use</li>
+              <li>
+                Use <code>font-display: swap</code> to prevent invisible text
+              </li>
+              <li>Prefer WOFF2 format (best compression)</li>
+              <li>Limit to 2-3 font families max</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr />
+
+        <div
+          class="tip"
+          style="background: #e7f3ff; border-left-color: #2196f3"
+        >
+          <strong>🚀 Ready to Practice?</strong>
+          <p>
+            Now that you understand colors and typography, open your
+            <code>phase1-typography.css</code> file and create a beautiful blog
+            post! Experiment with color combinations and typography to make it
+            visually appealing!
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

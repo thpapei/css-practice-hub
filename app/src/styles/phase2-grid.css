@@ -1,0 +1,1009 @@
+/* ====================================
+   Phase 2.2: CSS Grid Exercises
+   ==================================== 
+   
+   Welcome! These exercises are designed to teach you CSS Grid step by step.
+   Each exercise builds on the previous one, introducing new concepts gradually.
+   
+   HOW TO USE THIS FILE:
+   - Read the comments carefully - they explain WHY, not just WHAT
+   - Look for TODO sections - that's where you'll add your code
+   - Hints are provided to guide you in the right direction
+   - Don't skip exercises - each one teaches important concepts!
+   
+   LEARNING TIP:
+   Open your browser's DevTools and enable the Grid overlay to visualize
+   grid lines, tracks, and areas. This is incredibly helpful for learning!
+   ==================================== */
+
+/* ============================================
+   SHARED STYLES - Used across multiple exercises
+   ============================================ */
+
+.grid-item {
+  /* This is a reusable item style used in multiple exercises.
+     Notice the gradient, flexbox centering, and consistent styling. */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+/* ============================================
+   EXERCISE 1: Basic Grid - Equal Columns
+   ============================================
+   
+   GOAL: Create a simple 3×3 grid with equal-sized cells
+   
+   CONCEPTS INTRODUCED:
+   - display: grid - Activates grid layout
+   - grid-template-columns - Defines column tracks
+   - grid-template-rows - Defines row tracks
+   - repeat() - Efficient way to repeat track definitions
+   - gap - Spacing between grid items (replaces old grid-gap)
+   - fr unit - "fraction" unit that divides available space
+   
+   WHY THIS MATTERS:
+   This is the foundation of Grid! Understanding how to create
+   a basic grid structure is essential before moving to advanced features.
+   
+   TRY THIS:
+   - Change repeat(3, 1fr) to repeat(4, 1fr) and see what happens
+   - Modify the gap to see how spacing affects layout
+   - Try using px instead of fr (e.g., 200px) to see the difference
+   ============================================ */
+
+.basic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(3, 100px); /* 3 rows, each 100px tall */
+  gap: 16px; /* 16px space between all items */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* ============================================
+   EXERCISE 2: Column Sizing - Mixing Units
+   ============================================
+   
+   GOAL: Create columns with different sizing strategies
+   
+   CONCEPTS INTRODUCED:
+   - Mixing px (fixed) with fr (flexible) units
+   - How Grid allocates space with different unit types
+   
+   HOW IT WORKS:
+   1. Grid first allocates space to fixed units (150px)
+   2. Remaining space is divided among fr units
+   3. 2fr gets twice as much space as 1fr
+   
+   CALCULATION EXAMPLE:
+   If container is 900px wide:
+   - 150px goes to first column (fixed)
+   - Remaining 750px is divided: 500px (2fr) + 250px (1fr)
+   
+   REAL-WORLD USE:
+   Perfect for layouts with sidebars! Fixed-width sidebar,
+   flexible main content area.
+   
+   TRY THIS:
+   - Change the fr ratios (e.g., 3fr 1fr)
+   - Replace px with a percentage
+   - Use 'auto' instead of fr for one column
+   ============================================ */
+
+.sized-grid {
+  display: grid;
+  grid-template-columns: 150px 2fr 1fr; /* Fixed, flexible, flexible */
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* ============================================
+   EXERCISE 3: Template Areas - Semantic Layouts
+   ============================================
+   
+   GOAL: Create a classic web layout using named grid areas
+   
+   CONCEPTS INTRODUCED:
+   - grid-template-areas - ASCII-art style layout definition
+   - grid-area - Assigns elements to named areas
+   
+   WHY THIS IS POWERFUL:
+   Named areas make your layout self-documenting! Anyone can
+   look at grid-template-areas and understand the layout structure.
+   
+   HOW TO READ THE SYNTAX:
+   "header header header"  ← Header spans all 3 columns
+   "nav    main   sidebar" ← Middle row has 3 areas
+   "footer footer footer"  ← Footer spans all 3 columns
+   
+   IMPORTANT RULES:
+   - Area names must form rectangles (no L-shapes!)
+   - Use "." for empty cells
+   - Each row must have same number of cells
+   
+   REAL-WORLD USE:
+   Perfect for app layouts, dashboards, article pages.
+   Easy to rearrange with media queries!
+   
+   TRY THIS:
+   - Rearrange the areas (put nav on right)
+   - Add a new row with different areas
+   - Use "." to create empty space
+   ============================================ */
+
+.areas-grid {
+  display: grid;
+  grid-template-areas:
+    "header header header" /* Row 1: Full-width header */
+    "nav    main   sidebar" /* Row 2: Three sections */
+    "footer footer footer"; /* Row 3: Full-width footer */
+  grid-template-columns: 200px 1fr 200px; /* Nav & sidebar fixed, main flexible */
+  grid-template-rows: auto 1fr auto; /* Header & footer auto-height, main grows */
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  min-height: 400px;
+}
+
+/* Assigning elements to areas - simple and readable! */
+.area-header {
+  grid-area: header; /* This element goes in the "header" area */
+  background: #fa709a;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.area-nav {
+  grid-area: nav;
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.area-main {
+  grid-area: main;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  border: 2px solid #e0e0e0;
+}
+
+.area-sidebar {
+  grid-area: sidebar;
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.area-footer {
+  grid-area: footer;
+  background: #fa709a;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ============================================
+   EXERCISE 4: Line Placement & Spanning
+   ============================================
+   
+   GOAL: Position items using grid line numbers and spanning
+   
+   CONCEPTS INTRODUCED:
+   - Grid lines (numbered starting from 1)
+   - grid-column: start / end syntax
+   - grid-row: start / end syntax
+   - Spanning across multiple tracks
+   
+   UNDERSTANDING GRID LINES:
+   A 4-column grid has 5 vertical lines:
+   |1  |2  |3  |4  |5
+   col1 col2 col3 col4
+   
+   SYNTAX EXPLAINED:
+   grid-column: 1 / 3  → Starts at line 1, ends at line 3 (spans 2 columns)
+   grid-row: 2 / 4     → Starts at line 2, ends at line 4 (spans 2 rows)
+   
+   NEGATIVE NUMBERS:
+   -1 means the last line (very useful!)
+   grid-column: 1 / -1  → Spans from first to last line (full width)
+   
+   COMMON GOTCHA:
+   Line numbers, not track numbers! To span 2 tracks, use 1/3, not 1/2.
+   
+   TRY THIS:
+   - Use negative numbers (e.g., 2 / -1)
+   - Overlap items intentionally (z-index controls stacking)
+   - Leave gaps by skipping line numbers
+   ============================================ */
+
+.lines-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns = 5 grid lines */
+  grid-template-rows: repeat(3, 100px); /* 3 rows = 4 grid lines */
+  gap: 12px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.item-a {
+  grid-column: 1 / 3; /* Spans from line 1 to line 3 (2 columns) */
+  background: #fa709a;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.item-b {
+  grid-row: 1 / 3; /* Spans from line 1 to line 3 (2 rows) */
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.item-c,
+.item-e {
+  background: #fee140;
+  color: #333;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.item-d {
+  grid-column: 2 / 4; /* Spans columns 2-3 */
+  grid-row: 2 / 4; /* Spans rows 2-3 */
+  background: #27ae60;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* ============================================
+   EXERCISE 5: Using span - Shorthand Syntax
+   ============================================
+   
+   GOAL: Learn the 'span' keyword for more concise code
+   
+   CONCEPTS INTRODUCED:
+   - span keyword - Alternative to line numbers
+   - When to use span vs line numbers
+   
+   SPAN SYNTAX:
+   grid-column: span 2  → Spans 2 columns (starting from auto position)
+   grid-row: span 3     → Spans 3 rows
+   
+   SPAN vs LINE NUMBERS:
+   Line numbers: grid-column: 2 / 4  → Precise control, specific position
+   Span: grid-column: span 2         → Flexible, auto-placement
+   
+   WHEN TO USE SPAN:
+   ✓ When you don't care about exact position
+   ✓ When using auto-placement (items flow naturally)
+   ✓ For more maintainable code (adding columns doesn't break spans)
+   
+   WHEN TO USE LINE NUMBERS:
+   ✓ When you need precise positioning
+   ✓ When creating specific layouts with grid-template-areas
+   ✓ When items must be in exact locations
+   
+   BEST PRACTICE:
+   Use span for flexible, flowing layouts. Use line numbers for
+   precise, fixed layouts.
+   ============================================ */
+
+.span-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.span-item {
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.span-2-col {
+  grid-column: span 2; /* Spans 2 columns from current position */
+  background: #fa709a;
+}
+
+.span-3-col {
+  grid-column: span 3; /* Spans all 3 columns (full width) */
+  background: #27ae60;
+}
+
+.span-2-row {
+  grid-row: span 2; /* Spans 2 rows vertically */
+  background: #e67e22;
+}
+
+/* ============================================
+   EXERCISE 6: Alignment - Controlling Item Position
+   ============================================
+   
+   GOAL: Master alignment properties to control item positioning within cells
+   
+   CONCEPTS INTRODUCED:
+   - justify-items - Aligns items horizontally (inline axis)
+   - align-items - Aligns items vertically (block axis)
+   - justify-self - Per-item horizontal alignment override
+   - align-self - Per-item vertical alignment override
+   
+   ALIGNMENT VALUES:
+   start   - Align to start edge (left/top)
+   center  - Center in the space
+   end     - Align to end edge (right/bottom)
+   stretch - Fill the entire cell (default)
+   
+   CONTAINER vs ITEM PROPERTIES:
+   justify-items / align-items  → Set on grid container (affects all items)
+   justify-self / align-self    → Set on individual item (overrides container)
+   
+   REAL-WORLD USE:
+   - Center buttons in their cells
+   - Align form labels to the right
+   - Create asymmetric layouts
+   
+   REMEMBER:
+   justify = horizontal (inline)
+   align = vertical (block)
+   
+   TRY THIS:
+   - Add align-items: center to see vertical centering
+   - Use justify-self: end on individual .small-item elements
+   - Combine different values for unique layouts
+   ============================================ */
+
+.align-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  min-height: 150px;
+}
+
+.align-grid.justify-start {
+  justify-items: start; /* All items align to left edge of their cells */
+}
+
+.align-grid.align-center {
+  align-items: center; /* All items vertically centered in their cells */
+}
+
+.small-item {
+  /* Notice: these items DON'T stretch to fill the cell */
+  background: #667eea;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ============================================
+   EXERCISE 7: Responsive repeat() - Auto-Responsive Grids
+   ============================================
+   
+   GOAL: Create grids that automatically adapt to container width
+   
+   CONCEPTS INTRODUCED:
+   - auto-fit - Automatically creates as many tracks as will fit
+   - auto-fill - Similar but keeps empty tracks
+   - minmax() - Define minimum and maximum track sizes
+   
+   THE MAGIC FORMULA:
+   repeat(auto-fit, minmax(150px, 1fr))
+   
+   HOW IT WORKS:
+   1. minmax(150px, 1fr) - Each item is minimum 150px, maximum 1fr
+   2. auto-fit - Creates as many columns as will fit given the minimum
+   3. Items automatically wrap to new rows when space runs out
+   4. NO MEDIA QUERIES NEEDED! 🎉
+   
+   auto-fit vs auto-fill:
+   auto-fit  - Collapses empty tracks, expands items to fill space
+   auto-fill - Keeps empty tracks, doesn't expand items
+   
+   REAL-WORLD USE:
+   This is the go-to pattern for responsive card grids, product galleries,
+   and image grids. One line of CSS, infinite responsiveness!
+   
+   TRY THIS:
+   - Resize your browser window and watch items reflow
+   - Change 150px to different minimum widths
+   - Try auto-fill instead of auto-fit
+   - Add more items to see wrapping behavior
+   ============================================ */
+
+.auto-fit-grid {
+  display: grid;
+  /* This one line creates a fully responsive grid! */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* ============================================
+   EXERCISE 8: minmax() - Flexible Boundaries
+   ============================================
+   
+   GOAL: Understand how minmax() creates flexible but constrained tracks
+   
+   CONCEPTS INTRODUCED:
+   - minmax(min, max) - Sets minimum and maximum track size
+   - Combining minmax() with repeat()
+   
+   MINMAX EXPLAINED:
+   minmax(120px, 1fr) means:
+   - Track will NEVER be smaller than 120px (respects minimum)
+   - Track can grow to take 1 fraction of available space (flexible maximum)
+   - Perfect balance of flexibility and control!
+   
+   COMMON PATTERNS:
+   minmax(0, 1fr)      - Can shrink to nothing, grows to fill space
+   minmax(200px, 1fr)  - Never smaller than 200px, can grow
+   minmax(100px, 300px) - Bounded between 100px and 300px
+   minmax(min-content, max-content) - Based on content size
+   
+   WHY USE minmax()?
+   - Prevent tracks from becoming too small (readability)
+   - Prevent tracks from becoming too large (design control)
+   - Create responsive layouts without media queries
+   
+   REAL-WORLD USE:
+   Forms with labels (ensure minimum label width),
+   Navigation menus (prevent items from collapsing),
+   Card grids (maintain readable card sizes)
+   ============================================ */
+
+.minmax-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* ============================================
+   EXERCISE 9: grid-auto-flow - Controlling Auto-Placement
+   ============================================
+   
+   GOAL: Understand how Grid automatically places items
+   
+   CONCEPTS INTRODUCED:
+   - grid-auto-flow - Controls the auto-placement algorithm
+   - row (default) - Fills rows first, then moves to next row
+   - column - Fills columns first, then moves to next column
+   - dense - Attempts to fill holes in the grid
+   
+   AUTO-PLACEMENT ALGORITHM:
+   By default, Grid places items in "row" order:
+   Item 1, Item 2, Item 3 → Move to next row
+   
+   THE "DENSE" KEYWORD:
+   grid-auto-flow: dense
+   - Tries to fill gaps left by larger items
+   - Great for masonry-like layouts
+   - ⚠️  Can change visual order (accessibility concern!)
+   
+   WHEN TO USE DENSE:
+   ✓ Image galleries where order doesn't matter
+   ✓ Pinterest-style layouts
+   ✗ Reading content (breaks logical flow)
+   ✗ Forms (confusing tab order)
+   
+   REAL-WORLD USE:
+   Dense packing for gallery layouts,
+   Column flow for newspaper-style layouts,
+   Default row flow for most standard grids
+   
+   TRY THIS:
+   - Add "dense" to .normal-flow and see gaps fill
+   - Change to grid-auto-flow: column
+   - Add more items with different span values
+   ============================================ */
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.flow-grid.normal-flow {
+  grid-auto-flow: row; /* Default: fill rows, left to right, top to bottom */
+}
+
+.flow-grid .span-2 {
+  grid-column: span 2; /* These larger items create gaps */
+  background: #fa709a;
+}
+
+/* ============================================
+   EXERCISE 10: Nested Grids - Grids within Grids
+   ============================================
+   
+   GOAL: Learn how grids can contain other grids
+   
+   CONCEPTS INTRODUCED:
+   - Nested grid containers
+   - Grid items that are also grid containers
+   - Independent grid contexts
+   
+   KEY CONCEPT:
+   Any grid item can ALSO be a grid container! Just add display: grid.
+   
+   NESTED GRID BEHAVIOR:
+   - Nested grids are completely independent
+   - Parent grid controls outer layout
+   - Nested grid controls inner layout
+   - They don't share tracks (use subgrid for that - see Exercise 11!)
+   
+   WHY NEST GRIDS?
+   - Complex layouts with different structures in different areas
+   - Components that need their own internal grid
+   - When different sections need different column structures
+   
+   REAL-WORLD USE:
+   - Dashboard with different widget layouts
+   - Product cards with internal grid structure
+   - Forms with varying column needs per section
+   
+   WHEN NOT TO NEST:
+   - When subgrid can do it (Exercise 11)
+   - When simple flex would work
+   - Over-nesting makes CSS hard to maintain
+   ============================================ */
+
+.outer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.nested-grid-container {
+  /* This item is ALSO a grid container! */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Independent from parent grid */
+  gap: 8px; /* Different gap than parent */
+  padding: 12px;
+  background: white;
+  border: 2px solid #667eea;
+}
+
+.nested-item {
+  /* These are items in the NESTED grid, not the outer grid */
+  background: #fee140;
+  color: #333;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+/* ============================================
+   EXERCISE 11: Subgrid - Aligning Nested Content ⭐ ADVANCED
+   ============================================
+   
+   🎯 YOUR TASK: Make nested items align with parent grid columns
+   
+   GOAL: Learn the modern 'subgrid' feature for perfect alignment
+   
+   CONCEPTS INTRODUCED:
+   - grid-template-columns: subgrid - Inherit parent grid tracks
+   - grid-template-rows: subgrid - Inherit parent grid rows
+   - Perfect alignment across nested structures
+   
+   THE PROBLEM NESTED GRIDS CAN'T SOLVE:
+   Nested grids (Exercise 10) are independent - items can't align
+   with grandparent grid tracks. This creates misaligned columns.
+   
+   THE SUBGRID SOLUTION:
+   Instead of defining new columns, inherit them from the parent!
+   
+   SYNTAX:
+   .child {
+     display: grid;
+     grid-template-columns: subgrid;  ← Magic! Inherits parent columns
+     grid-column: 1 / -1;             ← Span all parent columns
+   }
+   
+   BROWSER SUPPORT:
+   Chrome 117+, Firefox 71+, Safari 16+
+   (Check caniuse.com for current support)
+   
+   ============================================
+   ✏️  YOUR CHALLENGE:
+   ============================================
+   
+   The .subgrid-item elements below need to:
+   1. Become grid containers (display: grid)
+   2. Use subgrid to inherit parent's 2 columns
+   3. Span both parent columns (grid-column: 1 / -1)
+   
+   This will make all labels align in the first column,
+   and all values align in the second column!
+   
+   HINTS:
+   - Add display: grid to .subgrid-item
+   - Add grid-template-columns: subgrid
+   - Add grid-column: 1 / -1 (span all parent columns)
+   - The gap will automatically inherit too!
+   
+   EXPECTED RESULT:
+   Labels will vertically align across all rows (120px wide)
+   Values will vertically align across all rows (flexible width)
+   
+   ============================================ */
+
+.subgrid-parent {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* 2 columns: label & value */
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.subgrid-item {
+  /* 
+   * TODO: Make this use subgrid to inherit parent columns!
+   * 
+   * Currently this creates its OWN 2-column grid (auto 1fr).
+   * Change it to inherit the PARENT'S columns instead:
+   * 
+   * REPLACE:
+   *   grid-template-columns: auto 1fr;
+   * WITH:
+   *   grid-template-columns: subgrid;
+   * 
+   * THEN ADD:
+   *   grid-column: 1 / -1;  (span all parent columns)
+   * 
+   * RESULT: Labels will align at exactly 120px (from parent)!
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: grid;
+  grid-template-columns: auto 1fr; /* TODO: Change this to 'subgrid' */
+  gap: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  align-items: center;
+}
+
+.subgrid-label {
+  /* This will sit in the first column (120px) when subgrid is applied */
+  background: #667eea;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: right;
+}
+
+.subgrid-value {
+  /* This will sit in the second column (1fr) when subgrid is applied */
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* ============================================
+   EXERCISE 12: Grid + Flexbox Hybrid ⭐ REAL-WORLD PATTERN
+   ============================================
+   
+   🎯 YOUR TASK: Combine Grid for page structure + Flexbox for components
+   
+   GOAL: Learn when to use Grid vs Flexbox and how to combine them
+   
+   THE GOLDEN RULE:
+   - Use GRID for 2D layouts (page structure, regions, areas)
+   - Use FLEXBOX for 1D layouts (component internals, toolbars, nav)
+   
+   WHY COMBINE THEM?
+   Grid excels at: Page layouts, card grids, complex 2D structures
+   Flexbox excels at: Navigation bars, button groups, centering content
+   
+   GRID FOR STRUCTURE, FLEX FOR COMPONENTS!
+   
+   REAL-WORLD EXAMPLE:
+   Grid creates the dashboard layout (header, sidebar, main),
+   Flexbox aligns buttons in the header and links in the nav.
+   
+   ============================================
+   ✏️  YOUR CHALLENGE - PART 1: Grid Layout
+   ============================================
+   
+   Fix .hybrid-grid to create a dashboard layout:
+   
+   1. Add display: grid
+   2. Add grid-template-areas:
+      "header header"
+      "sidebar main"
+   3. Add grid-template-columns: 200px 1fr
+      (Fixed sidebar, flexible main)
+   4. Add grid-template-rows: auto 1fr
+      (Auto header height, main fills remaining)
+   5. Add gap: 16px
+   
+   THEN assign grid areas to each section:
+   - .hybrid-header { grid-area: header; }
+   - .hybrid-sidebar { grid-area: sidebar; }
+   - .hybrid-main { grid-area: main; }
+   
+   ============================================
+   ✏️  YOUR CHALLENGE - PART 2: Flexbox Components
+   ============================================
+   
+   Add Flexbox to internal components:
+   
+   1. .hybrid-header - Use flex to space title and buttons
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   
+   2. .header-actions - Flex for button row
+      display: flex;
+      
+   3. .hybrid-sidebar nav - Flex for vertical nav
+      display: flex;
+      flex-direction: column;
+   
+   4. .card-header - Flex for title/badge row
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   
+   EXPECTED RESULT:
+   A complete dashboard with Grid structure and Flex components!
+   
+   ============================================ */
+
+.hybrid-grid {
+  /* 
+   * TODO: Create the grid layout structure
+   * 
+   * HINT: Think of this as the "skeleton" of your dashboard
+   * Use grid-template-areas to create named regions
+   * 
+   * Add:
+   * - display: grid
+   * - grid-template-areas: "header header" "sidebar main"
+   * - grid-template-columns: 200px 1fr
+   * - grid-template-rows: auto 1fr
+   * - gap: 16px
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  min-height: 400px;
+}
+
+.hybrid-header {
+  /* 
+   * TODO: 
+   * 1. Assign to 'header' area (grid-area: header)
+   * 2. Use flexbox for internal layout (display: flex)
+   * 3. Space title and buttons apart (justify-content: space-between)
+   * 4. Vertically center content (align-items: center)
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: white;
+  padding: 16px 20px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.hybrid-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.header-actions {
+  /* 
+   * TODO: Use flexbox to layout buttons horizontally
+   * HINT: display: flex; is all you need!
+   * The gap property already handles spacing.
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  gap: 8px;
+}
+
+.header-actions button {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.header-actions button:hover {
+  background: #5568d3;
+}
+
+.hybrid-sidebar {
+  /* 
+   * TODO: Assign to 'sidebar' area
+   * Add: grid-area: sidebar;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.hybrid-sidebar nav {
+  /* 
+   * TODO: Use flexbox for vertical navigation
+   * Add: display: flex; flex-direction: column;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  gap: 8px;
+}
+
+.hybrid-sidebar a {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.hybrid-sidebar a:hover {
+  background: #f8f9fa;
+}
+
+.hybrid-main {
+  /* 
+   * TODO: Assign to 'main' area
+   * Add: grid-area: main;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.card {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  /* 
+   * TODO: Use flexbox to align title and badge
+   * Add: display: flex; justify-content: space-between; align-items: center;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  margin-bottom: 12px;
+}
+
+.card-header h4 {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  margin: 0;
+  color: #2c3e50;
+}
+
+.badge {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #fa709a;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.card p {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ============================================
+   🎉 CONGRATULATIONS!
+   ============================================
+   
+   You've completed all 12 Grid exercises!
+   
+   YOU NOW KNOW:
+   ✓ Basic grids with fr units and repeat()
+   ✓ Mixing fixed and flexible sizing
+   ✓ Template areas for semantic layouts
+   ✓ Line-based placement and spanning
+   ✓ Alignment and positioning
+   ✓ Responsive grids with auto-fit/auto-fill
+   ✓ The minmax() function
+   ✓ Auto-placement and flow
+   ✓ Nested grids
+   ✓ Subgrid for perfect alignment
+   ✓ Combining Grid + Flexbox
+   
+   NEXT STEPS:
+   - Build real projects with these techniques
+   - Explore grid-template-rows more deeply
+   - Learn about implicit vs explicit grids
+   - Master responsive design patterns
+   - Check out Rachel Andrew's "Grid by Example"
+   
+   KEEP PRACTICING! 🚀
+   ============================================ */

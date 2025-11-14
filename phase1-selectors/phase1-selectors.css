@@ -1,0 +1,683 @@
+/* ============================================
+   PHASE 1.1: SELECTORS & SPECIFICITY PRACTICE
+   ============================================
+   
+   TODO: Complete the exercises below to practice
+   CSS selectors and understand specificity.
+   
+   Instructions:
+   1. Read each section's comments
+   2. Write CSS rules to achieve the described styling
+   3. Test in your browser and experiment
+   4. Pay attention to specificity conflicts
+============================================ */
+
+/* ============================================
+   ENHANCED UI STYLES
+   ============================================ */
+
+/* Table of Contents Sidebar */
+.toc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-header {
+  margin-bottom: 1.5rem;
+}
+
+.toc-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.toc-nav {
+  flex: 1;
+}
+
+.toc-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-nav a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.toc-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+}
+
+.toc-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav-button {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.home-button {
+  background: rgba(52, 152, 219, 0.3);
+}
+
+.next-button {
+  background: rgba(46, 204, 113, 0.3);
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 280px;
+  min-height: 100vh;
+}
+
+/* Section Headers with Mark Complete */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+.mark-complete {
+  padding: 0.5rem 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.mark-complete:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.mark-complete.completed {
+  background: #27ae60;
+}
+
+/* Theory Modal */
+.theory-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.theory-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.theory-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+.theory-modal.show .theory-modal-content {
+  transform: scale(1);
+}
+
+.theory-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.theory-modal-close:hover {
+  background: #c0392b;
+  transform: rotate(90deg);
+}
+
+.theory-modal-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.theory-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.theory-btn {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s;
+}
+
+.theory-btn:hover {
+  background: #8e44ad;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  scroll-margin-top: 20px;
+}
+
+/* ============================================
+   EXERCISE 1: BASIC SELECTORS
+   ============================================ */
+
+/* TODO: Style all h1 elements
+   - Color: #2c3e50
+   - Font-size: 2.5rem
+   - Margin-bottom: 1rem
+*/
+
+h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* TODO: Style all elements with class "section"
+   - Margin-bottom: 3rem
+   - Padding: 2rem
+   - Background: #f8f9fa
+   - Border-radius: 8px
+*/
+
+.section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* TODO: Style the element with id "basics"
+   - Border-left: 4px solid #3498db
+*/
+
+#basics {
+  border-left: 4px solid #3498db;
+}
+
+/* TODO: Style all paragraphs inside elements with class "post-content"
+   - Line-height: 1.8
+   - Color: #333
+   - Margin-bottom: 1rem
+*/
+
+.post-content p {
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   EXERCISE 2: ATTRIBUTE SELECTORS
+   ============================================ */
+
+/* TODO: Style links that open in new tab (target="_blank")
+   - Add an icon or special styling
+   - Hint: Use ::after pseudo-element with content: " ↗"
+*/
+
+a[target="_blank"]::after {
+  content: " ↗";
+}
+
+/* TODO: Style links that start with "mailto:"
+   - Color: #e74c3c
+   - Hint: Use [href^="mailto:"]
+*/
+
+.links-demo a[href^="mailto:"] {
+  color: #e74c3c;
+}
+
+/* TODO: Style links that end with ".pdf"
+   - Add PDF icon or indicator
+   - Background-color: #ffe5e5
+   - Padding: 0.25rem 0.5rem
+*/
+
+.links-demo a[href$=".pdf"] {
+  background-color: #ffe5e5;
+  padding: 0.25rem 0.5rem;
+}
+
+.links-demo a[href$=".pdf"]::after {
+  content: " (pdf)";
+}
+
+/* TODO: Style all disabled inputs
+   - Background-color: #e9ecef
+   - Cursor: not-allowed
+   - Opacity: 0.6
+*/
+
+input[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* TODO: Style all required inputs
+   - Border-left: 3px solid #f39c12
+*/
+
+.input-demo input[required] {
+  border-left: 3px solid #f39c12;
+}
+
+/* ============================================
+   EXERCISE 3: COMBINATORS
+   ============================================ */
+
+/* TODO: Style ONLY direct children paragraphs of .parent
+   - Color: #2980b9
+   - Hint: Use child combinator (>)
+*/
+
+.parent > p {
+  color: #2980b9;
+}
+
+/* TODO: Style ALL descendant paragraphs of .parent
+   - Padding-left: 1rem
+   - Hint: Use descendant combinator (space)
+*/
+
+.parent p {
+  padding-left: 1rem;
+}
+
+/* TODO: Style the paragraph that comes immediately after h3
+   - Font-weight: bold
+   - Color: #16a085
+   - Hint: Use adjacent sibling combinator (+)
+*/
+
+h3 + p {
+  font-weight: bold;
+  color: #16a085;
+}
+
+/* TODO: Style all paragraphs that come after h3 (not just first)
+   - Font-style: italic
+   - Hint: Use general sibling combinator (~)
+*/
+h3 ~ p {
+  font-style: italic;
+}
+
+/* ============================================
+   EXERCISE 4: PSEUDO-CLASSES
+   ============================================ */
+
+/* TODO: Style buttons on hover
+   - Background-color: #3498db
+   - Color: white
+   - Transform: translateY(-2px)
+   - Transition: all 0.3s ease
+   - Cursor: pointer
+*/
+
+button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* TODO: Style buttons on focus
+   - Outline: 2px solid #2980b9
+   - Outline-offset: 2px
+*/
+button:focus {
+  outline: 2px solid #2980b9;
+  outline-offset: 2px;
+}
+
+/* TODO: Style the first item in .item-list
+   - Font-weight: bold
+   - Color: #e74c3c
+*/
+.item-list li:first-child {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/* TODO: Style the last item in .item-list
+   - Font-weight: bold
+   - Color: #27ae60
+*/
+.item-list li:last-child {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* TODO: Style every other item in .item-list (odd items)
+   - Background-color: #ecf0f1
+   - Padding: 0.5rem
+*/
+.item-list li:nth-child(odd) {
+  background-color: #ecf0f1;
+  padding: 0.5rem;
+}
+
+/* TODO: Style inputs when they are focused
+   - Border-color: #3498db
+   - Outline: none
+   - Box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1)
+*/
+.demo-form input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ============================================
+   EXERCISE 5: PSEUDO-ELEMENTS
+   ============================================ */
+
+/* TODO: Create a drop cap effect for .drop-cap
+   - Use ::first-letter
+   - Font-size: 3em
+   - Float: left
+   - Line-height: 1
+   - Margin-right: 0.1em
+   - Color: #e74c3c
+*/
+.drop-cap::first-letter {
+  font-size: 3em;
+  float: left;
+  line-height: 1;
+  margin-right: 0.1em;
+  color: #e74c3c;
+}
+
+/* TODO: Add custom bullet points to .custom-list items
+   - Remove default list style
+   - Use ::before to add custom content
+   - Example: content: "→ " or content: "✓ "
+*/
+.custom-list li {
+  list-style: none;
+}
+
+.custom-list li::before {
+  content: "-> ";
+}
+
+/* TODO: Add decorative quotes to .quote-box
+   - Use ::before for opening quote
+   - Use ::after for closing quote
+   - Make them large and decorative
+   - Position them appropriately
+*/
+.quote-box::before {
+  content: "`";
+  font-size: 3em;
+}
+
+.quote-box::after {
+  content: "`";
+  font-size: 3em;
+}
+
+/* TODO: Add a decorative line after h2 elements
+   - Use ::after
+   - Create a short line below the heading
+   - Make it centered or left-aligned
+*/
+
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #3498db;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   EXERCISE 6: SPECIFICITY PRACTICE
+   ============================================
+   
+   Test your understanding of specificity!
+   Predict which color will win before testing.
+============================================ */
+
+/* Rule 1 - Specificity: 0,0,1 (element) */
+p {
+  color: blue;
+}
+
+/* Rule 2 - Specificity: 0,1,0 (class) */
+.text {
+  color: green;
+}
+
+/* Rule 3 - Specificity: 0,1,1 (class + element) */
+div.container .text {
+  color: purple;
+}
+
+p#special {
+  color: white;
+}
+
+/* Rule 4 - Specificity: 1,0,0 (id) */
+#special {
+  color: red;
+}
+
+/* TODO: Add a rule that will override #special
+   WITHOUT using !important
+   Hint: You'll need to increase specificity
+*/
+
+/* ============================================
+   BONUS CHALLENGES
+   ============================================ */
+
+/* BONUS 1: Style links differently based on protocol
+   - Style http:// links differently from https://
+*/
+
+/* BONUS 2: Create a "zebra stripe" table effect
+   - Use :nth-child(even) and :nth-child(odd)
+*/
+
+/* BONUS 3: Style the first paragraph of each section differently
+   - Combine multiple selectors
+*/
+
+/* BONUS 4: Create focus styles that work for keyboard navigation
+   - Use :focus-visible (modern browsers)
+*/
+
+/* ============================================
+   BASE STYLES (provided to make it look decent)
+   Feel free to modify these!
+============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.links-demo,
+.input-demo,
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.links-demo a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  background: #e8f4f8;
+  color: #2980b9;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #ecf0f1;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.5rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+  border-radius: 8px;
+}
+
+/* Add your solutions above this line! */

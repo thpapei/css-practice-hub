@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 1.2: Box Model & Display Practice</title>
+    <link rel="stylesheet" href="phase1-box-model.css" />
+  </head>
+  <body>
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc">
+      <div class="toc-header">
+        <h3>Sections</h3>
+      </div>
+      <nav class="toc-nav">
+        <ul>
+          <li><a href="#box-model">Box Model</a></li>
+          <li><a href="#display">Display Properties</a></li>
+          <li><a href="#sizing">Sizing</a></li>
+          <li><a href="#card-project">Card Project</a></li>
+          <li><a href="#challenges">Practice Challenges</a></li>
+        </ul>
+      </nav>
+      <div class="toc-footer">
+        <a href="/" class="nav-button home-button">🏠 Home</a>
+        <a
+          href="/phase1-selectors/phase1-selectors.html"
+          class="nav-button prev-button"
+          >← Back: Selectors</a
+        >
+        <a
+          href="/phase1-typography/phase1-typography.html"
+          class="nav-button next-button"
+          >Next: Typography →</a
+        >
+      </div>
+    </aside>
+
+    <!-- Theory Modal -->
+    <div id="theoryModal" class="theory-modal">
+      <div class="theory-modal-content">
+        <button class="theory-modal-close">&times;</button>
+        <div class="theory-modal-body">
+          <iframe src="theory.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <header class="site-header">
+        <h1>CSS Box Model & Display</h1>
+        <p>Master the foundation of CSS layout</p>
+        <button id="openTheoryBtn" class="theory-btn">
+          📚 View Theory Guide
+        </button>
+      </header>
+
+      <div class="container">
+        <!-- Section 1: Understanding the Box Model -->
+        <section id="box-model" class="section">
+          <div class="section-header">
+            <h2>Understanding the Box Model</h2>
+            <button class="mark-complete" data-section="box-model">
+              Mark Complete ☐
+            </button>
+          </div>
+          <p class="intro">
+            Every element in CSS is a box with content, padding, border, and
+            margin.
+          </p>
+
+          <div class="box-demo">
+            <div class="box box-1">
+              <p>Box with padding</p>
+            </div>
+            <div class="box box-2">
+              <p>Box with border</p>
+            </div>
+            <div class="box box-3">
+              <p>Box with margin</p>
+            </div>
+          </div>
+
+          <div class="margin-collapse-demo">
+            <div class="item">First Item (margin-bottom: 2rem)</div>
+            <div class="item">Second Item (margin-top: 2rem)</div>
+          </div>
+
+          <div class="box-sizing-demo">
+            <div class="content-box">content-box (default)</div>
+            <div class="border-box">border-box (better!)</div>
+          </div>
+        </section>
+
+        <!-- Section 2: Display Properties -->
+        <section id="display" class="section">
+          <div class="section-header">
+            <h2>Display Properties</h2>
+            <button class="mark-complete" data-section="display">
+              Mark Complete ☐
+            </button>
+          </div>
+
+          <h3>Block Elements</h3>
+          <div class="display-demo">
+            <div class="block-item">Block 1</div>
+            <div class="block-item">Block 2</div>
+            <div class="block-item">Block 3</div>
+          </div>
+
+          <h3>Inline Elements</h3>
+          <div class="display-demo">
+            <span class="inline-item">Inline 1</span>
+            <span class="inline-item">Inline 2</span>
+            <span class="inline-item">Inline 3</span>
+          </div>
+
+          <h3>Inline-Block Elements</h3>
+          <div class="display-demo">
+            <div class="inline-block-item">Inline-Block 1</div>
+            <div class="inline-block-item">Inline-Block 2</div>
+            <div class="inline-block-item">Inline-Block 3</div>
+          </div>
+
+          <h3>None vs Hidden</h3>
+          <div class="visibility-demo">
+            <div class="visible-item">Visible</div>
+            <div class="hidden-item">Display: none (removes from flow)</div>
+            <div class="visible-item">Visible</div>
+          </div>
+
+          <div class="visibility-demo">
+            <div class="visible-item">Visible</div>
+            <div class="invisible-item">Visibility: hidden (keeps space)</div>
+            <div class="visible-item">Visible</div>
+          </div>
+        </section>
+
+        <!-- Section 3: Width, Height, and Sizing -->
+        <section id="sizing" class="section">
+          <div class="section-header">
+            <h2>Width, Height, and Sizing</h2>
+            <button class="mark-complete" data-section="sizing">
+              Mark Complete ☐
+            </button>
+          </div>
+
+          <div class="sizing-demo">
+            <div class="fixed-width">Fixed width: 200px</div>
+            <div class="percentage-width">Percentage width: 50%</div>
+            <div class="auto-width">Auto width (default)</div>
+          </div>
+
+          <div class="min-max-demo">
+            <div class="min-width-box">
+              Min-width: 200px - Try resizing the browser!
+            </div>
+            <div class="max-width-box">
+              Max-width: 400px - This won't grow beyond 400px even in a wide
+              container.
+            </div>
+          </div>
+
+          <div class="height-demo">
+            <div class="fixed-height">Fixed height: 100px</div>
+            <div class="min-height">Min-height: 100px with more content</div>
+          </div>
+
+          <h3>Overflow Examples</h3>
+          <div class="overflow-examples">
+            <div class="overflow-visible">
+              <p>
+                Overflow: visible (default) - This content overflows the box and
+                is still visible outside the boundaries. This is the default
+                behavior.
+              </p>
+            </div>
+
+            <div class="overflow-hidden">
+              <p>
+                Overflow: hidden - This content is cut off when it exceeds the
+                box boundaries. Useful for hiding excess content.
+              </p>
+            </div>
+
+            <div class="overflow-scroll">
+              <p>
+                Overflow: scroll - Scrollbars are always shown. This content can
+                be scrolled to view the overflow.
+              </p>
+            </div>
+
+            <div class="overflow-auto">
+              <p>
+                Overflow: auto - Scrollbars appear only when needed. This is the
+                most common choice for handling overflow gracefully.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Card Component Project -->
+        <section id="card-project" class="section">
+          <div class="section-header">
+            <h2>Project: Card Component</h2>
+            <button class="mark-complete" data-section="card-project">
+              Mark Complete ☐
+            </button>
+          </div>
+          <p class="intro">
+            Apply box model concepts to create a professional card component.
+          </p>
+
+          <div class="cards-container">
+            <article class="card">
+              <img
+                src="https://picsum.photos/400/200?random=1"
+                alt="Card image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Beautiful Landscape</h3>
+                <p class="card-description">
+                  This is a card component with proper padding, borders, and
+                  spacing. Notice how the box model creates visual hierarchy.
+                </p>
+                <div class="card-meta">
+                  <span class="card-date">Nov 14, 2025</span>
+                  <span class="card-category">Nature</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="card-button">Read More</button>
+                <button class="card-button card-button-secondary">Share</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="https://picsum.photos/400/200?random=2"
+                alt="Card image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 class="card-title">City Architecture</h3>
+                <p class="card-description">
+                  Each card maintains consistent spacing and alignment using the
+                  box model properties you've learned.
+                </p>
+                <div class="card-meta">
+                  <span class="card-date">Nov 13, 2025</span>
+                  <span class="card-category">Urban</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="card-button">Read More</button>
+                <button class="card-button card-button-secondary">Share</button>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="https://picsum.photos/400/200?random=3"
+                alt="Card image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 class="card-title">Abstract Art</h3>
+                <p class="card-description">
+                  The border-box model makes it easier to size these cards
+                  predictably, as padding is included in the width.
+                </p>
+                <div class="card-meta">
+                  <span class="card-date">Nov 12, 2025</span>
+                  <span class="card-category">Art</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="card-button">Read More</button>
+                <button class="card-button card-button-secondary">Share</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Bonus Challenges -->
+        <section id="challenges" class="section">
+          <div class="section-header">
+            <h2>Practice Challenges</h2>
+            <button class="mark-complete" data-section="challenges">
+              Mark Complete ☐
+            </button>
+          </div>
+
+          <div class="challenge">
+            <h3>Challenge 1: Centered Content Box</h3>
+            <div class="challenge-box centered-box">
+              <p>Center this box horizontally using margin: auto</p>
+            </div>
+          </div>
+
+          <div class="challenge">
+            <h3>Challenge 2: Equal Height Columns</h3>
+            <div class="columns">
+              <div class="column">
+                <p>Column 1 with some content</p>
+              </div>
+              <div class="column">
+                <p>
+                  Column 2 with more content that might make it taller than the
+                  others
+                </p>
+              </div>
+              <div class="column">
+                <p>Column 3</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge">
+            <h3>Challenge 3: Nested Boxes</h3>
+            <div class="nested-outer">
+              <div class="nested-middle">
+                <div class="nested-inner">
+                  Understand how padding and margin work in nested elements
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <p>&copy; 2025 CSS Practice - Phase 1.2: Box Model & Display</p>
+      </footer>
+    </main>
+
+    <script>
+      // Progress tracking
+      const progressKey = "box-model-progress";
+      const progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+
+      // Load saved progress
+      document.querySelectorAll(".mark-complete").forEach((button) => {
+        const section = button.dataset.section;
+        if (progress[section]) {
+          button.textContent = "Mark Complete ✓";
+          button.classList.add("completed");
+        }
+      });
+
+      // Handle mark complete
+      document.querySelectorAll(".mark-complete").forEach((button) => {
+        button.addEventListener("click", () => {
+          const section = button.dataset.section;
+          progress[section] = !progress[section];
+          localStorage.setItem(progressKey, JSON.stringify(progress));
+
+          if (progress[section]) {
+            button.textContent = "Mark Complete ✓";
+            button.classList.add("completed");
+          } else {
+            button.textContent = "Mark Complete ☐";
+            button.classList.remove("completed");
+          }
+        });
+      });
+
+      // Smooth scrolling for TOC links
+      document.querySelectorAll(".toc-nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Theory modal
+      const theoryModal = document.getElementById("theoryModal");
+      const openTheoryBtn = document.getElementById("openTheoryBtn");
+      const closeTheoryBtn = document.querySelector(".theory-modal-close");
+
+      openTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.add("show");
+      });
+
+      closeTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.remove("show");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === theoryModal) {
+          theoryModal.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>

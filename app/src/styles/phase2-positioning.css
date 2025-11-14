@@ -1,0 +1,726 @@
+/* ============================================
+   PHASE 2.1: POSITIONING EXERCISES
+   ============================================
+   
+   PHILOSOPHY: Students practice ONLY positioning properties.
+   All colors, padding, backgrounds, etc. are pre-filled.
+   
+   Students add:
+   - position (static, relative, absolute, fixed, sticky)
+   - top, right, bottom, left
+   - z-index
+   - transform (for centering)
+   
+   ============================================ */
+
+/* ============================================
+   EXERCISE 1: Relative Positioning
+   ============================================
+   
+   GOAL: Move an element relative to its normal position
+   CONCEPT: position: relative offsets from normal flow
+   
+   WHY THIS MATTERS: Relative positioning is perfect for small
+   adjustments without affecting other elements' positions.
+   
+   YOUR TASK:
+   1. Make box2 relatively positioned
+   2. Move it down 20px (top: 20px)
+   3. Move it right 30px (left: 30px)
+   
+   HINT: position: relative; top: 20px; left: 30px;
+   ============================================ */
+
+.pos-relative-container {
+  /* ✅ Pre-filled - not the learning target */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.pos-relative-box1 {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.pos-relative-box2 {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 12px;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+}
+
+.pos-relative-box3 {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 2: Absolute Positioning
+   ============================================
+   
+   GOAL: Position badge in top-right corner
+   CONCEPT: position: absolute removes from flow
+   
+   WHY THIS MATTERS: This is how you create badges, close buttons,
+   and other elements that overlay content.
+   
+   YOUR TASK:
+   1. Make container a positioning context (relative)
+   2. Position badge absolutely
+   3. Place it 10px from top and 10px from right
+   
+   HINT: Container needs position: relative;
+         Badge needs position: absolute; top: 10px; right: 10px;
+   ============================================ */
+
+.pos-absolute-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #667eea;
+
+  /* TODO: Add position here to create positioning context */
+  /* HINT: position: relative; */
+}
+
+.pos-absolute-container p {
+  margin: 0;
+}
+
+.pos-absolute-badge {
+  /* ✅ Pre-filled */
+  padding: 6px 12px;
+  background: #fa709a;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add right here */
+}
+
+/* ============================================
+   EXERCISE 3: Positioning Context
+   ============================================
+   
+   GOAL: Create a positioning context for children
+   CONCEPT: Relative parent + absolute child pattern
+   
+   WHY THIS MATTERS: This is THE most common positioning pattern.
+   Cards with badges, buttons with notifications, etc.
+   
+   YOUR TASK:
+   1. Make card a positioning context
+   2. Position badge absolutely in top-right corner
+   
+   HINT: Card: position: relative;
+         Badge: position: absolute; top: -8px; right: -8px;
+   ============================================ */
+
+.pos-context-card {
+  /* ✅ Pre-filled */
+  padding: 24px;
+  background: #667eea;
+  color: white;
+  border-radius: 8px;
+
+  /* TODO: Add position here */
+}
+
+.pos-context-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.pos-context-card p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.pos-context-badge {
+  /* ✅ Pre-filled */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fa709a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add right here */
+}
+
+/* ============================================
+   EXERCISE 4: Centering with Absolute
+   ============================================
+   
+   GOAL: Center element perfectly using absolute positioning
+   CONCEPT: 50% + translate(-50%, -50%) centering trick
+   
+   WHY THIS MATTERS: This is a classic centering technique that
+   works when flexbox/grid aren't available.
+   
+   YOUR TASK:
+   1. Make container a positioning context
+   2. Position box absolutely
+   3. Use top: 50%, left: 50%
+   4. Use transform to center perfectly
+   
+   HINT: position: absolute; top: 50%; left: 50%;
+         transform: translate(-50%, -50%);
+   ============================================ */
+
+.pos-center-container {
+  /* ✅ Pre-filled */
+  height: 200px;
+  background: #f8f9fa;
+  border-radius: 8px;
+
+  /* TODO: Add position here */
+}
+
+.pos-center-box {
+  /* ✅ Pre-filled */
+  padding: 20px 32px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+  /* TODO: Add transform here */
+}
+
+/* ============================================
+   EXERCISE 5: Notification Badge
+   ============================================
+   
+   GOAL: Create a notification badge on a button
+   CONCEPT: Combining relative parent with absolute badge
+   
+   WHY THIS MATTERS: This pattern is used everywhere - app icons,
+   shopping carts, message indicators.
+   
+   YOUR TASK:
+   1. Make wrapper a positioning context
+   2. Position badge absolutely
+   3. Place it slightly outside button bounds (-8px)
+   
+   HINT: Wrapper: position: relative; display: inline-block;
+         Badge: position: absolute; top: -8px; right: -8px;
+   ============================================ */
+
+.pos-badge-wrapper {
+  /* ✅ Pre-filled */
+  padding: 20px;
+
+  /* TODO: Add position here */
+  /* TODO: Add display here */
+  /* HINT: position: relative; display: inline-block; */
+}
+
+.pos-badge-button {
+  /* ✅ All styling pre-filled */
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pos-badge-notification {
+  /* ✅ Pre-filled */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e53e3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid white;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add right here */
+}
+
+/* ============================================
+   EXERCISE 6: Fixed Navigation
+   ============================================
+   
+   GOAL: Create a navigation bar that stays at top while scrolling
+   CONCEPT: position: fixed relative to viewport
+   
+   WHY THIS MATTERS: Fixed navigation is essential for modern web apps.
+   Users can always access navigation without scrolling back up.
+   
+   YOUR TASK:
+   1. Make the demo container scrollable (done)
+   2. Make navigation sticky (position: sticky works here)
+   3. Set top: 0 so it sticks to the top
+   
+   HINT: For the demo, use sticky. In real apps, use fixed.
+         position: sticky; top: 0;
+   ============================================ */
+
+.pos-fixed-demo {
+  /* ✅ Pre-filled */
+  height: 300px;
+  overflow: auto;
+  background: #f8f9fa;
+  border-radius: 8px;
+  position: relative;
+}
+
+.pos-fixed-nav {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+  z-index: 10;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* HINT: position: sticky; top: 0; */
+}
+
+.pos-fixed-content {
+  /* ✅ All styling pre-filled */
+  padding: 20px;
+}
+
+.pos-fixed-content p {
+  margin: 8px 0;
+}
+
+/* ============================================
+   EXERCISE 7: Sticky Header
+   ============================================
+   
+   GOAL: Make section header stick when scrolling
+   CONCEPT: position: sticky for section headers
+   
+   WHY THIS MATTERS: Sticky headers keep context visible while
+   scrolling through long sections.
+   
+   YOUR TASK:
+   1. Make the section scrollable (done)
+   2. Make header sticky
+   3. Set top: 0 threshold
+   
+   HINT: position: sticky; top: 0;
+   ============================================ */
+
+.pos-sticky-demo {
+  /* ✅ Pre-filled */
+  height: 300px;
+  overflow: auto;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.pos-sticky-section {
+  /* ✅ All styling pre-filled */
+  padding: 20px;
+}
+
+.pos-sticky-section p {
+  margin: 8px 0;
+}
+
+.pos-sticky-header {
+  /* ✅ Pre-filled */
+  padding: 12px;
+  background: #fa709a;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 12px;
+  z-index: 5;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+}
+
+/* ============================================
+   EXERCISE 8: Z-Index Layering
+   ============================================
+   
+   GOAL: Stack elements using z-index
+   CONCEPT: Higher z-index = closer to viewer
+   
+   WHY THIS MATTERS: z-index controls layering for dropdowns,
+   modals, tooltips, and overlapping elements.
+   
+   YOUR TASK:
+   1. Position all three boxes absolutely
+   2. Set z-index: 1 (purple), 2 (pink), 3 (yellow)
+   3. Position them to overlap
+   
+   HINT: All need position: absolute;
+         Box1: top: 20px; left: 20px; z-index: 1;
+         Box2: top: 60px; left: 80px; z-index: 2;
+         Box3: top: 100px; left: 140px; z-index: 3;
+   ============================================ */
+
+.pos-zindex-container {
+  /* ✅ Pre-filled */
+  position: relative;
+  height: 200px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.pos-zindex-box1 {
+  /* ✅ Pre-filled */
+  width: 120px;
+  height: 120px;
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+  /* TODO: Add z-index here */
+}
+
+.pos-zindex-box2 {
+  /* ✅ Pre-filled */
+  width: 120px;
+  height: 120px;
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+  /* TODO: Add z-index here */
+}
+
+.pos-zindex-box3 {
+  /* ✅ Pre-filled */
+  width: 120px;
+  height: 120px;
+  padding: 16px;
+  background: #fee140;
+  border-radius: 6px;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+  /* TODO: Add z-index here */
+}
+
+/* ============================================
+   EXERCISE 9: Dropdown Menu
+   ============================================
+   
+   GOAL: Position dropdown menu below button
+   CONCEPT: Absolute positioning for dropdowns
+   
+   WHY THIS MATTERS: Dropdowns, select menus, and autocomplete
+   all use this pattern.
+   
+   YOUR TASK:
+   1. Make wrapper a positioning context
+   2. Position menu absolutely
+   3. Use top: 100% to place it below button
+   
+   HINT: Wrapper: position: relative; display: inline-block;
+         Menu: position: absolute; top: 100%; left: 0;
+   ============================================ */
+
+.pos-dropdown-wrapper {
+  /* ✅ Pre-filled */
+  padding: 20px;
+
+  /* TODO: Add position here */
+  /* TODO: Add display here */
+}
+
+.pos-dropdown-button {
+  /* ✅ All styling pre-filled */
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pos-dropdown-menu {
+  /* ✅ Pre-filled */
+  margin-top: 8px;
+  min-width: 160px;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+}
+
+.pos-dropdown-item {
+  /* ✅ All styling pre-filled */
+  padding: 12px 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pos-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   EXERCISE 10: Tooltip
+   ============================================
+   
+   GOAL: Position tooltip above button
+   CONCEPT: Absolute positioning with centering
+   
+   WHY THIS MATTERS: Tooltips provide helpful hints without
+   cluttering the interface.
+   
+   YOUR TASK:
+   1. Make wrapper a positioning context
+   2. Position tooltip absolutely above button
+   3. Center it horizontally using transform
+   
+   HINT: Wrapper: position: relative; display: inline-block;
+         Tooltip: position: absolute; bottom: 100%;
+                  left: 50%; transform: translateX(-50%);
+   ============================================ */
+
+.pos-tooltip-wrapper {
+  /* ✅ Pre-filled */
+  padding: 60px 20px 20px;
+
+  /* TODO: Add position here */
+  /* TODO: Add display here */
+}
+
+.pos-tooltip {
+  /* ✅ Pre-filled */
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+
+  /* TODO: Add position here */
+  /* TODO: Add bottom here */
+  /* TODO: Add left here */
+  /* TODO: Add transform here */
+}
+
+.pos-tooltip-button {
+  /* ✅ All styling pre-filled */
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ============================================
+   EXERCISE 11: Modal Overlay
+   ============================================
+   
+   GOAL: Create full-screen modal with centered content
+   CONCEPT: Fixed overlay + flexbox centering
+   
+   WHY THIS MATTERS: Modals are essential UI patterns for
+   focus and user interaction.
+   
+   YOUR TASK:
+   1. Position overlay to cover entire demo area
+   2. Use flexbox to center modal content
+   3. Set high z-index (1000)
+   
+   HINT: Overlay: position: absolute; top: 0; left: 0;
+                  right: 0; bottom: 0;
+   ============================================ */
+
+.pos-modal-demo {
+  /* ✅ Pre-filled */
+  position: relative;
+  height: 300px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pos-modal-overlay {
+  /* ✅ Pre-filled */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+  /* TODO: Add right here */
+  /* TODO: Add bottom here */
+}
+
+.pos-modal-content {
+  /* ✅ All styling pre-filled */
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+}
+
+.pos-modal-content h3 {
+  margin: 0 0 12px 0;
+}
+
+.pos-modal-content p {
+  margin: 0 0 16px 0;
+}
+
+.pos-modal-content button {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ============================================
+   EXERCISE 12: Complete Card with Badge
+   ============================================
+   
+   GOAL: Build a product card with multiple positioned elements
+   CONCEPT: Combining all positioning techniques
+   
+   WHY THIS MATTERS: Real components often have multiple
+   positioned elements working together.
+   
+   YOUR TASK:
+   1. Make card a positioning context
+   2. Position NEW badge in top-left
+   3. Position heart icon in top-right
+   
+   This is the final boss! Use everything you've learned.
+   ============================================ */
+
+.pos-card {
+  /* ✅ Pre-filled */
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+
+  /* TODO: Add position here */
+}
+
+.pos-card h3 {
+  margin: 24px 0 8px 0;
+}
+
+.pos-card p {
+  margin: 0 0 12px 0;
+  color: #666;
+}
+
+.pos-card-badge {
+  /* ✅ Pre-filled */
+  padding: 4px 8px;
+  background: #fa709a;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add left here */
+}
+
+.pos-card-favorite {
+  /* ✅ Pre-filled */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+
+  /* TODO: Add position here */
+  /* TODO: Add top here */
+  /* TODO: Add right here */
+}
+
+.pos-card-price {
+  /* ✅ All styling pre-filled */
+  font-size: 24px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+/* ============================================
+   CONGRATULATIONS!
+   ============================================
+   
+   You've completed all positioning exercises! You now know:
+   
+   ✓ Relative positioning (offset from normal position)
+   ✓ Absolute positioning (relative to positioned parent)
+   ✓ Fixed positioning (relative to viewport)
+   ✓ Sticky positioning (hybrid relative/fixed)
+   ✓ Z-index layering (stacking contexts)
+   ✓ Positioning contexts (parent-child relationships)
+   ✓ Real-world patterns (badges, tooltips, dropdowns, modals)
+   
+   NEXT STEPS:
+   - Combine positioning with Flexbox and Grid
+   - Build interactive components with JavaScript
+   - Practice responsive positioning patterns
+   
+   ============================================ */

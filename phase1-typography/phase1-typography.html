@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 1.3: Colors & Typography Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="phase1-typography.css" />
+  </head>
+  <body>
+    <!-- Sidebar TOC -->
+    <aside id="toc" class="toc">
+      <div class="toc-header">
+        <h3>🎨 Sections</h3>
+      </div>
+      <nav class="toc-nav">
+        <a href="#colors" data-exercise="1">
+          <span class="check">☐</span> Colors
+        </a>
+        <a href="#typography" data-exercise="2">
+          <span class="check">☐</span> Typography
+        </a>
+        <a href="#text-properties" data-exercise="3">
+          <span class="check">☐</span> Text Properties
+        </a>
+        <a href="#advanced" data-exercise="4">
+          <span class="check">☐</span> Advanced
+        </a>
+        <a href="#project" data-exercise="5">
+          <span class="check">☐</span> 🎯 Style Guide
+        </a>
+      </nav>
+      <div class="toc-footer">
+        <a href="/" class="home-link">← Home</a>
+        <a href="/phase2-flexbox/phase2-flexbox.html" class="next-phase"
+          >Next: Flexbox →</a
+        >
+      </div>
+    </aside>
+
+    <!-- Theory Modal -->
+    <div id="theoryModal" class="theory-modal">
+      <div class="theory-modal-content">
+        <button class="theory-modal-close">&times;</button>
+        <div class="theory-modal-body">
+          <iframe src="theory.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <header class="site-header">
+        <h1>CSS Colors & Typography</h1>
+        <button id="openTheoryBtn" class="theory-btn">
+          📚 View Theory Guide
+        </button>
+      </header>
+
+      <div class="container">
+        <!-- Section 1: Color Formats -->
+        <section id="colors" class="section">
+          <div class="section-header">
+            <h2>Color Formats</h2>
+            <button class="mark-complete" data-exercise="1">
+              Mark Complete ✓
+            </button>
+          </div>
+
+          <div class="color-demos">
+            <div class="color-box hex-color">
+              <p>HEX</p>
+              <code>#3498db</code>
+            </div>
+
+            <div class="color-box rgb-color">
+              <p>RGB</p>
+              <code>rgb(52, 152, 219)</code>
+            </div>
+
+            <div class="color-box rgba-color">
+              <p>RGBA</p>
+              <code>rgba(52, 152, 219, 0.5)</code>
+            </div>
+
+            <div class="color-box hsl-color">
+              <p>HSL</p>
+              <code>hsl(204, 70%, 53%)</code>
+            </div>
+
+            <div class="color-box hsla-color">
+              <p>HSLA</p>
+              <code>hsla(204, 70%, 53%, 0.5)</code>
+            </div>
+
+            <div class="color-box named-color">
+              <p>Named</p>
+              <code>rebeccapurple</code>
+            </div>
+          </div>
+
+          <h3>Opacity Examples</h3>
+          <div class="opacity-demo">
+            <div class="opacity-box opacity-100">100%</div>
+            <div class="opacity-box opacity-75">75%</div>
+            <div class="opacity-box opacity-50">50%</div>
+            <div class="opacity-box opacity-25">25%</div>
+          </div>
+
+          <h3>Color Schemes</h3>
+          <div class="color-scheme">
+            <div class="scheme-box primary">Primary</div>
+            <div class="scheme-box secondary">Secondary</div>
+            <div class="scheme-box success">Success</div>
+            <div class="scheme-box warning">Warning</div>
+            <div class="scheme-box danger">Danger</div>
+            <div class="scheme-box info">Info</div>
+          </div>
+        </section>
+
+        <!-- Section 2: Font Properties -->
+        <section id="typography" class="section">
+          <div class="section-header">
+            <h2>Font Properties</h2>
+            <button class="mark-complete" data-exercise="2">
+              Mark Complete ✓
+            </button>
+          </div>
+
+          <h3>Font Family</h3>
+          <div class="font-examples">
+            <p class="font-sans">Sans-serif font - Clean and modern (Inter)</p>
+            <p class="font-serif">
+              Serif font - Traditional and elegant (Merriweather)
+            </p>
+            <p class="font-mono">
+              Monospace font - Code and technical (Fira Code)
+            </p>
+            <p class="font-system">System font stack - Fast loading</p>
+          </div>
+
+          <h3>Font Size</h3>
+          <div class="size-examples">
+            <p class="size-small">Small text (0.875rem / 14px)</p>
+            <p class="size-base">Base text (1rem / 16px)</p>
+            <p class="size-large">Large text (1.25rem / 20px)</p>
+            <p class="size-xlarge">Extra large text (1.5rem / 24px)</p>
+            <p class="size-display">Display text (3rem / 48px)</p>
+          </div>
+
+          <h3>Font Weight</h3>
+          <div class="weight-examples">
+            <p class="weight-normal">Normal weight (400)</p>
+            <p class="weight-medium">Medium weight (500)</p>
+            <p class="weight-semibold">Semibold weight (600)</p>
+            <p class="weight-bold">Bold weight (700)</p>
+          </div>
+
+          <h3>Font Style</h3>
+          <div class="style-examples">
+            <p class="style-normal">Normal style</p>
+            <p class="style-italic">Italic style</p>
+            <p class="style-oblique">Oblique style</p>
+          </div>
+        </section>
+
+        <!-- Section 3: Text Properties -->
+        <section id="text-properties" class="section">
+          <div class="section-header">
+            <h2>Text Properties</h2>
+            <button class="mark-complete" data-exercise="3">
+              Mark Complete ✓
+            </button>
+          </div>
+
+          <h3>Text Alignment</h3>
+          <div class="alignment-examples">
+            <p class="align-left">Left aligned text (default)</p>
+            <p class="align-center">Center aligned text</p>
+            <p class="align-right">Right aligned text</p>
+            <p class="align-justify">
+              Justified text creates equal width lines by adjusting spacing
+              between words. This is commonly used in newspapers and formal
+              documents to create a clean, blocky appearance with straight edges
+              on both sides.
+            </p>
+          </div>
+
+          <h3>Text Decoration</h3>
+          <div class="decoration-examples">
+            <p class="decoration-none">No decoration</p>
+            <p class="decoration-underline">Underlined text</p>
+            <p class="decoration-overline">Overlined text</p>
+            <p class="decoration-line-through">Strikethrough text</p>
+          </div>
+
+          <h3>Text Transform</h3>
+          <div class="transform-examples">
+            <p class="transform-none">No transformation</p>
+            <p class="transform-uppercase">Uppercase transformation</p>
+            <p class="transform-lowercase">LOWERCASE TRANSFORMATION</p>
+            <p class="transform-capitalize">capitalize each word</p>
+          </div>
+
+          <h3>Line Height</h3>
+          <div class="line-height-examples">
+            <p class="line-height-tight">
+              Tight line height (1.2). This creates compact text blocks where
+              lines are closer together. Good for headings but can be hard to
+              read in paragraphs.
+            </p>
+            <p class="line-height-normal">
+              Normal line height (1.5). This is the recommended line height for
+              body text. It provides good readability with comfortable spacing
+              between lines.
+            </p>
+            <p class="line-height-loose">
+              Loose line height (2.0). This creates more breathing room between
+              lines. Can improve readability for some audiences but may feel too
+              spacious.
+            </p>
+          </div>
+
+          <h3>Letter Spacing</h3>
+          <div class="letter-spacing-examples">
+            <p class="spacing-tight">Tight letter spacing (-0.05em)</p>
+            <p class="spacing-normal">Normal letter spacing</p>
+            <p class="spacing-loose">Loose letter spacing (0.1em)</p>
+            <p class="spacing-wide">Wide letter spacing (0.3em)</p>
+          </div>
+
+          <h3>Word Spacing</h3>
+          <div class="word-spacing-examples">
+            <p class="word-spacing-normal">Normal word spacing between words</p>
+            <p class="word-spacing-wide">Wide word spacing between words</p>
+          </div>
+        </section>
+
+        <!-- Section 4: Advanced Typography -->
+        <section id="advanced" class="section">
+          <div class="section-header">
+            <h2>Advanced Typography</h2>
+            <button class="mark-complete" data-exercise="4">
+              Mark Complete ✓
+            </button>
+          </div>
+
+          <h3>Text Shadow</h3>
+          <div class="text-shadow-examples">
+            <h2 class="shadow-subtle">Subtle shadow</h2>
+            <h2 class="shadow-hard">Hard shadow</h2>
+            <h2 class="shadow-glow">Glow effect</h2>
+            <h2 class="shadow-multiple">Multiple shadows</h2>
+          </div>
+
+          <h3>Text Overflow</h3>
+          <div class="text-overflow-examples">
+            <p class="overflow-ellipsis">
+              This is a very long text that will be truncated with an ellipsis
+              when it exceeds the container width
+            </p>
+            <p class="overflow-clip">
+              This is a very long text that will be clipped when it exceeds the
+              container width
+            </p>
+          </div>
+
+          <h3>Vertical Alignment</h3>
+          <div class="vertical-align-demo">
+            <span class="valign-baseline">baseline</span>
+            <span class="valign-top">top</span>
+            <span class="valign-middle">middle</span>
+            <span class="valign-bottom">bottom</span>
+            <img
+              src="https://via.placeholder.com/30"
+              alt="icon"
+              class="valign-text-bottom"
+            />
+          </div>
+        </section>
+
+        <!-- Project: Typography Style Guide -->
+        <section id="project" class="section">
+          <div class="section-header">
+            <h2>Project: Typography Style Guide</h2>
+            <button class="mark-complete" data-exercise="5">
+              Mark Complete ✓
+            </button>
+          </div>
+          <p class="intro">
+            Create a complete typography system for a brand. Apply colors,
+            fonts, and text properties to build a professional style guide.
+          </p>
+
+          <div class="style-guide">
+            <div class="guide-section">
+              <h1 class="display-heading">Display Heading</h1>
+              <h2 class="main-heading">Main Heading (H2)</h2>
+              <h3 class="sub-heading">Sub Heading (H3)</h3>
+              <h4 class="section-heading">Section Heading (H4)</h4>
+            </div>
+
+            <div class="guide-section">
+              <p class="lead-paragraph">
+                This is a lead paragraph with larger, bolder text to introduce a
+                section. It draws the reader's attention and sets the tone for
+                what follows.
+              </p>
+              <p class="body-text">
+                This is regular body text. It should be highly readable with
+                appropriate font size, line height, and spacing. The goal is to
+                make long-form content comfortable to read.
+              </p>
+              <p class="small-text">
+                This is small text used for captions, footnotes, or secondary
+                information that doesn't need as much emphasis.
+              </p>
+            </div>
+
+            <div class="guide-section">
+              <blockquote class="quote-block">
+                "Typography is the craft of endowing human language with a
+                durable visual form."
+                <cite>— Robert Bringhurst</cite>
+              </blockquote>
+            </div>
+
+            <div class="guide-section">
+              <h3>Text Styles</h3>
+              <p class="styled-text">
+                You can combine
+                <strong class="text-bold">bold text</strong>,
+                <em class="text-italic">italic text</em>,
+                <span class="text-highlight">highlighted text</span>,
+                <a href="#" class="text-link">links</a>, and
+                <code class="inline-code">inline code</code> for emphasis.
+              </p>
+            </div>
+
+            <div class="guide-section">
+              <h3>Lists</h3>
+              <ul class="styled-list">
+                <li>First list item with proper spacing</li>
+                <li>Second list item demonstrates rhythm</li>
+                <li>Third list item maintains consistency</li>
+              </ul>
+            </div>
+
+            <div class="guide-section">
+              <h3>Color Palette</h3>
+              <div class="palette">
+                <div class="palette-item palette-dark">
+                  <span>Dark</span>
+                </div>
+                <div class="palette-item palette-primary">
+                  <span>Primary</span>
+                </div>
+                <div class="palette-item palette-accent">
+                  <span>Accent</span>
+                </div>
+                <div class="palette-item palette-light">
+                  <span>Light</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      // Progress tracking with localStorage
+      const STORAGE_KEY = "typography-progress";
+
+      function loadProgress() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : {};
+      }
+
+      function saveProgress(exercise, completed) {
+        const progress = loadProgress();
+        progress[exercise] = completed;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      }
+
+      function updateUI() {
+        const progress = loadProgress();
+        Object.keys(progress).forEach((ex) => {
+          if (progress[ex]) {
+            const tocLink = document.querySelector(`[data-exercise="${ex}"]`);
+            const button = document.querySelector(
+              `.mark-complete[data-exercise="${ex}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+            if (button) {
+              button.textContent = "Completed ✓";
+              button.classList.add("completed");
+            }
+          }
+        });
+      }
+
+      // Mark complete buttons
+      document.querySelectorAll(".mark-complete").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const exercise = e.target.dataset.exercise;
+          const isCompleted = e.target.classList.contains("completed");
+
+          if (isCompleted) {
+            // Unmark
+            saveProgress(exercise, false);
+            e.target.textContent = "Mark Complete ✓";
+            e.target.classList.remove("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "☐";
+              tocLink.classList.remove("completed");
+            }
+          } else {
+            // Mark complete
+            saveProgress(exercise, true);
+            e.target.textContent = "Completed ✓";
+            e.target.classList.add("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+          }
+        });
+      });
+
+      // Smooth scroll for TOC links
+      document.querySelectorAll(".toc-nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Theory modal
+      const theoryModal = document.getElementById("theoryModal");
+      const openTheoryBtn = document.getElementById("openTheoryBtn");
+      const closeTheoryBtn = document.querySelector(".theory-modal-close");
+
+      openTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.add("show");
+      });
+
+      closeTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.remove("show");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === theoryModal) {
+          theoryModal.classList.remove("show");
+        }
+      });
+
+      // Initialize
+      updateUI();
+    </script>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 CSS Practice - Phase 1.3: Colors & Typography</p>
+    </footer>
+  </body>
+</html>

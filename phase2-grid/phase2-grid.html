@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 2.2 - CSS Grid Practice</title>
+    <link rel="stylesheet" href="phase2-grid.css" />
+    <style>
+      /* Exercise editor improvements */
+      .exercise-controls {
+        margin-top: 1rem;
+        background: #ffffff;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #f1f1f1;
+      }
+      .exercise-controls label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #333;
+      }
+      .css-editor {
+        width: 100%;
+        min-height: 160px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+          "Courier New", monospace;
+        font-size: 13px;
+        padding: 10px;
+        border: 1px solid #e6e6e6;
+        border-radius: 6px;
+        resize: vertical;
+        box-sizing: border-box;
+      }
+      .apply-css,
+      .check-ex {
+        padding: 0.45rem 0.65rem;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        background: #2196f3;
+        color: #fff;
+        font-weight: 600;
+      }
+      .check-ex {
+        background: #28a745;
+        margin-left: 0.5rem;
+      }
+      .apply-css:focus,
+      .check-ex:focus,
+      .css-editor:focus {
+        outline: 2px solid rgba(33, 150, 243, 0.18);
+      }
+      .check-result {
+        margin-left: 0.6rem;
+        font-weight: 600;
+      }
+      @media (max-width: 720px) {
+        .css-editor {
+          min-height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar TOC -->
+    <aside id="toc" class="toc">
+      <div class="toc-header">
+        <h3>📐 Exercises</h3>
+        <button
+          id="darkModeToggle"
+          class="dark-mode-toggle"
+          title="Toggle Dark Mode"
+        >
+          🌙
+        </button>
+      </div>
+      <nav class="toc-nav">
+        <a href="#ex1" data-exercise="1">
+          <span class="check">☐</span> Ex 1: Basic Grid
+        </a>
+        <a href="#ex2" data-exercise="2">
+          <span class="check">☐</span> Ex 2: Explicit Sizing
+        </a>
+        <a href="#ex3" data-exercise="3">
+          <span class="check">☐</span> Ex 3: Template Areas
+        </a>
+        <a href="#ex4" data-exercise="4">
+          <span class="check">☐</span> Ex 4: Grid Lines
+        </a>
+        <a href="#ex5" data-exercise="5">
+          <span class="check">☐</span> Ex 5: Span Keyword
+        </a>
+        <a href="#ex6" data-exercise="6">
+          <span class="check">☐</span> Ex 6: Alignment
+        </a>
+        <a href="#ex7" data-exercise="7">
+          <span class="check">☐</span> Ex 7: Auto-fit/fill
+        </a>
+        <a href="#ex8" data-exercise="8">
+          <span class="check">☐</span> Ex 8: Minmax
+        </a>
+        <a href="#ex9" data-exercise="9">
+          <span class="check">☐</span> Ex 9: Auto Flow
+        </a>
+        <a href="#ex10" data-exercise="10">
+          <span class="check">☐</span> Ex 10: Nested Grids
+        </a>
+        <a href="#proj1" data-exercise="11">
+          <span class="check">☐</span> 🎯 Project: Dashboard
+        </a>
+        <a href="#proj2" data-exercise="12">
+          <span class="check">☐</span> 🎯 Project: Magazine
+        </a>
+      </nav>
+      <div class="toc-footer">
+        <a href="/" class="home-link">← Home</a>
+        <a href="/phase2-flexbox/phase2-flexbox.html" class="prev-phase"
+          >← Back: Flexbox</a
+        >
+      </div>
+    </aside>
+
+    <!-- Theory Modal -->
+    <div id="theoryModal" class="theory-modal">
+      <div class="theory-modal-content">
+        <button class="theory-modal-close">&times;</button>
+        <div class="theory-modal-body">
+          <iframe src="theory.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="site-header">
+        <h1>Phase 2.2: CSS Grid Fundamentals</h1>
+        <button id="openTheoryBtn" class="theory-btn">
+          📚 View Theory Guide
+        </button>
+      </header>
+
+      <!-- Exercise 1: Basic Grid -->
+      <section id="ex1" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 1: Basic Grid Container</h2>
+          <button class="mark-complete" data-exercise="1">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a simple 3x3 grid with equal-sized cells. Add some gap between
+          the cells.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="1">
+.basic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.basic-grid .grid-item{background:#fa709a;color:#fff;padding:1rem;border-radius:6px;text-align:center}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="1">Apply</button>
+            <button class="check-ex" data-ex="1">Check</button>
+            <span
+              class="check-result"
+              data-ex="1"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="basic-grid">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div>
+          <div class="grid-item">7</div>
+          <div class="grid-item">8</div>
+          <div class="grid-item">9</div>
+        </div>
+      </section>
+
+      <!-- Exercise 2: Column and Row Sizing -->
+      <section id="ex2" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 2: Explicit Sizing</h2>
+          <button class="mark-complete" data-exercise="2">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a grid where columns have different sizes using px, %, and fr
+          units.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="2">
+.sized-grid{display:grid;grid-template-columns:150px 2fr 1fr;gap:10px}.sized-grid .grid-item{background:#fee140;padding:1rem;border-radius:6px;text-align:center}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="2">Apply</button>
+            <button class="check-ex" data-ex="2">Check</button>
+            <span
+              class="check-result"
+              data-ex="2"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+
+        <h3>Fixed and Flexible Columns</h3>
+        <div class="sized-grid">
+          <div class="grid-item">Fixed 150px</div>
+          <div class="grid-item">Flexible 2fr</div>
+          <div class="grid-item">Flexible 1fr</div>
+          <div class="grid-item">Fixed 150px</div>
+          <div class="grid-item">Flexible 2fr</div>
+          <div class="grid-item">Flexible 1fr</div>
+        </div>
+
+        <h3>Auto-sized Rows</h3>
+        <div class="auto-rows-grid">
+          <div class="grid-item">Auto height</div>
+          <div class="grid-item">Auto height</div>
+          <div class="grid-item">Auto height based on content</div>
+          <div class="grid-item short">Short</div>
+          <div class="grid-item tall">
+            Tall content that spans multiple lines and makes this cell taller
+            than others
+          </div>
+          <div class="grid-item">Normal</div>
+        </div>
+      </section>
+
+      <!-- Exercise 3: Grid Template Areas -->
+      <section id="ex3" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 3: Grid Template Areas</h2>
+          <button class="mark-complete" data-exercise="3">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Use named grid areas to create a classic webpage layout.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="3">
+.areas-grid{display:grid;grid-template-columns:200px 1fr 200px;grid-template-rows:auto 1fr auto;grid-template-areas:'header header header' 'nav main aside' 'footer footer footer';gap:10px}.area-header{grid-area:header;background:#fa709a;color:#fff;padding:1rem}.area-nav{grid-area:nav;background:#fff3cd;padding:1rem}.area-main{grid-area:main;background:#fff;padding:1rem}.area-sidebar{grid-area:aside;background:#fee140;padding:1rem}.area-footer{grid-area:footer;background:#fa709a;color:#fff;padding:1rem}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="3">Apply</button>
+            <button class="check-ex" data-ex="3">Check</button>
+            <span
+              class="check-result"
+              data-ex="3"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="areas-grid">
+          <header class="area-header">Header</header>
+          <nav class="area-nav">Navigation</nav>
+          <main class="area-main">
+            <h3>Main Content</h3>
+            <p>This is the main content area using grid-template-areas.</p>
+          </main>
+          <aside class="area-sidebar">Sidebar</aside>
+          <footer class="area-footer">Footer</footer>
+        </div>
+      </section>
+
+      <!-- Exercise 4: Grid Line Placement -->
+      <section id="ex4" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 4: Grid Line Numbers</h2>
+          <button class="mark-complete" data-exercise="4">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Place items using grid line numbers (both row and column lines).
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="4">
+.lines-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:80px;gap:10px}.item-a{grid-column:1/3;background:#fa709a;color:#fff;padding:1rem}.item-b{grid-row:1/3;background:#fee140;padding:1rem}.item-d{grid-column:2/4;grid-row:2/4;background:#fa709a;color:#fff;padding:1rem}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="4">Apply</button>
+            <button class="check-ex" data-ex="4">Check</button>
+            <span
+              class="check-result"
+              data-ex="4"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="lines-grid">
+          <div class="item-a">A (spans 2 columns)</div>
+          <div class="item-b">B (spans 2 rows)</div>
+          <div class="item-c">C</div>
+          <div class="item-d">D (spans 2 columns, 2 rows)</div>
+          <div class="item-e">E</div>
+        </div>
+      </section>
+
+      <!-- Exercise 5: Span Keyword -->
+      <section id="ex5" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 5: Using Span</h2>
+          <button class="mark-complete" data-exercise="5">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Use the span keyword to make items occupy multiple cells.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="5">
+.span-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.span-item{background:#fa709a;color:#fff;padding:1rem;border-radius:6px}.span-2-col{grid-column:span 2}.span-3-col{grid-column:span 3}.span-2-row{grid-row:span 2}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="5">Apply</button>
+            <button class="check-ex" data-ex="5">Check</button>
+            <span
+              class="check-result"
+              data-ex="5"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="span-grid">
+          <div class="span-item span-2-col">Spans 2 columns</div>
+          <div class="span-item">1</div>
+          <div class="span-item">2</div>
+          <div class="span-item span-3-col">Spans 3 columns</div>
+          <div class="span-item span-2-row">Spans 2 rows</div>
+          <div class="span-item">3</div>
+          <div class="span-item">4</div>
+          <div class="span-item">5</div>
+        </div>
+      </section>
+
+      <!-- Exercise 6: Alignment (justify and align) -->
+      <section id="ex6" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 6: Alignment Properties</h2>
+          <button class="mark-complete" data-exercise="6">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Practice aligning items and the grid itself within the container.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="6">
+.align-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-height:120px}.justify-start{justify-items:start}.align-center{align-items:center}.self-start{justify-self:start;align-self:start}.self-center{justify-self:center;align-self:center}.self-end{justify-self:end;align-self:end}.small-item{background:#fff;padding:8px;border-radius:6px;border:1px solid #e6e6e6}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="6">Apply</button>
+            <button class="check-ex" data-ex="6">Check</button>
+            <span
+              class="check-result"
+              data-ex="6"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <h3>Justify Items (horizontal alignment in cells)</h3>
+        <div class="align-grid justify-start">
+          <div class="small-item">Start</div>
+          <div class="small-item">Start</div>
+          <div class="small-item">Start</div>
+        </div>
+
+        <h3>Align Items (vertical alignment in cells)</h3>
+        <div class="align-grid align-center">
+          <div class="small-item">Center</div>
+          <div class="small-item">Center</div>
+          <div class="small-item">Center</div>
+        </div>
+
+        <h3>Individual Item Alignment</h3>
+        <div class="align-grid individual-align">
+          <div class="small-item self-start">Start</div>
+          <div class="small-item self-center">Center</div>
+          <div class="small-item self-end">End</div>
+        </div>
+      </section>
+
+      <!-- Exercise 7: Auto-fit and Auto-fill -->
+      <section id="ex7" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 7: Responsive Grids (auto-fit vs auto-fill)</h2>
+          <button class="mark-complete" data-exercise="7">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create responsive grids that automatically adjust columns.
+        </p>
+
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="7">
+.auto-fill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}.auto-fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.auto-fill-grid .grid-item,.auto-fit-grid .grid-item{background:#fa709a;color:#fff;padding:1rem;text-align:center;border-radius:6px}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="7">Apply</button>
+            <button class="check-ex" data-ex="7">Check</button>
+            <span
+              class="check-result"
+              data-ex="7"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+
+        <h3>Auto-fill (creates as many columns as fit)</h3>
+        <div class="auto-fill-grid">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+        </div>
+
+        <h3>Auto-fit (collapses empty columns)</h3>
+        <div class="auto-fit-grid">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+        </div>
+      </section>
+
+      <!-- Exercise 8: Minmax Function -->
+      <section id="ex8" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 8: Minmax Function</h2>
+          <button class="mark-complete" data-exercise="8">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Use minmax() to create flexible yet constrained layouts.
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="8">
+.minmax-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}.minmax-grid .grid-item{background:#fee140;padding:1rem;border-radius:6px;text-align:center}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="8">Apply</button>
+            <button class="check-ex" data-ex="8">Check</button>
+            <span
+              class="check-result"
+              data-ex="8"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="minmax-grid">
+          <div class="grid-item">Min 100px, Max 1fr</div>
+          <div class="grid-item">Min 100px, Max 1fr</div>
+          <div class="grid-item">Min 100px, Max 1fr</div>
+          <div class="grid-item">Content adjusts</div>
+          <div class="grid-item">Based on container</div>
+          <div class="grid-item">Width</div>
+        </div>
+      </section>
+
+      <!-- Exercise 9: Dense Packing -->
+      <section id="ex9" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 9: Grid Auto Flow</h2>
+          <button class="mark-complete" data-exercise="9">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Control how auto-placed items flow and pack into the grid.
+        </p>
+
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="9">
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.normal-flow{grid-auto-flow:row}.dense-flow{grid-auto-flow:row dense}.flow-grid .grid-item{background:#fa709a;color:#fff;padding:1rem;border-radius:6px}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="9">Apply</button>
+            <button class="check-ex" data-ex="9">Check</button>
+            <span
+              class="check-result"
+              data-ex="9"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+
+        <h3>Normal Flow</h3>
+        <div class="flow-grid normal-flow">
+          <div class="grid-item span-2">Spans 2</div>
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item span-2">Spans 2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+
+        <h3>Dense Packing (fills gaps)</h3>
+        <div class="flow-grid dense-flow">
+          <div class="grid-item span-2">Spans 2</div>
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item span-2">Spans 2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </section>
+
+      <!-- Exercise 10: Nested Grids -->
+      <section id="ex10" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 10: Nested Grids</h2>
+          <button class="mark-complete" data-exercise="10">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create grids within grid items (nested grids).
+        </p>
+        <div class="exercise-controls">
+          <label>CSS (edit and press Apply)</label>
+          <textarea class="css-editor" data-ex="10">
+.outer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.nested-grid-container{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.nested-item{background:#fff;padding:8px;border-radius:6px;border:1px solid #e6e6e6}.outer-grid .grid-item{background:#fa709a;color:#fff;padding:1rem;border-radius:6px}</textarea
+          >
+          <div style="margin-top: 0.5rem">
+            <button class="apply-css" data-ex="10">Apply</button>
+            <button class="check-ex" data-ex="10">Check</button>
+            <span
+              class="check-result"
+              data-ex="10"
+              style="margin-left: 0.5rem; color: #666"
+            ></span>
+          </div>
+        </div>
+        <div class="outer-grid">
+          <div class="grid-item">Regular Item</div>
+          <div class="grid-item nested-grid-container">
+            <div class="nested-item">Nested 1</div>
+            <div class="nested-item">Nested 2</div>
+            <div class="nested-item">Nested 3</div>
+            <div class="nested-item">Nested 4</div>
+          </div>
+          <div class="grid-item">Regular Item</div>
+          <div class="grid-item">Regular Item</div>
+        </div>
+      </section>
+
+      <!-- Project: Dashboard Layout -->
+      <section id="proj1" class="exercise project">
+        <div class="exercise-header">
+          <h2>🎯 Project: Dashboard Layout</h2>
+          <button class="mark-complete" data-exercise="11">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">Build a responsive dashboard using CSS Grid:</p>
+        <ul class="requirements">
+          <li>Header spanning full width at top</li>
+          <li>Sidebar navigation (fixed width around 200px)</li>
+          <li>Main content area with grid of cards</li>
+          <li>Cards should be responsive (auto-fit with minmax)</li>
+          <li>Stats bar at the bottom spanning full width</li>
+          <li>Use grid-template-areas for the main layout</li>
+          <li>Use nested grid for the cards section</li>
+        </ul>
+
+        <div class="dashboard">
+          <header class="dashboard-header">
+            <h3>Dashboard Header</h3>
+          </header>
+
+          <nav class="dashboard-sidebar">
+            <h4>Navigation</h4>
+            <ul>
+              <li>Dashboard</li>
+              <li>Analytics</li>
+              <li>Reports</li>
+              <li>Settings</li>
+            </ul>
+          </nav>
+
+          <main class="dashboard-main">
+            <div class="dashboard-cards">
+              <div class="dashboard-card">
+                <h4>Total Users</h4>
+                <p class="stat">12,345</p>
+              </div>
+              <div class="dashboard-card">
+                <h4>Revenue</h4>
+                <p class="stat">$54,321</p>
+              </div>
+              <div class="dashboard-card">
+                <h4>Orders</h4>
+                <p class="stat">8,765</p>
+              </div>
+              <div class="dashboard-card">
+                <h4>Growth</h4>
+                <p class="stat">+23%</p>
+              </div>
+              <div class="dashboard-card">
+                <h4>Active</h4>
+                <p class="stat">3,456</p>
+              </div>
+              <div class="dashboard-card">
+                <h4>Pending</h4>
+                <p class="stat">234</p>
+              </div>
+            </div>
+          </main>
+
+          <footer class="dashboard-footer">
+            <p>Stats Summary | Last updated: November 2025</p>
+          </footer>
+        </div>
+      </section>
+
+      <!-- Project: Magazine Layout -->
+      <section id="proj2" class="exercise project">
+        <div class="exercise-header">
+          <h2>🎯 Project: Magazine Layout</h2>
+          <button class="mark-complete" data-exercise="12">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">Create an asymmetric magazine-style layout:</p>
+        <ul class="requirements">
+          <li>Feature article spans 2 columns and 2 rows</li>
+          <li>Multiple smaller articles of varying sizes</li>
+          <li>Some articles span 2 columns, others 1 column</li>
+          <li>Use grid line placement for precise positioning</li>
+          <li>Responsive with auto-fit/auto-fill</li>
+          <li>Visual hierarchy through size and placement</li>
+        </ul>
+
+        <div class="magazine">
+          <article class="article featured">
+            <h3>Featured Article</h3>
+            <p>
+              This is the main feature story. It should be larger and more
+              prominent than other articles.
+            </p>
+          </article>
+          <article class="article secondary">
+            <h4>Secondary Story</h4>
+            <p>Important but not the main focus.</p>
+          </article>
+          <article class="article small">
+            <h4>Quick Read</h4>
+            <p>Short article.</p>
+          </article>
+          <article class="article small">
+            <h4>Quick Read</h4>
+            <p>Short article.</p>
+          </article>
+          <article class="article medium">
+            <h4>Medium Story</h4>
+            <p>Mid-sized article with decent content.</p>
+          </article>
+          <article class="article small">
+            <h4>Brief</h4>
+            <p>Small.</p>
+          </article>
+          <article class="article small">
+            <h4>Brief</h4>
+            <p>Small.</p>
+          </article>
+          <article class="article wide">
+            <h4>Wide Article</h4>
+            <p>Spans multiple columns.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Progress tracking with localStorage
+      const STORAGE_KEY = "grid-progress";
+
+      function loadProgress() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : {};
+      }
+
+      function saveProgress(exercise, completed) {
+        const progress = loadProgress();
+        progress[exercise] = completed;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      }
+
+      function updateUI() {
+        const progress = loadProgress();
+        Object.keys(progress).forEach((ex) => {
+          if (progress[ex]) {
+            const tocLink = document.querySelector(`[data-exercise="${ex}"]`);
+            const button = document.querySelector(
+              `.mark-complete[data-exercise="${ex}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+            if (button) {
+              button.textContent = "Completed ✓";
+              button.classList.add("completed");
+            }
+          }
+        });
+      }
+
+      // Mark complete buttons
+      document.querySelectorAll(".mark-complete").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const exercise = e.target.dataset.exercise;
+          const isCompleted = e.target.classList.contains("completed");
+
+          if (isCompleted) {
+            // Unmark
+            saveProgress(exercise, false);
+            e.target.textContent = "Mark Complete ✓";
+            e.target.classList.remove("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "☐";
+              tocLink.classList.remove("completed");
+            }
+          } else {
+            // Mark complete
+            saveProgress(exercise, true);
+            e.target.textContent = "Completed ✓";
+            e.target.classList.add("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+          }
+        });
+      });
+
+      // Dark mode toggle
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const DARK_MODE_KEY = "darkMode";
+
+      function loadDarkMode() {
+        return localStorage.getItem(DARK_MODE_KEY) === "true";
+      }
+
+      function setDarkMode(enabled) {
+        localStorage.setItem(DARK_MODE_KEY, enabled);
+        document.body.classList.toggle("dark-mode", enabled);
+        darkModeToggle.textContent = enabled ? "☀️" : "🌙";
+      }
+
+      darkModeToggle.addEventListener("click", () => {
+        setDarkMode(!loadDarkMode());
+      });
+
+      // Smooth scroll for TOC links
+      document.querySelectorAll(".toc-nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Theory modal
+      const theoryModal = document.getElementById("theoryModal");
+      const openTheoryBtn = document.getElementById("openTheoryBtn");
+      const closeTheoryBtn = document.querySelector(".theory-modal-close");
+
+      openTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.add("show");
+      });
+
+      closeTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.remove("show");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === theoryModal) {
+          theoryModal.classList.remove("show");
+        }
+      });
+
+      // Exercise editors: Apply CSS and run lightweight checks
+      function applyCSSForExercise(ex) {
+        const ta = document.querySelector(`.css-editor[data-ex="${ex}"]`);
+        if (!ta) return;
+        let style = document.getElementById(`ex-style-${ex}`);
+        if (!style) {
+          style = document.createElement("style");
+          style.id = `ex-style-${ex}`;
+          document.head.appendChild(style);
+        }
+        style.textContent = ta.value;
+        const result = document.querySelector(`.check-result[data-ex="${ex}"]`);
+        if (result) {
+          result.textContent = "Applied";
+          result.style.color = "#28a745";
+          setTimeout(() => {
+            result.textContent = "";
+          }, 1200);
+        }
+      }
+
+      function runCheckForExercise(ex) {
+        const ta = document.querySelector(`.css-editor[data-ex="${ex}"]`);
+        const result = document.querySelector(`.check-result[data-ex="${ex}"]`);
+        const css = ta ? ta.value : "";
+        let ok = false;
+
+        try {
+          switch (String(ex)) {
+            case "1": {
+              const el = document.querySelector(".basic-grid");
+              const cs = el ? getComputedStyle(el) : null;
+              ok =
+                (css.includes("display:grid") ||
+                  (cs && cs.display === "grid")) &&
+                (css.includes("repeat(3") ||
+                  (cs &&
+                    (cs.gridTemplateColumns || "").split(" ").length >= 3));
+              break;
+            }
+            case "2": {
+              ok =
+                css.includes("px") || css.includes("fr") || css.includes("%");
+              break;
+            }
+            case "3": {
+              ok = css.includes("grid-template-areas");
+              break;
+            }
+            case "4": {
+              ok =
+                css.includes("grid-column") ||
+                css.includes("grid-row") ||
+                css.includes("span");
+              break;
+            }
+            case "5": {
+              ok = css.includes("span");
+              break;
+            }
+            case "6": {
+              ok =
+                css.includes("justify-items") ||
+                css.includes("align-items") ||
+                css.includes("justify-self") ||
+                css.includes("align-self");
+              break;
+            }
+            case "7": {
+              ok = css.includes("auto-fit") || css.includes("auto-fill");
+              break;
+            }
+            case "8": {
+              ok = css.includes("minmax(") || css.includes("clamp(");
+              break;
+            }
+            case "9": {
+              ok = css.includes("grid-auto-flow") || css.includes("dense");
+              break;
+            }
+            case "10": {
+              const nested = document.querySelector(".nested-grid-container");
+              const cs = nested ? getComputedStyle(nested) : null;
+              ok =
+                css.includes("display:grid") || (cs && cs.display === "grid");
+              break;
+            }
+            default:
+              ok = false;
+          }
+        } catch (e) {
+          ok = false;
+        }
+
+        if (ok) {
+          if (result) {
+            result.textContent = "Check OK ✓";
+            result.style.color = "#28a745";
+          }
+          saveProgress(String(ex), true);
+          updateUI();
+        } else {
+          if (result) {
+            result.textContent =
+              "Check failed — try editing CSS or Apply first";
+            result.style.color = "#d63384";
+          }
+        }
+      }
+
+      // Wire apply/check buttons
+      document.querySelectorAll(".apply-css").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const ex = e.target.dataset.ex;
+          applyCSSForExercise(ex);
+        });
+      });
+
+      document.querySelectorAll(".check-ex").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const ex = e.target.dataset.ex;
+          // make sure latest CSS is applied before checking
+          applyCSSForExercise(ex);
+          setTimeout(() => runCheckForExercise(ex), 120);
+        });
+      });
+
+      // Initialize
+      updateUI();
+      setDarkMode(loadDarkMode());
+    </script>
+  </body>
+</html>

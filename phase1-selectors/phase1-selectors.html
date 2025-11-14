@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 1.1: Selectors & Specificity Practice</title>
+    <link rel="stylesheet" href="phase1-selectors.css" />
+  </head>
+  <body>
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc">
+      <div class="toc-header">
+        <h3>Sections</h3>
+      </div>
+      <nav class="toc-nav">
+        <ul>
+          <li><a href="#basics">Basic Selectors</a></li>
+          <li><a href="#attributes">Attribute Selectors</a></li>
+          <li><a href="#combinators">Combinators</a></li>
+          <li><a href="#pseudo">Pseudo-classes</a></li>
+          <li><a href="#pseudo-elements">Pseudo-elements</a></li>
+          <li><a href="#specificity">Specificity Challenge</a></li>
+        </ul>
+      </nav>
+      <div class="toc-footer">
+        <a href="/" class="nav-button home-button">🏠 Home</a>
+        <a
+          href="/phase1-box-model/phase1-box-model.html"
+          class="nav-button next-button"
+          >Next: Box Model →</a
+        >
+      </div>
+    </aside>
+
+    <!-- Theory Modal -->
+    <div id="theoryModal" class="theory-modal">
+      <div class="theory-modal-content">
+        <button class="theory-modal-close">&times;</button>
+        <div class="theory-modal-body">
+          <iframe src="theory.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <header class="site-header">
+        <h1>CSS Selectors Mastery</h1>
+        <p>Master CSS selectors from basic to advanced specificity</p>
+        <button id="openTheoryBtn" class="theory-btn">
+          📚 View Theory Guide
+        </button>
+      </header>
+
+      <div class="container">
+        <!-- Section 1: Basic Selectors -->
+        <section id="basics" class="section">
+          <div class="section-header">
+            <h2>Basic Selectors Practice</h2>
+            <button class="mark-complete" data-section="basics">
+              Mark Complete ☐
+            </button>
+          </div>
+          <article class="blog-post featured">
+            <h3 class="post-title">Understanding CSS Selectors</h3>
+            <p class="post-meta">
+              <span class="author">By John Doe</span>
+              <time datetime="2025-11-14">November 14, 2025</time>
+            </p>
+            <div class="post-content">
+              <p class="intro">
+                This is an introduction paragraph with special styling.
+              </p>
+              <p>
+                Regular paragraph with normal text. CSS selectors are powerful
+                tools that allow you to target specific elements on a page.
+              </p>
+              <p>
+                Another paragraph to practice with.
+                <span class="highlight">This text should stand out.</span>
+              </p>
+
+              <blockquote>
+                <p>
+                  "The key to mastering CSS is understanding selectors and
+                  specificity."
+                </p>
+                <cite>— CSS Expert</cite>
+              </blockquote>
+            </div>
+          </article>
+        </section>
+
+        <!-- Section 2: Attribute Selectors -->
+        <section id="attributes" class="section">
+          <div class="section-header">
+            <h2>Attribute Selectors Practice</h2>
+            <button class="mark-complete" data-section="attributes">
+              Mark Complete ☐
+            </button>
+          </div>
+          <div class="links-demo">
+            <a href="https://example.com" target="_blank">External Link</a>
+            <a href="/about">Internal Link</a>
+            <a href="mailto:test@example.com">Email Link</a>
+            <a href="document.pdf" download>PDF Download</a>
+            <a href="#top" class="back-to-top">Back to Top</a>
+          </div>
+
+          <div class="input-demo">
+            <input type="text" placeholder="Text input" required />
+            <input type="email" placeholder="Email input" />
+            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="Disabled" disabled />
+            <input type="checkbox" id="terms" />
+            <label for="terms">I agree to terms</label>
+          </div>
+        </section>
+
+        <!-- Section 3: Combinators -->
+        <section id="combinators" class="section">
+          <div class="section-header">
+            <h2>Combinators Practice</h2>
+            <button class="mark-complete" data-section="combinators">
+              Mark Complete ☐
+            </button>
+          </div>
+          <div class="parent">
+            <p>Direct child paragraph</p>
+            <div class="child">
+              <p>Nested paragraph (descendant)</p>
+              <p>Another nested paragraph</p>
+            </div>
+            <p>Second direct child</p>
+            <p>Third direct child</p>
+          </div>
+
+          <div class="sibling-demo">
+            <h3>Heading</h3>
+            <p>First paragraph after heading (adjacent sibling)</p>
+            <p>Second paragraph (general sibling)</p>
+            <div>A div element</div>
+            <p>Paragraph after div</p>
+          </div>
+        </section>
+
+        <!-- Section 4: Pseudo-classes -->
+        <section id="pseudo" class="section">
+          <div class="section-header">
+            <h2>Pseudo-classes Practice</h2>
+            <button class="mark-complete" data-section="pseudo">
+              Mark Complete ☐
+            </button>
+          </div>
+
+          <div class="button-group">
+            <button>Hover Me</button>
+            <button class="active">Active Button</button>
+            <button disabled>Disabled</button>
+          </div>
+
+          <ul class="item-list">
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+            <li>Fourth item</li>
+            <li>Fifth item</li>
+            <li>Sixth item</li>
+          </ul>
+
+          <form class="demo-form">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </form>
+        </section>
+
+        <!-- Section 5: Pseudo-elements -->
+        <section id="pseudo-elements" class="section">
+          <div class="section-header">
+            <h2>Pseudo-elements Practice</h2>
+            <button class="mark-complete" data-section="pseudo-elements">
+              Mark Complete ☐
+            </button>
+          </div>
+
+          <p class="drop-cap">
+            This paragraph should have a decorative drop cap at the beginning.
+            Pseudo-elements allow us to style specific parts of an element
+            without adding extra HTML markup.
+          </p>
+
+          <ul class="custom-list">
+            <li>Custom bullet point one</li>
+            <li>Custom bullet point two</li>
+            <li>Custom bullet point three</li>
+          </ul>
+
+          <div class="quote-box">
+            <p>
+              This box should have decorative quotation marks using ::before and
+              ::after.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 6: Specificity Challenge -->
+        <section id="specificity" class="section challenge">
+          <div class="section-header">
+            <h2>Specificity Challenge</h2>
+            <button class="mark-complete" data-section="specificity">
+              Mark Complete ☐
+            </button>
+          </div>
+          <p class="text">What color will this text be?</p>
+          <p class="text" id="special">What about this one?</p>
+          <div class="container">
+            <p class="text">And this nested one?</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <p>&copy; 2025 CSS Practice. Keep learning!</p>
+      </footer>
+    </main>
+
+    <script>
+      // Progress tracking
+      const progressKey = "selectors-progress";
+      const progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+
+      // Load saved progress
+      document.querySelectorAll(".mark-complete").forEach((button) => {
+        const section = button.dataset.section;
+        if (progress[section]) {
+          button.textContent = "Mark Complete ✓";
+          button.classList.add("completed");
+        }
+      });
+
+      // Handle mark complete
+      document.querySelectorAll(".mark-complete").forEach((button) => {
+        button.addEventListener("click", () => {
+          const section = button.dataset.section;
+          progress[section] = !progress[section];
+          localStorage.setItem(progressKey, JSON.stringify(progress));
+
+          if (progress[section]) {
+            button.textContent = "Mark Complete ✓";
+            button.classList.add("completed");
+          } else {
+            button.textContent = "Mark Complete ☐";
+            button.classList.remove("completed");
+          }
+        });
+      });
+
+      // Smooth scrolling for TOC links
+      document.querySelectorAll(".toc-nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Theory modal
+      const theoryModal = document.getElementById("theoryModal");
+      const openTheoryBtn = document.getElementById("openTheoryBtn");
+      const closeTheoryBtn = document.querySelector(".theory-modal-close");
+
+      openTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.add("show");
+      });
+
+      closeTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.remove("show");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === theoryModal) {
+          theoryModal.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>

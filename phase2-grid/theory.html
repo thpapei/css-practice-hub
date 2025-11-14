@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid - Theory Guide</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .content {
+        padding: 3rem 2.5rem;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        border-left: 4px solid #fa709a;
+      }
+
+      .toc h2 {
+        color: #fa709a;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .toc ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .toc li a {
+        color: #495057;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        border-radius: 6px;
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .toc li a:hover {
+        background: #fa709a;
+        color: white;
+        transform: translateX(4px);
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      h2 {
+        color: #fa709a;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #fa709a;
+      }
+
+      h3 {
+        color: #495057;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+      }
+
+      h4 {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+      }
+
+      code {
+        background: #f8f9fa;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border-left: 4px solid #fa709a;
+        line-height: 1.6;
+      }
+
+      pre code {
+        background: none;
+        padding: 0;
+        color: #ecf0f1;
+        font-size: 0.95rem;
+      }
+
+      .tip {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .tip strong {
+        color: #856404;
+        font-size: 1.1rem;
+      }
+
+      .tip p,
+      .tip ul {
+        margin-top: 0.5rem;
+        color: #856404;
+      }
+
+      .example {
+        background: #e7f3ff;
+        border-left: 4px solid #2196f3;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .visual {
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      ul,
+      ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        color: #495057;
+        font-weight: 600;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #e9ecef;
+        margin: 3rem 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      th {
+        background: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .comparison-box {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #dee2e6;
+      }
+
+      .comparison-box h4 {
+        margin-top: 0;
+        color: #fa709a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔲 CSS Grid</h1>
+        <p>Essential Theory & Reference Guide</p>
+      </div>
+
+      <div class="content">
+        <div class="toc">
+          <h2>📚 Table of Contents</h2>
+          <ul>
+            <li><a href="#intro">What is Grid?</a></li>
+            <li><a href="#vs-flexbox">Grid vs Flexbox</a></li>
+            <li><a href="#terminology">Grid Terminology</a></li>
+            <li><a href="#container">Container Properties</a></li>
+            <li><a href="#items">Item Properties</a></li>
+            <li><a href="#patterns">Common Patterns</a></li>
+          </ul>
+        </div>
+
+        <section id="intro">
+          <h2>What is CSS Grid?</h2>
+          <p>
+            CSS Grid is a <strong>two-dimensional</strong> layout system that
+            allows you to create complex layouts with rows and columns
+            <strong>simultaneously</strong>. Unlike Flexbox (one-dimensional),
+            Grid gives you complete control over both axes.
+          </p>
+
+          <div class="tip">
+            <strong>🔑 Key Concept:</strong>
+            <p>
+              Grid is <strong>two-dimensional</strong>, meaning it handles
+              layout in rows AND columns at the same time.
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="vs-flexbox">
+          <h2>Grid vs Flexbox</h2>
+
+          <div class="comparison">
+            <div class="comparison-box">
+              <h4>Use Grid When:</h4>
+              <ul>
+                <li>✅ Layout is 2D (rows AND columns)</li>
+                <li>✅ Need precise item placement</li>
+                <li>✅ Creating page layouts</li>
+                <li>✅ Defining structure first</li>
+              </ul>
+            </div>
+
+            <div class="comparison-box">
+              <h4>Use Flexbox When:</h4>
+              <ul>
+                <li>✅ Layout is 1D (row OR column)</li>
+                <li>✅ Items size based on content</li>
+                <li>✅ Creating navbars, toolbars</li>
+                <li>✅ Items control their size</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tip">
+            <strong>💡 Best Practice:</strong>
+            <p>
+              Use <strong>Grid for page layout</strong>,
+              <strong>Flexbox for components</strong>. They work great together!
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="terminology">
+          <h2>Grid Terminology</h2>
+
+          <div class="visual">
+            <pre>
+Grid Lines (vertical):    1   2   3   4
+                          |   |   |   |
+Grid Lines (horizontal): 1|---|---|---|  ← Grid Track (row)
+                         2|---|---|---|
+                         3|---|---|---|
+                              ↑
+                         Grid Track (column)
+
+Grid Cell = Single box at intersection
+Grid Area = Multiple cells forming rectangle</pre
+            >
+          </div>
+
+          <ul>
+            <li>
+              <strong>Grid Container:</strong> Element with
+              <code>display: grid</code>
+            </li>
+            <li>
+              <strong>Grid Items:</strong> Direct children of grid container
+            </li>
+            <li>
+              <strong>Grid Lines:</strong> Dividing lines (numbered from 1)
+            </li>
+            <li>
+              <strong>Grid Tracks:</strong> Space between two lines (row or
+              column)
+            </li>
+            <li><strong>Grid Cells:</strong> Space between four lines</li>
+            <li>
+              <strong>Grid Areas:</strong> One or more cells forming rectangle
+            </li>
+          </ul>
+        </section>
+
+        <hr />
+
+        <section id="container">
+          <h2>Grid Container Properties</h2>
+
+          <h3>display</h3>
+          <pre><code>.container {
+  display: grid;         /* Block-level grid */
+  display: inline-grid;  /* Inline-level grid */
+}</code></pre>
+
+          <h3>grid-template-columns & grid-template-rows</h3>
+          <p>Define the column and row structure.</p>
+          <pre><code>.container {
+  /* 3 equal columns */
+  grid-template-columns: 1fr 1fr 1fr;
+  
+  /* Shorthand with repeat() */
+  grid-template-columns: repeat(3, 1fr);
+  
+  /* Mixed units */
+  grid-template-columns: 200px 1fr 2fr;
+  
+  /* Auto-fit columns (responsive) */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
+  /* Define rows */
+  grid-template-rows: 100px 200px auto;
+}</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-template-columns: 1fr 1fr 1fr (3 equal columns)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                1fr
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                1fr
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                1fr
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-template-columns: 200px 1fr 2fr (mixed units)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 200px 1fr 2fr;
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                200px
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                1fr
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                2fr (twice as wide)
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-template-columns: repeat(4, 1fr) (4 equal columns)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                1
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                4
+              </div>
+            </div>
+          </div>
+
+          <h4>Grid Units</h4>
+          <table>
+            <tr>
+              <th>Unit</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td><code>fr</code></td>
+              <td>Fraction of available space</td>
+              <td><code>1fr 2fr</code> (1/3 and 2/3)</td>
+            </tr>
+            <tr>
+              <td><code>px</code></td>
+              <td>Fixed pixels</td>
+              <td><code>200px</code></td>
+            </tr>
+            <tr>
+              <td><code>%</code></td>
+              <td>Percentage of container</td>
+              <td><code>50%</code></td>
+            </tr>
+            <tr>
+              <td><code>auto</code></td>
+              <td>Size based on content</td>
+              <td><code>auto</code></td>
+            </tr>
+            <tr>
+              <td><code>minmax()</code></td>
+              <td>Range between min and max</td>
+              <td><code>minmax(100px, 1fr)</code></td>
+            </tr>
+          </table>
+
+          <h3>gap (grid-gap)</h3>
+          <p>Space between grid items.</p>
+          <pre><code>.container {
+  gap: 20px;          /* Equal row and column gap */
+  gap: 20px 10px;     /* Row gap | Column gap */
+  row-gap: 20px;      /* Only vertical gap */
+  column-gap: 10px;   /* Only horizontal gap */
+}</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">No gap</p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                1
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                5
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                6
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              gap: 10px (equal spacing)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                1
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                5
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                6
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              gap: 20px (larger spacing)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                1
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                5
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                6
+              </div>
+            </div>
+          </div>
+
+          <h3>justify-items & align-items</h3>
+          <p>Align items inside their grid cells.</p>
+          <pre><code>.container {
+  /* Horizontal alignment (justify) */
+  justify-items: start;    /* Left align */
+  justify-items: end;      /* Right align */
+  justify-items: center;   /* Center */
+  justify-items: stretch;  /* Default: fill cell */
+  
+  /* Vertical alignment (align) */
+  align-items: start;      /* Top */
+  align-items: end;        /* Bottom */
+  align-items: center;     /* Center */
+  align-items: stretch;    /* Default: fill cell */
+}</code></pre>
+
+          <h3>justify-content & align-content</h3>
+          <p>Align the entire grid within the container.</p>
+          <pre><code>.container {
+  /* Horizontal alignment of grid */
+  justify-content: start;
+  justify-content: end;
+  justify-content: center;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  
+  /* Vertical alignment of grid */
+  align-content: start;
+  align-content: end;
+  align-content: center;
+  align-content: space-between;
+}</code></pre>
+
+          <h3>grid-template-areas</h3>
+          <p>Name grid areas for semantic layout.</p>
+          <pre><code>.container {
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+}
+
+/* Then assign items to areas */
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.aside   { grid-area: aside; }
+.footer  { grid-area: footer; }</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              Holy Grail Layout with grid-template-areas
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 3fr 1fr;
+                grid-template-rows: auto 200px auto;
+                gap: 0.5rem;
+                grid-template-areas: 'header header header' 'sidebar main aside' 'footer footer footer';
+              "
+            >
+              <div
+                style="
+                  grid-area: header;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Header
+              </div>
+              <div
+                style="
+                  grid-area: sidebar;
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Sidebar
+              </div>
+              <div
+                style="
+                  grid-area: main;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                Main Content
+              </div>
+              <div
+                style="
+                  grid-area: aside;
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Aside
+              </div>
+              <div
+                style="
+                  grid-area: footer;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Footer
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="items">
+          <h2>Grid Item Properties</h2>
+
+          <h3>grid-column & grid-row</h3>
+          <p>Position items by grid lines.</p>
+          <pre><code>.item {
+  /* Start at line 1, end at line 3 (spans 2 columns) */
+  grid-column: 1 / 3;
+  
+  /* Shorthand */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  
+  /* Span syntax */
+  grid-column: span 2;  /* Span 2 columns */
+  
+  /* Rows work the same way */
+  grid-row: 1 / 3;      /* Span 2 rows */
+  grid-row: span 2;
+}</code></pre>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-column: span 2 (spans 2 columns)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  grid-column: span 2;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Spans 2 columns
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-column: 1 / 4 (spans from line 1 to 4)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  grid-column: 1 / 4;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                "
+              >
+                Full Width (1 / 4)
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-row: span 2 (spans 2 rows)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 60px);
+                gap: 0.5rem;
+              "
+            >
+              <div
+                style="
+                  grid-row: span 2;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1.5rem;
+                  border-radius: 4px;
+                  text-align: center;
+                  font-weight: bold;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                Tall<br />2 rows
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                4
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 4px;
+                  text-align: center;
+                "
+              >
+                5
+              </div>
+            </div>
+          </div>
+
+          <div class="visual">
+            <pre>
+Grid lines:  1   2   3   4
+             |   |   |   |
+           1 |───────────|  ← Item spans column 1 / 4
+           2 |   |   |   |
+             
+grid-column: 1 / 4; (or span 3)</pre
+            >
+          </div>
+
+          <h3>grid-area</h3>
+          <p>Place item in named area OR use line numbers.</p>
+          <pre><code>/* With template areas */
+.item {
+  grid-area: header;
+}
+
+/* With line numbers: row-start / col-start / row-end / col-end */
+.item {
+  grid-area: 1 / 1 / 3 / 4;
+  /* Same as:
+     grid-row: 1 / 3;
+     grid-column: 1 / 4; */
+}</code></pre>
+
+          <h3>justify-self & align-self</h3>
+          <p>Override alignment for individual item.</p>
+          <pre><code>.item {
+  justify-self: start;   /* Left */
+  justify-self: end;     /* Right */
+  justify-self: center;  /* Center horizontally */
+  justify-self: stretch; /* Fill width */
+  
+  align-self: start;     /* Top */
+  align-self: end;       /* Bottom */
+  align-self: center;    /* Center vertically */
+  align-self: stretch;   /* Fill height */
+}</code></pre>
+        </section>
+
+        <hr />
+
+        <section id="advanced-grid">
+          <h2>Advanced Grid Examples & Patterns</h2>
+
+          <h3>grid-auto-flow (dense vs row)</h3>
+          <p>
+            Controls how implicit items are placed. <code>dense</code> attempts
+            to fill holes.
+          </p>
+          <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: row;        /* default - place by rows */
+  grid-auto-flow: row dense;  /* try to fill gaps */
+}
+</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-auto-flow: row (no dense) - items keep source order
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+              "
+            >
+              <div
+                style="
+                  grid-column: span 2;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                "
+              >
+                A (span 2)
+              </div>
+              <div style="background: #fee140; padding: 1rem">B</div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                C
+              </div>
+              <div style="background: #fee140; padding: 1rem">D</div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                E
+              </div>
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: #333">
+              No dense: gaps may remain because ordering is preserved.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              grid-auto-flow: row dense - fills gaps when possible
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                grid-auto-flow: row dense;
+              "
+            >
+              <div
+                style="
+                  grid-column: span 2;
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                "
+              >
+                A (span 2)
+              </div>
+              <div style="background: #fee140; padding: 1rem">B</div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                C
+              </div>
+              <div style="background: #fee140; padding: 1rem">D</div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                E
+              </div>
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: #333">
+              With <code>dense</code> the grid tries to fill earlier gaps with
+              later items.
+            </p>
+          </div>
+
+          <h3>auto-fit vs auto-fill (responsive columns)</h3>
+          <p>
+            <code>auto-fit</code> collapses empty tracks;
+            <code>auto-fill</code> preserves them. Use with
+            <code>minmax()</code>.
+          </p>
+          <pre><code>.grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              Responsive demo (auto-fit)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 10px;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                Card 1
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                Card 2
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                Card 3
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                Card 4
+              </div>
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 1rem;
+                  text-align: center;
+                "
+              >
+                Card 5
+              </div>
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: #333">
+              Resize the window to see columns wrap and collapse smoothly (try
+              in browser).
+            </p>
+
+            <!-- Interactive container width slider -->
+            <div
+              style="
+                margin-top: 1rem;
+                background: #fff;
+                padding: 12px;
+                border-radius: 8px;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 12px">
+                <label
+                  for="demoWidth"
+                  style="font-size: 0.95rem; min-width: 160px"
+                  >Adjust demo container width:</label
+                >
+                <input
+                  id="demoWidth"
+                  type="range"
+                  min="280"
+                  max="1400"
+                  value="900"
+                  style="flex: 1"
+                />
+                <span
+                  id="demoWidthLabel"
+                  style="
+                    font-size: 0.9rem;
+                    color: #666;
+                    min-width: 64px;
+                    text-align: right;
+                  "
+                  >900px</span
+                >
+              </div>
+
+              <div
+                id="demoWrap"
+                style="
+                  width: 900px;
+                  max-width: 100%;
+                  margin-top: 12px;
+                  border: 1px dashed #e6e6e6;
+                  padding: 8px;
+                  border-radius: 6px;
+                  box-sizing: border-box;
+                "
+              >
+                <div
+                  id="responsiveDemo"
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                    gap: 10px;
+                  "
+                >
+                  <div
+                    style="
+                      background: #fa709a;
+                      color: white;
+                      padding: 1rem;
+                      text-align: center;
+                    "
+                  >
+                    Card 1
+                  </div>
+                  <div
+                    style="
+                      background: #fee140;
+                      color: #333;
+                      padding: 1rem;
+                      text-align: center;
+                    "
+                  >
+                    Card 2
+                  </div>
+                  <div
+                    style="
+                      background: #fa709a;
+                      color: white;
+                      padding: 1rem;
+                      text-align: center;
+                    "
+                  >
+                    Card 3
+                  </div>
+                  <div
+                    style="
+                      background: #fee140;
+                      color: #333;
+                      padding: 1rem;
+                      text-align: center;
+                    "
+                  >
+                    Card 4
+                  </div>
+                  <div
+                    style="
+                      background: #fa709a;
+                      color: white;
+                      padding: 1rem;
+                      text-align: center;
+                    "
+                  >
+                    Card 5
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #666">
+                Tip: drag the slider left to constrain the container and watch
+                columns collapse and reflow.
+              </p>
+            </div>
+          </div>
+
+          <h3>minmax(), fit-content() & clamp()</h3>
+          <p>Fine control of track sizing.</p>
+          <pre><code>grid-template-columns: minmax(150px, 1fr) 200px fit-content(20%);
+/* clamp() can be used in sizes: clamp(min, preferred, max) */</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              minmax() demo
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 180px;
+                gap: 10px;
+              "
+            >
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                Flexible
+              </div>
+              <div style="background: #fee140; color: #333; padding: 1rem">
+                Fixed 180px
+              </div>
+            </div>
+          </div>
+
+          <h3>Implicit grid & grid-auto-rows</h3>
+          <p>
+            Items placed beyond explicit tracks create implicit rows/columns
+            controlled by <code>grid-auto-rows</code> /
+            <code>grid-auto-columns</code>.
+          </p>
+          <pre><code>.container {
+  grid-template-columns: repeat(3,1fr);
+  grid-auto-rows: 100px; /* newly created rows will be 100px */
+}
+</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              Implicit rows demo
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 100px;
+                gap: 10px;
+              "
+            >
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                1
+              </div>
+              <div style="background: #fee140; color: #333; padding: 1rem">
+                2
+              </div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                3
+              </div>
+              <div style="background: #fee140; color: #333; padding: 1rem">
+                4 (implicit row)
+              </div>
+              <div style="background: #fa709a; color: white; padding: 1rem">
+                5
+              </div>
+            </div>
+          </div>
+
+          <h3>Masonry-like layout (grid-auto-rows + row spans)</h3>
+          <p>
+            A common technique: set <code>grid-auto-rows</code> to a fixed row
+            height and use <code>grid-row: span N</code> to vary heights.
+          </p>
+          <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  grid-auto-rows: 8px; /* small track size */
+  gap: 10px;
+}
+.item { grid-row: span 25; /* 25 * 8px = 200px height approx */ }
+</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              Masonry demo (approximate)
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                grid-auto-rows: 8px;
+                gap: 8px;
+              "
+            >
+              <div
+                style="
+                  grid-row: span 40;
+                  background: #fa709a;
+                  color: white;
+                  padding: 8px;
+                  border-radius: 6px;
+                "
+              >
+                Tall
+              </div>
+              <div
+                style="
+                  grid-row: span 20;
+                  background: #fee140;
+                  color: #333;
+                  padding: 8px;
+                  border-radius: 6px;
+                "
+              >
+                Medium
+              </div>
+              <div
+                style="
+                  grid-row: span 30;
+                  background: #fa709a;
+                  color: white;
+                  padding: 8px;
+                  border-radius: 6px;
+                "
+              >
+                Tall
+              </div>
+              <div
+                style="
+                  grid-row: span 16;
+                  background: #fee140;
+                  color: #333;
+                  padding: 8px;
+                  border-radius: 6px;
+                "
+              >
+                Short
+              </div>
+              <div
+                style="
+                  grid-row: span 24;
+                  background: #fa709a;
+                  color: white;
+                  padding: 8px;
+                  border-radius: 6px;
+                "
+              >
+                Medium
+              </div>
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: #333">
+              This gives a Pinterest-like masonry feel without JS; tweak
+              <code>grid-auto-rows</code> and spans to suit.
+            </p>
+          </div>
+
+          <h3>Nested grids</h3>
+          <p>
+            Grid containers can be nested — a grid item can itself be a grid
+            container.
+          </p>
+          <pre><code>.card { display: grid; grid-template-rows: auto 1fr auto; }
+.card .meta { display: grid; grid-template-columns: auto 1fr; }
+</code></pre>
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 1.5rem;
+              border-radius: 8px;
+              margin: 1.5rem 0;
+            "
+          >
+            <p style="font-weight: bold; margin-bottom: 0.75rem">
+              Nested grid demo
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+              "
+            >
+              <div
+                style="
+                  background: #fa709a;
+                  color: white;
+                  padding: 12px;
+                  border-radius: 8px;
+                  display: grid;
+                  grid-template-rows: auto 1fr;
+                  gap: 8px;
+                "
+              >
+                <div style="font-weight: bold">Card 1</div>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 8px;
+                  "
+                >
+                  <div
+                    style="
+                      background: #fff;
+                      color: #333;
+                      padding: 6px;
+                      border-radius: 4px;
+                    "
+                  >
+                    Img
+                  </div>
+                  <div
+                    style="
+                      background: #fff;
+                      color: #333;
+                      padding: 6px;
+                      border-radius: 4px;
+                    "
+                  >
+                    Description content that flows in a nested grid
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  background: #fee140;
+                  color: #333;
+                  padding: 12px;
+                  border-radius: 8px;
+                  display: grid;
+                  grid-template-rows: auto 1fr;
+                  gap: 8px;
+                "
+              >
+                <div style="font-weight: bold">Card 2</div>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 8px;
+                  "
+                >
+                  <div
+                    style="
+                      background: #fff;
+                      color: #333;
+                      padding: 6px;
+                      border-radius: 4px;
+                    "
+                  >
+                    Img
+                  </div>
+                  <div
+                    style="
+                      background: #fff;
+                      color: #333;
+                      padding: 6px;
+                      border-radius: 4px;
+                    "
+                  >
+                    More nested content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Named lines & line-based placement</h3>
+          <p>
+            You can name lines and place items by name:
+            <code>grid-column: header-start / header-end;</code>
+          </p>
+          <pre><code>.container {
+  grid-template-columns: [start] 1fr [main-start] 2fr [end];
+}
+.item { grid-column: main-start / end; }
+</code></pre>
+
+          <h3>Subgrid (where supported)</h3>
+          <p>
+            <code>subgrid</code> allows a nested grid to inherit the parent's
+            tracks. Support is improving — check browser compatibility.
+          </p>
+          <pre><code>.parent { display: grid; grid-template-columns: 1fr 2fr; }
+.child { display: grid; grid-template-columns: subgrid; }
+</code></pre>
+
+          <h3>Best Practices & Performance</h3>
+          <ul>
+            <li>
+              Prefer <code>minmax()</code> + <code>auto-fit</code>/<code
+                >auto-fill</code
+              >
+              for responsive layouts.
+            </li>
+            <li>
+              Use small <code>grid-auto-rows</code> with span technique for
+              masonry-like grids — it's performant and avoids layout thrash.
+            </li>
+            <li>
+              Avoid overly deep nested grids when simple flex or a single grid
+              suffices; nested grids are powerful but add complexity.
+            </li>
+            <li>
+              Test <code>dense</code> placement — it can reorder items which may
+              affect source order semantics (a11y).
+            </li>
+            <li>
+              When using <code>subgrid</code>, verify browser support for your
+              target audience.
+            </li>
+          </ul>
+        </section>
+
+        <hr />
+
+        <section id="patterns">
+          <h2>Common Grid Patterns</h2>
+
+          <h3>Holy Grail Layout</h3>
+          <pre><code>.container {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+  min-height: 100vh;
+  gap: 1rem;
+}</code></pre>
+
+          <h3>Responsive Card Grid</h3>
+          <pre><code>.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards automatically wrap and resize! */</code></pre>
+
+          <h3>12-Column Grid System</h3>
+          <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.col-6  { grid-column: span 6; }  /* Half width */
+.col-4  { grid-column: span 4; }  /* Third width */
+.col-12 { grid-column: span 12; } /* Full width */</code></pre>
+
+          <h3>Image Gallery</h3>
+          <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 10px;
+}
+
+.gallery-item {
+  /* Span random sizes for masonry effect */
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}</code></pre>
+
+          <h3>Center Everything</h3>
+          <pre><code>.container {
+  display: grid;
+  place-items: center;  /* Shorthand for justify-items + align-items */
+  min-height: 100vh;
+}</code></pre>
+        </section>
+
+        <hr />
+
+        <div
+          class="tip"
+          style="background: #e7f3ff; border-left-color: #2196f3"
+        >
+          <strong>🚀 Ready to Practice?</strong>
+          <p>
+            Now that you understand CSS Grid, open your
+            <code>phase2-grid.css</code> file and build those complex layouts!
+            Grid is incredibly powerful for creating responsive, two-dimensional
+            layouts!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const slider = document.getElementById("demoWidth");
+        const wrap = document.getElementById("demoWrap");
+        const label = document.getElementById("demoWidthLabel");
+        if (!slider || !wrap) return;
+
+        // initialize label and wrap width
+        const setWidth = (v) => {
+          wrap.style.width = v + "px";
+          if (label) label.textContent = v + "px";
+        };
+
+        setWidth(slider.value);
+
+        slider.addEventListener("input", (e) => {
+          setWidth(e.target.value);
+        });
+      })();
+    </script>
+  </body>
+</html>

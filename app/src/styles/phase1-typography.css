@@ -1,0 +1,655 @@
+/* ============================================
+   PHASE 1.3: TYPOGRAPHY EXERCISES
+   ============================================
+   
+   Typography CSS Naming Convention: .typo-*
+   
+   IMPORTANT: This CSS file contains UNSOLVED exercises!
+   Students will add typography properties (font-family, font-size, etc.).
+   All decorative styling (colors, backgrounds, spacing) is pre-filled.
+   
+   ============================================ */
+
+/* ============================================
+   EXERCISE 1: Font Family
+   ============================================
+   
+   GOAL: Apply different font families
+   
+   CONCEPTS INTRODUCED:
+   - font-family property specifies typeface
+   - Font stacks provide fallbacks
+   - Generic families (serif, sans-serif, monospace)
+   
+   WHY THIS MATTERS:
+   Font choice dramatically affects readability and brand.
+   Different fonts create different moods and styles.
+   
+   ============================================ */
+
+.typo-font-families {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.typo-serif {
+  /* 
+   * TODO: Add serif font family
+   * HINT: font-family: Georgia, serif;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-size: 18px;
+  margin: 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.typo-sans-serif {
+  /* 
+   * TODO: Add sans-serif font family
+   * HINT: font-family: Arial, sans-serif;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-size: 18px;
+  margin: 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.typo-monospace {
+  /* 
+   * TODO: Add monospace font family
+   * HINT: font-family: "Courier New", monospace;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-size: 16px;
+  margin: 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 2: Font Size
+   ============================================
+   
+   GOAL: Create a size hierarchy
+   
+   CONCEPTS INTRODUCED:
+   - font-size controls text size
+   - Creating visual hierarchy with size
+   - Common sizes: 12px, 16px, 24px, 32px
+   
+   WHY THIS MATTERS:
+   Size hierarchy guides readers through content.
+   Larger text draws attention, smaller provides detail.
+   
+   ============================================ */
+
+.typo-size-hierarchy {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.typo-small {
+  /* 
+   * TODO: Set font size to 12px
+   * HINT: font-size: 12px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #666;
+}
+
+.typo-body {
+  /* 
+   * TODO: Set font size to 16px
+   * HINT: font-size: 16px;
+   */
+}
+
+.typo-subheading {
+  /* 
+   * TODO: Set font size to 24px
+   * HINT: font-size: 24px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-weight: 600;
+}
+
+.typo-heading {
+  /* 
+   * TODO: Set font size to 32px
+   * HINT: font-size: 32px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-weight: 700;
+}
+
+/* ============================================
+   EXERCISE 3: Font Weight
+   ============================================
+   
+   GOAL: Use font-weight for emphasis
+   
+   CONCEPTS INTRODUCED:
+   - font-weight: 300 (light), 400 (normal), 500 (medium),
+     600 (semi-bold), 700 (bold)
+   - Creating emphasis without size
+   
+   WHY THIS MATTERS:
+   Weight creates hierarchy and draws attention.
+   Essential for headings, buttons, and emphasis.
+   
+   ============================================ */
+
+.typo-weights {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.typo-light {
+  /* 
+   * TODO: Set font weight to 300
+   * HINT: font-weight: 300;
+   */
+}
+
+.typo-normal {
+  /* 
+   * TODO: Set font weight to 400
+   * HINT: font-weight: 400;
+   */
+}
+
+.typo-medium {
+  /* 
+   * TODO: Set font weight to 500
+   * HINT: font-weight: 500;
+   */
+}
+
+.typo-semibold {
+  /* 
+   * TODO: Set font weight to 600
+   * HINT: font-weight: 600;
+   */
+}
+
+.typo-bold {
+  /* 
+   * TODO: Set font weight to 700
+   * HINT: font-weight: 700;
+   */
+}
+
+/* ============================================
+   EXERCISE 4: Font Style
+   ============================================
+   
+   GOAL: Apply italic styling
+   
+   CONCEPTS INTRODUCED:
+   - font-style: normal, italic
+   - Italic for emphasis and quotes
+   
+   WHY THIS MATTERS:
+   Italics provide subtle emphasis and stylistic variation.
+   Common for quotes, book titles, and foreign words.
+   
+   ============================================ */
+
+.typo-styles {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.typo-normal-style {
+  /* 
+   * TODO: Set font style to normal
+   * HINT: font-style: normal;
+   */
+}
+
+.typo-italic {
+  /* 
+   * TODO: Set font style to italic
+   * HINT: font-style: italic;
+   */
+}
+
+/* ============================================
+   EXERCISE 5: Line Height
+   ============================================
+   
+   GOAL: Understand line-height for readability
+   
+   CONCEPTS INTRODUCED:
+   - line-height controls vertical space between lines
+   - 1.2 (tight), 1.6 (comfortable), 2.5 (loose)
+   - Unitless values recommended
+   
+   WHY THIS MATTERS:
+   Line height is critical for readability.
+   Too tight is cramped, too loose is disconnected.
+   
+   ============================================ */
+
+.typo-line-heights {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.typo-line-group {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  max-width: 200px;
+}
+
+.typo-line-group strong {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: block;
+  margin-bottom: 8px;
+}
+
+.typo-tight {
+  /* 
+   * TODO: Set line height to 1.2
+   * HINT: line-height: 1.2;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  margin: 0;
+}
+
+.typo-comfortable {
+  /* 
+   * TODO: Set line height to 1.6
+   * HINT: line-height: 1.6;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  margin: 0;
+}
+
+.typo-loose {
+  /* 
+   * TODO: Set line height to 2.5
+   * HINT: line-height: 2.5;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  margin: 0;
+}
+
+/* ============================================
+   EXERCISE 6: Text Alignment
+   ============================================
+   
+   GOAL: Align text horizontally
+   
+   CONCEPTS INTRODUCED:
+   - text-align: left, center, right, justify
+   - Different alignments for different purposes
+   
+   WHY THIS MATTERS:
+   Alignment affects readability and layout.
+   Left is standard, center for headings, justify for columns.
+   
+   ============================================ */
+
+.typo-alignments {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.typo-left {
+  /* 
+   * TODO: Set text alignment to left
+   * HINT: text-align: left;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.typo-center {
+  /* 
+   * TODO: Set text alignment to center
+   * HINT: text-align: center;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.typo-right {
+  /* 
+   * TODO: Set text alignment to right
+   * HINT: text-align: right;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.typo-justify {
+  /* 
+   * TODO: Set text alignment to justify
+   * HINT: text-align: justify;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 7: Text Decoration
+   ============================================
+   
+   GOAL: Add decorative lines to text
+   
+   CONCEPTS INTRODUCED:
+   - text-decoration: none, underline, overline, line-through
+   - Common uses: links (underline), strikethrough (deleted)
+   
+   WHY THIS MATTERS:
+   Decoration communicates meaning (underline = link, 
+   line-through = sale price, etc.)
+   
+   ============================================ */
+
+.typo-decorations {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.typo-none {
+  /* 
+   * TODO: Set text decoration to none
+   * HINT: text-decoration: none;
+   */
+}
+
+.typo-underline {
+  /* 
+   * TODO: Set text decoration to underline
+   * HINT: text-decoration: underline;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #667eea;
+}
+
+.typo-overline {
+  /* 
+   * TODO: Set text decoration to overline
+   * HINT: text-decoration: overline;
+   */
+}
+
+.typo-linethrough {
+  /* 
+   * TODO: Set text decoration to line-through
+   * HINT: text-decoration: line-through;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #999;
+}
+
+/* ============================================
+   EXERCISE 8: Text Transform
+   ============================================
+   
+   GOAL: Control capitalization
+   
+   CONCEPTS INTRODUCED:
+   - text-transform: none, uppercase, lowercase, capitalize
+   - Changes display without changing HTML
+   
+   WHY THIS MATTERS:
+   Transform allows styling without editing content.
+   Uppercase for buttons, capitalize for titles.
+   
+   ============================================ */
+
+.typo-transforms {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.typo-transform-none {
+  /* 
+   * TODO: Set text transform to none
+   * HINT: text-transform: none;
+   */
+}
+
+.typo-uppercase {
+  /* 
+   * TODO: Set text transform to uppercase
+   * HINT: text-transform: uppercase;
+   */
+}
+
+.typo-lowercase {
+  /* 
+   * TODO: Set text transform to lowercase
+   * HINT: text-transform: lowercase;
+   */
+}
+
+.typo-capitalize {
+  /* 
+   * TODO: Set text transform to capitalize
+   * HINT: text-transform: capitalize;
+   */
+}
+
+/* ============================================
+   EXERCISE 9: Letter Spacing
+   ============================================
+   
+   GOAL: Adjust character spacing
+   
+   CONCEPTS INTRODUCED:
+   - letter-spacing controls space between characters
+   - Negative values tighten, positive values open
+   - Use em units for scaling
+   
+   WHY THIS MATTERS:
+   Spacing affects readability and style.
+   Wide spacing for uppercase titles, tight for large headings.
+   
+   ============================================ */
+
+.typo-letter-spacing {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+}
+
+.typo-spacing-normal {
+  /* 
+   * TODO: Set letter spacing to normal
+   * HINT: letter-spacing: normal;
+   */
+}
+
+.typo-spacing-tight {
+  /* 
+   * TODO: Set letter spacing to -0.02em
+   * HINT: letter-spacing: -0.02em;
+   */
+}
+
+.typo-spacing-open {
+  /* 
+   * TODO: Set letter spacing to 0.05em
+   * HINT: letter-spacing: 0.05em;
+   */
+}
+
+.typo-spacing-wide {
+  /* 
+   * TODO: Set letter spacing to 0.15em and text transform to uppercase
+   * HINT: letter-spacing: 0.15em; text-transform: uppercase;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  font-size: 16px;
+}
+
+/* ============================================
+   EXERCISE 10: Complete Typography
+   ============================================
+   
+   GOAL: Create professional article typography
+   
+   CONCEPTS INTRODUCED:
+   - Combining all typography properties
+   - Creating hierarchy and readability
+   - Professional typography patterns
+   
+   WHY THIS MATTERS:
+   Real-world typography uses all these properties together.
+   This is how professional content looks polished.
+   
+   YOUR TASK:
+   Style an article with:
+   - Heading: large, bold, sans-serif
+   - Meta info: small, uppercase, spaced
+   - Body: readable serif, comfortable line-height
+   
+   ============================================ */
+
+.typo-article {
+  /* 
+   * TODO: Add article container styles:
+   * - max-width: 600px;
+   * - margin: 0 auto;
+   * - padding: 32px;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.typo-article-title {
+  /* 
+   * TODO: Style the heading:
+   * - font-family: Arial, sans-serif;
+   * - font-size: 32px;
+   * - font-weight: 700;
+   * - line-height: 1.2;
+   * - letter-spacing: -0.02em;
+   * - margin: 0 0 8px 0;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #667eea;
+}
+
+.typo-article-meta {
+  /* 
+   * TODO: Style the meta info:
+   * - font-family: Arial, sans-serif;
+   * - font-size: 14px;
+   * - font-weight: 500;
+   * - text-transform: uppercase;
+   * - letter-spacing: 0.1em;
+   * - margin: 0 0 24px 0;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #999;
+}
+
+.typo-article-text {
+  /* 
+   * TODO: Style body paragraphs:
+   * - font-family: Georgia, serif;
+   * - font-size: 18px;
+   * - line-height: 1.6;
+   */
+
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+.typo-article-text:last-child {
+  /* ✅ Pre-filled styling (not part of the exercise) */
+  margin-bottom: 0;
+}
+
+/* ============================================
+   🎉 CONGRATULATIONS!
+   ============================================
+   
+   You've completed all 10 Typography exercises!
+   
+   YOU NOW KNOW:
+   ✓ How to use font families (serif, sans-serif, monospace)
+   ✓ Creating size hierarchy with font-size
+   ✓ Using font-weight for emphasis
+   ✓ Applying italic with font-style
+   ✓ Controlling readability with line-height
+   ✓ Aligning text (left, center, right, justify)
+   ✓ Adding text decorations (underline, line-through)
+   ✓ Transforming capitalization
+   ✓ Adjusting letter spacing
+   ✓ Combining properties for professional typography
+   
+   NEXT STEPS:
+   - Explore web fonts (Google Fonts, Adobe Fonts)
+   - Learn about responsive typography (clamp, viewport units)
+   - Study typography scales and modular scales
+   - Practice creating complete design systems
+   
+   ============================================ */

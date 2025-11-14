@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Practice</title>
+  </head>
+  <body>
+    <h1>CSS Practice Roadmap</h1>
+
+    <section>
+      <h2>Phase 1: Fundamentals (Weeks 1-4)</h2>
+      <ul>
+        <li>
+          <a href="/phase1-selectors/phase1-selectors.html"
+            >Phase 1.1 - Selectors & Specificity</a
+          >
+        </li>
+        <li>
+          <a href="/phase1-box-model/phase1-box-model.html"
+            >Phase 1.2 - Box Model & Display</a
+          >
+        </li>
+        <li>
+          <a href="/phase1-typography/phase1-typography.html"
+            >Phase 1.3 - Colors & Typography</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Phase 2: Layout Fundamentals (Weeks 5-6)</h2>
+      <ul>
+        <li>
+          <a href="/phase2-flexbox/phase2-flexbox.html">Phase 2.1 - Flexbox</a>
+        </li>
+        <li>
+          <a href="/phase2-grid/phase2-grid.html">Phase 2.2 - CSS Grid</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="coming-soon">
+      <h2>Coming Soon</h2>
+      <ul>
+        <li><span>Phase 3 - Responsive Design</span></li>
+        <li><span>Phase 4 - Advanced Styling</span></li>
+        <li><span>Phase 5 - Modern CSS</span></li>
+        <li><span>Phase 6 - Architecture & Patterns</span></li>
+        <li><span>Phase 7 - Advanced Professional</span></li>
+        <li><span>Phase 8 - Cutting Edge</span></li>
+      </ul>
+    </section>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: #34495e;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 30px;
+      }
+      section {
+        background: white;
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 12px 0;
+      }
+      a {
+        display: block;
+        padding: 15px 20px;
+        background: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+      a:hover {
+        background: #2980b9;
+        transform: translateX(5px);
+      }
+      .coming-soon span {
+        display: block;
+        padding: 15px 20px;
+        background: #95a5a6;
+        color: white;
+        border-radius: 8px;
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    </style>
+  </body>
+</html>

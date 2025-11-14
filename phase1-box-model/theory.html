@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Model & Display - Theory Guide</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .content {
+        padding: 3rem 2.5rem;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        border-left: 4px solid #11998e;
+      }
+
+      .toc h2 {
+        color: #11998e;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .toc ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .toc li a {
+        color: #495057;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        border-radius: 6px;
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .toc li a:hover {
+        background: #11998e;
+        color: white;
+        transform: translateX(4px);
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      h2 {
+        color: #11998e;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #11998e;
+      }
+
+      h3 {
+        color: #495057;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+      }
+
+      h4 {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+      }
+
+      code {
+        background: #f8f9fa;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border-left: 4px solid #11998e;
+        line-height: 1.6;
+      }
+
+      pre code {
+        background: none;
+        padding: 0;
+        color: #ecf0f1;
+        font-size: 0.95rem;
+      }
+
+      .tip {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .tip strong {
+        color: #856404;
+        font-size: 1.1rem;
+      }
+
+      .tip p,
+      .tip ul {
+        margin-top: 0.5rem;
+        color: #856404;
+      }
+
+      .example {
+        background: #e7f3ff;
+        border-left: 4px solid #2196f3;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .visual {
+        background: #f8f9fa;
+        border: 2px solid #dee2e6;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        font-family: monospace;
+        text-align: center;
+      }
+
+      ul,
+      ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        color: #495057;
+        font-weight: 600;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #e9ecef;
+        margin: 3rem 0;
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .comparison-box {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 2px solid #dee2e6;
+      }
+
+      .comparison-box h4 {
+        margin-top: 0;
+        color: #11998e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📦 CSS Box Model & Display</h1>
+        <p>Essential Theory Guide</p>
+      </div>
+
+      <div class="content">
+        <div class="toc">
+          <h2>📚 Table of Contents</h2>
+          <ul>
+            <li><a href="#box-model">The Box Model</a></li>
+            <li><a href="#box-sizing">Box-Sizing</a></li>
+            <li><a href="#display">Display Properties</a></li>
+            <li><a href="#dimensions">Width & Height</a></li>
+            <li><a href="#overflow">Overflow</a></li>
+            <li><a href="#margin-collapse">Margin Collapse</a></li>
+          </ul>
+        </div>
+
+        <section id="box-model">
+          <h2>The Box Model</h2>
+          <p>Every element in CSS is a rectangular box with four layers:</p>
+
+          <div class="visual">
+            <pre>
+┌─────────────────────────────────────┐
+│        MARGIN (transparent)          │
+│  ┌───────────────────────────────┐  │
+│  │      BORDER                    │  │
+│  │  ┌─────────────────────────┐  │  │
+│  │  │    PADDING              │  │  │
+│  │  │  ┌───────────────────┐  │  │  │
+│  │  │  │    CONTENT        │  │  │  │
+│  │  │  │  (text, images)   │  │  │  │
+│  │  │  └───────────────────┘  │  │  │
+│  │  └─────────────────────────┘  │  │
+│  └───────────────────────────────┘  │
+└─────────────────────────────────────┘</pre
+            >
+          </div>
+
+          <h3>1. Content</h3>
+          <p>The actual content of the element (text, images, etc.)</p>
+          <pre><code>div {
+  width: 200px;   /* Content width */
+  height: 100px;  /* Content height */
+}</code></pre>
+
+          <h3>2. Padding</h3>
+          <p>
+            Space between content and border. <strong>Inside</strong> the
+            element.
+          </p>
+          <pre><code>div {
+  padding: 20px;  /* All sides */
+  padding: 10px 20px;  /* Vertical | Horizontal */
+  padding: 10px 20px 30px;  /* Top | H | Bottom */
+  padding: 10px 20px 30px 40px;  /* T R B L (clockwise) */
+  
+  /* Individual sides */
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}</code></pre>
+
+          <div class="tip">
+            <strong>✅ Padding Facts:</strong>
+            <ul>
+              <li>Background color/image extends into padding</li>
+              <li>Padding is transparent but shows background</li>
+              <li>Adds to total element size (by default)</li>
+              <li>Cannot be negative</li>
+            </ul>
+          </div>
+
+          <h3>3. Border</h3>
+          <p>Line around the padding and content.</p>
+          <pre><code>div {
+  border: 2px solid black;  /* width | style | color */
+  
+  /* Individual properties */
+  border-width: 2px;
+  border-style: solid;  /* solid, dashed, dotted, etc. */
+  border-color: black;
+  border-radius: 8px;  /* Rounded corners */
+  
+  /* Individual sides */
+  border-top: 1px solid red;
+  border-right: 2px dashed blue;
+}</code></pre>
+
+          <h3>4. Margin</h3>
+          <p>
+            Space <strong>outside</strong> the border. Separates elements from
+            each other.
+          </p>
+          <pre><code>div {
+  margin: 20px;  /* All sides */
+  margin: 10px 20px;  /* Vertical | Horizontal */
+  margin: 0 auto;  /* Center block element */
+  
+  /* Individual sides */
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}</code></pre>
+
+          <div class="tip">
+            <strong>✅ Margin Facts:</strong>
+            <ul>
+              <li>Always transparent (no background)</li>
+              <li>Can be negative (overlapping)</li>
+              <li>Vertical margins collapse (see below)</li>
+              <li>Use <code>margin: 0 auto</code> to center</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="box-sizing">
+          <h2>Box-Sizing Property</h2>
+          <p>Controls how total width/height is calculated.</p>
+
+          <div class="comparison">
+            <div class="comparison-box">
+              <h4>content-box (default)</h4>
+              <p>Width/height = content only</p>
+              <pre><code>box-sizing: content-box;
+
+/* If width: 200px */
+Total = 200px (content)
+      + padding
+      + border</code></pre>
+            </div>
+
+            <div class="comparison-box">
+              <h4>border-box (recommended)</h4>
+              <p>Width/height = content + padding + border</p>
+              <pre><code>box-sizing: border-box;
+
+/* If width: 200px */
+Total = 200px (includes 
+        content + padding 
+        + border)</code></pre>
+            </div>
+          </div>
+
+          <div class="tip">
+            <strong>💡 Best Practice:</strong>
+            <p>Always use <code>border-box</code> globally:</p>
+            <pre><code>* {
+  box-sizing: border-box;
+}</code></pre>
+          </div>
+
+          <div class="example">
+            <h4>Example Calculation</h4>
+            <pre><code>.box {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+}
+
+/* content-box: */
+Total width = 200 + 40 (padding) + 10 (border) = 250px
+
+/* border-box: */
+Total width = 200px (everything included)</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="display">
+          <h2>Display Properties</h2>
+
+          <h3>display: block</h3>
+          <p>
+            Takes full width available, starts on new line. Can set
+            width/height.
+          </p>
+          <pre><code>/* Examples: div, p, h1-h6, section, article, header, footer */
+display: block;</code></pre>
+          <ul>
+            <li>✅ Takes full width by default</li>
+            <li>✅ Starts on new line</li>
+            <li>✅ Can set width and height</li>
+            <li>✅ Respects all margin/padding</li>
+          </ul>
+
+          <h3>display: inline</h3>
+          <p>
+            Flows with text, takes only content width. Cannot set width/height.
+          </p>
+          <pre><code>/* Examples: span, a, strong, em, code */
+display: inline;</code></pre>
+          <ul>
+            <li>✅ Flows with text</li>
+            <li>❌ Cannot set width/height</li>
+            <li>⚠️ Only respects left/right margin/padding</li>
+            <li>⚠️ Ignores top/bottom margin</li>
+          </ul>
+
+          <h3>display: inline-block</h3>
+          <p>Best of both: flows inline but can set dimensions.</p>
+          <pre><code>/* Great for: buttons, navigation items */
+display: inline-block;</code></pre>
+          <ul>
+            <li>✅ Flows inline (side by side)</li>
+            <li>✅ Can set width and height</li>
+            <li>✅ Respects all margin/padding</li>
+          </ul>
+
+          <h3>display: none</h3>
+          <p>Removes element completely from layout (doesn't take up space).</p>
+          <pre><code>display: none;  /* Element invisible and takes no space */</code></pre>
+
+          <h3>visibility: hidden</h3>
+          <p>Hides element but keeps its space in layout.</p>
+          <pre><code>visibility: hidden;  /* Invisible but keeps space */</code></pre>
+
+          <div class="comparison">
+            <div class="comparison-box">
+              <h4>display: none</h4>
+              <p>Removes from layout flow</p>
+              <pre><code>[Box1] [Box3]
+/* Box2 gone */</code></pre>
+            </div>
+
+            <div class="comparison-box">
+              <h4>visibility: hidden</h4>
+              <p>Hides but keeps space</p>
+              <pre><code>[Box1] [    ] [Box3]
+/* Box2 hidden but space remains */</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="dimensions">
+          <h2>Width, Height & Sizing</h2>
+
+          <h3>Units</h3>
+          <pre><code>width: 300px;      /* Fixed pixels */
+width: 50%;        /* Percentage of parent */
+width: auto;       /* Default, fits content */
+width: 100vw;      /* Viewport width */
+width: 20rem;      /* Relative to root font-size */
+width: 10em;       /* Relative to element font-size */</code></pre>
+
+          <h3>Min & Max Constraints</h3>
+          <pre><code>min-width: 200px;   /* Never smaller than 200px */
+max-width: 1200px;  /* Never larger than 1200px */
+min-height: 100vh;  /* At least full viewport height */
+max-height: 500px;  /* Cap height at 500px */</code></pre>
+
+          <div class="example">
+            <h4>Responsive Container Pattern</h4>
+            <pre><code>.container {
+  max-width: 1200px;  /* Don't exceed 1200px */
+  margin: 0 auto;     /* Center horizontally */
+  padding: 0 20px;    /* Breathing room on sides */
+}</code></pre>
+          </div>
+
+          <div class="tip">
+            <strong>💡 Pro Tip:</strong>
+            <p>
+              Use <code>max-width</code> instead of <code>width</code> for
+              responsive containers. It allows elements to shrink on smaller
+              screens.
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="overflow">
+          <h2>Overflow</h2>
+          <p>Controls what happens when content exceeds element's box.</p>
+
+          <h3>Overflow Values</h3>
+          <pre><code>overflow: visible;  /* Default - content overflows */
+overflow: hidden;   /* Clip overflow content */
+overflow: scroll;   /* Always show scrollbars */
+overflow: auto;     /* Scrollbars only when needed */
+
+/* Individual axes */
+overflow-x: auto;   /* Horizontal only */
+overflow-y: scroll; /* Vertical only */</code></pre>
+
+          <div class="example">
+            <h4>Common Patterns</h4>
+            <pre><code>/* Full height page */
+.page {
+  min-height: 100vh;
+}
+
+/* Scrollable chat area */
+.chat {
+  height: 400px;
+  overflow-y: auto;
+}
+
+/* Horizontal scroll for wide tables */
+.table-wrapper {
+  overflow-x: auto;
+}</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="margin-collapse">
+          <h2>Margin Collapse</h2>
+          <p>
+            When two vertical margins meet, they <strong>collapse</strong> to
+            the larger margin (not the sum).
+          </p>
+
+          <div class="example">
+            <h4>Example</h4>
+            <pre><code>.box1 {
+  margin-bottom: 30px;
+}
+
+.box2 {
+  margin-top: 20px;
+}
+
+/* Gap between boxes = 30px (NOT 50px!) */
+/* The larger margin wins */</code></pre>
+          </div>
+
+          <h3>When Margins Collapse</h3>
+          <ul>
+            <li>✅ Adjacent siblings (vertical only)</li>
+            <li>✅ Parent and first/last child (if no padding/border)</li>
+            <li>✅ Empty blocks</li>
+          </ul>
+
+          <h3>When Margins DON'T Collapse</h3>
+          <ul>
+            <li>❌ Horizontal margins (left/right)</li>
+            <li>❌ Elements with padding or border between them</li>
+            <li>❌ Floated or absolutely positioned elements</li>
+            <li>❌ Flexbox or Grid children</li>
+            <li>❌ Inline-block elements</li>
+          </ul>
+
+          <div class="tip">
+            <strong>💡 Preventing Margin Collapse:</strong>
+            <ul>
+              <li>Add <code>padding: 1px</code> to parent</li>
+              <li>Add <code>border: 1px solid transparent</code> to parent</li>
+              <li>Use <code>display: flex</code> on parent</li>
+              <li>Use padding instead of margin</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr />
+
+        <div
+          class="tip"
+          style="background: #e7f3ff; border-left-color: #2196f3"
+        >
+          <strong>🚀 Ready to Practice?</strong>
+          <p>
+            Now that you understand the box model, open your
+            <code>phase1-box-model.css</code> file and build that card
+            component! Remember: <code>box-sizing: border-box</code> is your
+            friend!
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,734 @@
+/* ============================================
+   PHASE 1.3: COLORS & TYPOGRAPHY PRACTICE
+   ============================================
+   
+   Learning Objectives:
+   - Master different color formats
+   - Understand opacity and transparency
+   - Work with font properties
+   - Control text properties
+   - Build a typography system
+   
+   Project: Create a complete typography style guide
+============================================ */
+
+/* ============================================
+   BASE & LAYOUT STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .section {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body.dark-mode .toc {
+  background: #2d2d2d;
+  border-right: 1px solid #444;
+}
+
+body.dark-mode .toc-nav a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .toc-nav a:hover {
+  background: #3a3a3a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #f39c12;
+}
+
+/* TOC Sidebar */
+.toc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.toc-header {
+  padding: 20px;
+  border-bottom: 2px solid #f39c12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toc-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+/* Theory Modal */
+.theory-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.theory-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.theory-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+.theory-modal.show .theory-modal-content {
+  transform: scale(1);
+}
+
+.theory-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.theory-modal-close:hover {
+  background: #c0392b;
+  transform: rotate(90deg);
+}
+
+.theory-modal-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.theory-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.theory-btn {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s;
+}
+
+.theory-btn:hover {
+  background: #8e44ad;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+}
+
+.toc-nav {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.toc-nav a {
+  display: block;
+  padding: 12px 20px;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.toc-nav a:hover {
+  background: #ecf0f1;
+  border-left-color: #f39c12;
+}
+
+.toc-nav a.completed {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.toc-nav a .check {
+  display: inline-block;
+  width: 20px;
+  font-weight: bold;
+  color: #95a5a6;
+}
+
+.toc-nav a.completed .check {
+  color: #27ae60;
+}
+
+.toc-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.home-link {
+  display: block;
+  padding: 12px 20px;
+  background: #95a5a6;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.home-link:hover {
+  background: #7f8c8d;
+}
+
+.next-phase {
+  display: block;
+  padding: 12px 20px;
+  background: #3498db;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.next-phase:hover {
+  background: #2980b9;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  background: #f39c12;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.section {
+  background: white;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  scroll-margin-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-header h2 {
+  margin: 0;
+  color: #f39c12;
+}
+
+.mark-complete {
+  padding: 8px 16px;
+  background: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.mark-complete:hover {
+  background: #e67e22;
+  transform: translateY(-1px);
+}
+
+.mark-complete.completed {
+  background: #27ae60;
+}
+
+.mark-complete.completed:hover {
+  background: #229954;
+}
+
+.site-footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+/* ============================================
+   EXERCISE 1: COLOR FORMATS
+   ============================================ */
+
+/* TODO: Style color boxes using different color formats
+   Experiment with hex, rgb, rgba, hsl, hsla, and named colors.
+   Each box should demonstrate its respective color format clearly.
+*/
+
+/* TODO: Create opacity variations
+   Style .opacity-100, .opacity-75, .opacity-50, .opacity-25
+   Use the opacity property OR rgba/hsla colors
+*/
+
+/* TODO: Create a color scheme
+   Define colors for: .primary, .secondary, .success, .warning, .danger, .info
+   Choose colors that work well together and communicate their purpose
+*/
+
+/* ============================================
+   EXERCISE 2: FONT FAMILIES
+   ============================================ */
+
+/* TODO: Apply different font families
+   .font-sans - Use the Inter font (already loaded via Google Fonts)
+   .font-serif - Use the Merriweather font
+   .font-mono - Use the Fira Code font
+   .font-system - Create a system font stack
+   
+   Hint: System font stack example:
+   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+*/
+
+/* ============================================
+   EXERCISE 3: FONT SIZING
+   ============================================ */
+
+/* TODO: Create a font size scale
+   .size-small - 0.875rem
+   .size-base - 1rem (default)
+   .size-large - 1.25rem
+   .size-xlarge - 1.5rem
+   .size-display - 3rem
+   
+   Remember: 1rem = 16px by default
+*/
+
+/* ============================================
+   EXERCISE 4: FONT WEIGHT & STYLE
+   ============================================ */
+
+/* TODO: Apply different font weights
+   .weight-normal - 400
+   .weight-medium - 500
+   .weight-semibold - 600
+   .weight-bold - 700
+*/
+
+/* TODO: Apply font styles
+   .style-normal - normal
+   .style-italic - italic
+   .style-oblique - oblique
+*/
+
+/* ============================================
+   EXERCISE 5: TEXT ALIGNMENT
+   ============================================ */
+
+/* TODO: Create text alignment variations
+   .align-left, .align-center, .align-right, .align-justify
+*/
+
+/* ============================================
+   EXERCISE 6: TEXT DECORATION
+   ============================================ */
+
+/* TODO: Apply text decorations
+   .decoration-none, .decoration-underline, 
+   .decoration-overline, .decoration-line-through
+*/
+
+/* ============================================
+   EXERCISE 7: TEXT TRANSFORM
+   ============================================ */
+
+/* TODO: Apply text transformations
+   .transform-none, .transform-uppercase,
+   .transform-lowercase, .transform-capitalize
+*/
+
+/* ============================================
+   EXERCISE 8: LINE HEIGHT & SPACING
+   ============================================ */
+
+/* TODO: Create line height variations
+   .line-height-tight - 1.2
+   .line-height-normal - 1.5
+   .line-height-loose - 2.0
+   
+   Line height is crucial for readability!
+*/
+
+/* TODO: Apply letter spacing
+   .spacing-tight - Negative value
+   .spacing-normal - 0 or normal
+   .spacing-loose - Small positive value
+   .spacing-wide - Larger positive value
+*/
+
+/* TODO: Apply word spacing
+   .word-spacing-normal - normal
+   .word-spacing-wide - Positive value
+*/
+
+/* ============================================
+   EXERCISE 9: ADVANCED EFFECTS
+   ============================================ */
+
+/* TODO: Create text shadow effects
+   .shadow-subtle - Soft, barely visible shadow
+   .shadow-hard - Sharp, distinct shadow
+   .shadow-glow - Glowing effect (use blur radius)
+   .shadow-multiple - Multiple shadows for depth
+   
+   Syntax: text-shadow: x y blur color;
+*/
+
+/* TODO: Handle text overflow
+   .overflow-ellipsis - Show ... when text is too long
+   Requires: white-space: nowrap, overflow: hidden, text-overflow: ellipsis
+   
+   .overflow-clip - Just clip the text
+*/
+
+/* TODO: Vertical alignment (for inline elements)
+   .valign-baseline, .valign-top, .valign-middle, 
+   .valign-bottom, .valign-text-bottom
+*/
+
+/* ============================================
+   PROJECT: TYPOGRAPHY STYLE GUIDE
+   ============================================
+   
+   Build a complete, cohesive typography system!
+   Think about hierarchy, readability, and visual harmony.
+============================================ */
+
+/* TODO: Style heading hierarchy
+   .display-heading - Largest, most impactful
+   .main-heading - Primary section headings (H2)
+   .sub-heading - Secondary headings (H3)
+   .section-heading - Tertiary headings (H4)
+   
+   Consider: font-family, size, weight, color, spacing, line-height
+*/
+
+/* TODO: Style paragraph variations
+   .lead-paragraph - Intro/lead text, larger and bolder
+   .body-text - Regular paragraph text
+   .small-text - Small text for captions/notes
+*/
+
+/* TODO: Style blockquotes
+   .quote-block - Make quotes stand out
+   Consider: borders, padding, font-style, color, background
+   
+   cite element - Style the attribution
+*/
+
+/* TODO: Style inline text elements
+   .text-bold - Strong emphasis
+   .text-italic - Subtle emphasis
+   .text-highlight - Background highlight effect
+   .text-link - Link styling (consider hover states!)
+   .inline-code - Inline code snippets
+*/
+
+/* TODO: Style lists
+   .styled-list - Enhanced list styling
+   Consider: list-style, spacing, colors, custom markers
+*/
+
+/* TODO: Create color palette display
+   .palette - Container for color swatches
+   .palette-item - Individual color blocks
+   .palette-dark, .palette-primary, .palette-accent, .palette-light
+   
+   Make them visually appealing with good sizing and labels
+*/
+
+/* ============================================
+   BASE STYLES
+============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fafafa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section {
+  background: white;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.section h3 {
+  margin: 2rem 0 1rem;
+  color: #34495e;
+  font-size: 1.25rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.site-header h1 {
+  margin-bottom: 1rem;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+}
+
+/* Helper classes for demo layouts */
+.color-demos,
+.opacity-demo,
+.color-scheme,
+.font-examples,
+.size-examples,
+.weight-examples,
+.style-examples,
+.alignment-examples,
+.decoration-examples,
+.transform-examples,
+.line-height-examples,
+.letter-spacing-examples,
+.word-spacing-examples,
+.text-shadow-examples,
+.text-overflow-examples {
+  margin-bottom: 2rem;
+}
+
+.color-box,
+.opacity-box,
+.scheme-box {
+  padding: 2rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.color-demos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.opacity-demo,
+.color-scheme {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.font-examples > p,
+.size-examples > p,
+.weight-examples > p,
+.style-examples > p,
+.alignment-examples > p,
+.decoration-examples > p,
+.transform-examples > p,
+.line-height-examples > p,
+.letter-spacing-examples > p,
+.word-spacing-examples > p {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+}
+
+.text-overflow-examples > p {
+  max-width: 300px;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  margin-bottom: 1rem;
+}
+
+.vertical-align-demo {
+  font-size: 2rem;
+  line-height: 3;
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+.vertical-align-demo span,
+.vertical-align-demo img {
+  margin: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: #e3f2fd;
+  border: 1px solid #2196f3;
+}
+
+.style-guide {
+  margin-top: 2rem;
+}
+
+.guide-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.palette-item {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

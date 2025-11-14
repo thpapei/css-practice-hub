@@ -1,0 +1,841 @@
+/* ============================================
+   LESSON-SPECIFIC STYLES
+   ============================================ */
+
+/* Import lesson-specific exercise styles */
+@import "./styles/phase1-selectors.css";
+@import "./styles/phase1-boxmodel.css";
+@import "./styles/phase1-typography.css";
+@import "./styles/phase2-positioning.css";
+@import "./styles/phase2-flexbox.css";
+@import "./styles/phase2-grid.css";
+
+:root {
+  --pink: #fa709a;
+  --yellow: #fee140;
+}
+body {
+  font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #222;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-button:hover {
+  background: #f8f9fa;
+  border-color: #fa709a;
+  color: #fa709a;
+  transform: translateX(-2px);
+}
+
+.app-root {
+  display: flex;
+  min-height: 100vh;
+}
+.poc-toc {
+  width: 220px;
+  padding: 18px;
+  background: #fff;
+  border-right: 1px solid #eee;
+}
+.poc-toc h3 {
+  margin: 0 0 12px;
+}
+.poc-toc nav a {
+  display: block;
+  padding: 6px 8px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.poc-toc nav a:hover {
+  background: linear-gradient(90deg, var(--pink), var(--yellow));
+  color: #fff;
+}
+.app-main {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+  height: 100vh;
+  background: #fafafa;
+}
+
+/* Phase container with sticky sidebar */
+.phase-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+  align-items: start;
+}
+
+.phase-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 48px;
+  overflow-y: auto;
+  height: 100%;
+  background: #fff;
+}
+
+/* Sticky lesson sidebar */
+.lesson-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  padding: 32px 24px;
+  border-right: 1px solid #e9ecef;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.04);
+}
+
+.lesson-sidebar h3 {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fa709a;
+}
+
+.lesson-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lesson-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #495057;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  font-weight: 500;
+}
+
+.lesson-link:hover {
+  background: #f8f9fa;
+  border-left-color: #fee140;
+  transform: translateX(2px);
+}
+
+.lesson-link.active {
+  background: linear-gradient(
+    90deg,
+    rgba(250, 112, 154, 0.15),
+    rgba(254, 225, 64, 0.15)
+  );
+  border-left-color: #fa709a;
+  color: #fa709a;
+  font-weight: 700;
+}
+
+.poc-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 3px solid #fa709a;
+  max-width: 1000px;
+}
+
+.poc-header h1 {
+  margin: 0 0 16px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.poc-header .lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #495057;
+  margin-bottom: 20px;
+}
+
+.poc-header h2 {
+  color: #fa709a;
+  font-size: 26px;
+  margin: 48px 0 32px;
+  font-weight: 600;
+}
+
+section h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin: 0 0 24px;
+  font-weight: 700;
+}
+
+.exercise-demo > div {
+  /* Neutral demo container: keep demo markup visible but avoid applying the
+     lesson layout by default. Display as block so items flow naturally. */
+  display: block;
+  margin: 12px 0;
+}
+
+.exercise-demo .grid-item {
+  /* Show items as small readable badges rather than forcing a grid layout.
+     This makes the demo visually pleasant but not 'solved'. */
+  display: inline-block;
+  background: #fa709a;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(250, 112, 154, 0.2);
+  margin: 8px 8px 8px 0;
+  min-width: 60px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.exercise-demo .grid-item:hover {
+  box-shadow: 0 4px 10px rgba(250, 112, 154, 0.3);
+}
+
+/* Exercise card and editor styles */
+.exercise-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 32px 0;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  max-width: 1000px;
+}
+
+.exercise-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(250, 112, 154, 0.3);
+}
+
+.exercise-card .exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.exercise-card .exercise-header h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.mark-complete-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mark-complete-btn:hover {
+  border-color: #fa709a;
+  color: #fa709a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 112, 154, 0.2);
+}
+
+.mark-complete-btn.completed {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.mark-complete-btn.completed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 112, 154, 0.4);
+}
+.exercise-body {
+  /* Single-column layout now that editors/controls are removed */
+  display: block;
+  gap: 0;
+}
+
+.exercise-instructions,
+.instructions {
+  color: #495057;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #fa709a;
+}
+
+.exercise-demo {
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+  background: #fff;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.03);
+  min-height: 240px;
+  display: block;
+}
+.exercise-controls {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+}
+.css-editor {
+  width: 100%;
+  min-height: 140px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+    "Courier New", monospace;
+  font-size: 13px;
+  padding: 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.apply-css,
+.check-ex {
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #2196f3;
+  color: #fff;
+  font-weight: 600;
+}
+.check-ex {
+  background: #28a745;
+  margin-left: 8px;
+}
+.check-result {
+  margin-left: 0.6rem;
+  font-weight: 600;
+}
+
+/* Modal */
+.theory-btn {
+  margin-top: 24px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3);
+  display: inline-block;
+}
+
+.theory-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
+}
+
+.theory-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 60;
+}
+.theory-modal-content {
+  width: 95%;
+  max-width: 1400px;
+  height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.theory-modal-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 70;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.theory-modal-close:hover {
+  background: #fff;
+}
+.theory-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Theory content styles */
+.theory-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.theory-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.theory-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theory-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.theory-body {
+  line-height: 1.7;
+  color: #2c3e50;
+}
+
+.theory-toc {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  border-left: 4px solid #fa709a;
+}
+
+.theory-toc h2 {
+  color: #fa709a;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.theory-toc ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.theory-toc li a {
+  color: #495057;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: white;
+}
+
+.theory-toc li a:hover {
+  background: #fa709a;
+  color: white;
+  transform: translateX(4px);
+}
+
+.theory-body section {
+  margin-bottom: 4rem;
+  scroll-margin-top: 2rem;
+}
+
+.theory-body section:last-child {
+  margin-bottom: 0;
+}
+
+.theory-body h2 {
+  color: #fa709a;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #fee140;
+}
+
+.theory-body h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin: 2rem 0 1rem;
+}
+
+.theory-body h4 {
+  color: #495057;
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.theory-body p {
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.theory-body pre {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.theory-body code {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.theory-body ul,
+.theory-body ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  color: #495057;
+}
+
+.theory-body li {
+  margin-bottom: 0.5rem;
+}
+
+.theory-body strong {
+  color: #fa709a;
+  font-weight: 600;
+}
+
+.warning-box {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.warning-box h4 {
+  color: #856404;
+  margin-top: 0;
+}
+
+.warning-box ul {
+  margin-bottom: 0;
+}
+
+.warning-box li {
+  color: #856404;
+}
+
+/* Area-layout demos: show distinct regions visually without laying them out as a grid */
+.exercise-demo .areas-grid > * {
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  border: 2px solid #dee2e6;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.exercise-demo .area-header {
+  background: #fa709a;
+  color: #fff;
+  border-color: #fa709a;
+}
+.exercise-demo .area-nav {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffc107;
+}
+.exercise-demo .area-main {
+  background: #f8f9fa;
+  color: #495057;
+  border-color: #dee2e6;
+}
+.exercise-demo .area-sidebar {
+  background: #fee140;
+  color: #856404;
+  border-color: #fee140;
+}
+.exercise-demo .area-footer {
+  background: #fa709a;
+  color: #fff;
+  border-color: #fa709a;
+}
+
+/* Specific demo styles so lessons 4/5/6 look styled without applying the true grid solution */
+.exercise-demo .lines-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.exercise-demo .lines-grid .item-a {
+  /* visually span two columns by taking half the width */
+  flex: 0 0 calc(50% - 6px);
+  background: #ff9aa2;
+  color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(255, 154, 162, 0.25);
+}
+.exercise-demo .lines-grid .item-b {
+  /* visually taller */
+  flex: 0 0 calc(33.333% - 8px);
+  min-height: 140px;
+  background: #ffd166;
+  padding: 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #856404;
+  box-shadow: 0 2px 6px rgba(255, 209, 102, 0.25);
+}
+.exercise-demo .lines-grid .item-c,
+.exercise-demo .lines-grid .item-d,
+.exercise-demo .lines-grid .item-e {
+  flex: 0 0 calc(33.333% - 8px);
+  background: #ffd1a9;
+  padding: 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #856404;
+  box-shadow: 0 2px 6px rgba(255, 209, 169, 0.25);
+}
+
+.exercise-demo .span-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.exercise-demo .span-grid .span-item {
+  background: #fa709a;
+  color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  min-width: 100px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(250, 112, 154, 0.25);
+}
+.exercise-demo .span-grid .span-2-col {
+  flex: 0 0 calc(50% - 6px);
+}
+.exercise-demo .span-grid .span-3-col {
+  flex: 0 0 calc(75% - 6px);
+}
+.exercise-demo .span-grid .span-2-row {
+  min-height: 140px;
+}
+
+.exercise-demo .align-grid {
+  display: flex;
+  gap: 16px;
+  min-height: 120px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+.exercise-demo .align-grid.justify-start {
+  justify-content: flex-start;
+}
+.exercise-demo .align-grid.align-center {
+  align-items: center;
+}
+.exercise-demo .align-grid .small-item {
+  background: #fa709a;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(250, 112, 154, 0.2);
+}
+
+@media (max-width: 880px) {
+  .exercise-body {
+    grid-template-columns: 1fr;
+  }
+  .exercise-controls {
+    order: 2;
+  }
+}
+
+/* Hub page styling */
+.hub-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+}
+
+.hub-header {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 720px;
+}
+
+.hub-header h1 {
+  margin: 0 0 16px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hub-header .lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #495057;
+  margin: 0;
+}
+
+.hub-content {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.phase-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Phase card styling */
+.phase-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.phase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(250, 112, 154, 0.3);
+}
+
+.phase-card-active {
+  border-color: #fa709a;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 112, 154, 0.03) 0%,
+    rgba(254, 225, 64, 0.03) 100%
+  );
+}
+
+.phase-card h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.phase-card p {
+  margin: 0 0 24px;
+  color: #495057;
+  font-size: 15px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.phase-card button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #fa709a, #fee140);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3);
+  align-self: flex-start;
+}
+
+.phase-card button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
+}
+
+.phase-card button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #e9ecef;
+  color: #6c757d;
+  box-shadow: none;
+}
+
+.phase-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.phase-card-buttons button {
+  width: 100%;
+}
+
+.poc-header {
+  margin-bottom: 28px;
+}
+
+.poc-header h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+  color: #222;
+}
+
+.poc-header .lead {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}

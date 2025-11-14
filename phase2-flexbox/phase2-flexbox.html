@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 2.1 - Flexbox Practice</title>
+    <link rel="stylesheet" href="phase2-flexbox.css" />
+  </head>
+  <body>
+    <!-- Sidebar TOC -->
+    <aside id="toc" class="toc">
+      <div class="toc-header">
+        <h3>📚 Exercises</h3>
+        <button
+          id="darkModeToggle"
+          class="dark-mode-toggle"
+          title="Toggle Dark Mode"
+        >
+          🌙
+        </button>
+      </div>
+      <nav class="toc-nav">
+        <a href="#ex1" data-exercise="1">
+          <span class="check">☐</span> Ex 1: Basic Flex
+        </a>
+        <a href="#ex2" data-exercise="2">
+          <span class="check">☐</span> Ex 2: Flex Direction
+        </a>
+        <a href="#ex3" data-exercise="3">
+          <span class="check">☐</span> Ex 3: Justify Content
+        </a>
+        <a href="#ex4" data-exercise="4">
+          <span class="check">☐</span> Ex 4: Align Items
+        </a>
+        <a href="#ex5" data-exercise="5">
+          <span class="check">☐</span> Ex 5: Flex Wrap
+        </a>
+        <a href="#ex6" data-exercise="6">
+          <span class="check">☐</span> Ex 6: Flex Properties
+        </a>
+        <a href="#ex7" data-exercise="7">
+          <span class="check">☐</span> Ex 7: Align Self
+        </a>
+        <a href="#ex8" data-exercise="8">
+          <span class="check">☐</span> Ex 8: Order Property
+        </a>
+        <a href="#ex9" data-exercise="9">
+          <span class="check">☐</span> Ex 9: Gap Property
+        </a>
+        <a href="#proj1" data-exercise="10">
+          <span class="check">☐</span> 🎯 Project: Holy Grail
+        </a>
+        <a href="#proj2" data-exercise="11">
+          <span class="check">☐</span> 🎯 Project: Navbar
+        </a>
+      </nav>
+      <div class="toc-footer">
+        <a href="/" class="home-link">← Home</a>
+        <a href="/phase2-grid/phase2-grid.html" class="next-phase"
+          >Next: Grid →</a
+        >
+      </div>
+    </aside>
+
+    <!-- Theory Modal -->
+    <div id="theoryModal" class="theory-modal">
+      <div class="theory-modal-content">
+        <button class="theory-modal-close">&times;</button>
+        <div class="theory-modal-body">
+          <iframe src="theory.html" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="site-header">
+        <h1>Phase 2.1: Flexbox Fundamentals</h1>
+        <button id="openTheoryBtn" class="theory-btn">
+          📚 View Theory Guide
+        </button>
+      </header>
+
+      <!-- Exercise 1: Basic Flex Container -->
+      <section id="ex1" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 1: Basic Flex Container</h2>
+          <button class="mark-complete" data-exercise="1">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a horizontal navigation bar using flexbox. Items should be
+          evenly spaced with some gap between them.
+        </p>
+        <nav class="nav-bar">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Contact</a>
+        </nav>
+      </section>
+
+      <!-- Exercise 2: Flex Direction -->
+      <section id="ex2" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 2: Flex Direction</h2>
+          <button class="mark-complete" data-exercise="2">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a vertical sidebar menu. Items should stack vertically with
+          consistent spacing.
+        </p>
+        <aside class="sidebar">
+          <div class="menu-item">Dashboard</div>
+          <div class="menu-item">Profile</div>
+          <div class="menu-item">Settings</div>
+          <div class="menu-item">Messages</div>
+          <div class="menu-item">Logout</div>
+        </aside>
+      </section>
+
+      <!-- Exercise 3: Justify Content -->
+      <section id="ex3" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 3: Justify Content</h2>
+          <button class="mark-complete" data-exercise="3">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create three different containers showing different justify-content
+          values:
+        </p>
+
+        <h3>Space Between</h3>
+        <div class="container space-between">
+          <div class="box">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+        </div>
+
+        <h3>Center</h3>
+        <div class="container center">
+          <div class="box">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+        </div>
+
+        <h3>Space Around</h3>
+        <div class="container space-around">
+          <div class="box">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+        </div>
+      </section>
+
+      <!-- Exercise 4: Align Items -->
+      <section id="ex4" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 4: Align Items</h2>
+          <button class="mark-complete" data-exercise="4">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create containers with different heights of items and align them in
+          different ways:
+        </p>
+
+        <h3>Align Start</h3>
+        <div class="tall-container align-start">
+          <div class="box small">Small</div>
+          <div class="box medium">Medium</div>
+          <div class="box large">Large</div>
+        </div>
+
+        <h3>Align Center</h3>
+        <div class="tall-container align-center">
+          <div class="box small">Small</div>
+          <div class="box medium">Medium</div>
+          <div class="box large">Large</div>
+        </div>
+
+        <h3>Align End</h3>
+        <div class="tall-container align-end">
+          <div class="box small">Small</div>
+          <div class="box medium">Medium</div>
+          <div class="box large">Large</div>
+        </div>
+      </section>
+
+      <!-- Exercise 5: Flex Wrap -->
+      <section id="ex5" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 5: Flex Wrap</h2>
+          <button class="mark-complete" data-exercise="5">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a responsive card grid that wraps to multiple rows when needed:
+        </p>
+        <div class="card-grid">
+          <div class="card">Card 1</div>
+          <div class="card">Card 2</div>
+          <div class="card">Card 3</div>
+          <div class="card">Card 4</div>
+          <div class="card">Card 5</div>
+          <div class="card">Card 6</div>
+        </div>
+      </section>
+
+      <!-- Exercise 6: Flex Grow, Shrink, Basis -->
+      <section id="ex6" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 6: Flex Properties</h2>
+          <button class="mark-complete" data-exercise="6">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a layout where items have different flex properties:
+        </p>
+
+        <h3>Flex Grow</h3>
+        <div class="flex-container">
+          <div class="item grow-1">Grow 1</div>
+          <div class="item grow-2">Grow 2</div>
+          <div class="item grow-1">Grow 1</div>
+        </div>
+
+        <h3>Flex Shrink</h3>
+        <div class="flex-container">
+          <div class="item fixed-width no-shrink">Don't Shrink (200px)</div>
+          <div class="item flexible">Can Shrink</div>
+          <div class="item flexible">Can Shrink</div>
+        </div>
+
+        <h3>Flex Basis</h3>
+        <div class="flex-container">
+          <div class="item basis-small">25%</div>
+          <div class="item basis-medium">50%</div>
+          <div class="item basis-small">25%</div>
+        </div>
+      </section>
+
+      <!-- Exercise 7: Align Self -->
+      <section id="ex7" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 7: Align Self</h2>
+          <button class="mark-complete" data-exercise="7">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Override individual item alignment within a flex container:
+        </p>
+        <div class="tall-container align-items-center">
+          <div class="box self-start">Start</div>
+          <div class="box self-center">Center</div>
+          <div class="box self-end">End</div>
+          <div class="box self-stretch">Stretch</div>
+        </div>
+      </section>
+
+      <!-- Exercise 8: Order Property -->
+      <section id="ex8" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 8: Order Property</h2>
+          <button class="mark-complete" data-exercise="8">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Reorder items visually without changing HTML structure:
+        </p>
+        <div class="ordered-container">
+          <div class="item order-3">First in HTML (should appear third)</div>
+          <div class="item order-1">Second in HTML (should appear first)</div>
+          <div class="item order-2">Third in HTML (should appear second)</div>
+        </div>
+      </section>
+
+      <!-- Exercise 9: Gap Property -->
+      <section id="ex9" class="exercise">
+        <div class="exercise-header">
+          <h2>Exercise 9: Gap Property</h2>
+          <button class="mark-complete" data-exercise="9">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Use the modern gap property instead of margins for spacing:
+        </p>
+        <div class="gap-container">
+          <div class="box">1</div>
+          <div class="box">2</div>
+          <div class="box">3</div>
+          <div class="box">4</div>
+        </div>
+      </section>
+
+      <!-- Project: Holy Grail Layout -->
+      <section id="proj1" class="exercise project">
+        <div class="exercise-header">
+          <h2>🎯 Project: Holy Grail Layout</h2>
+          <button class="mark-complete" data-exercise="10">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Build a classic "Holy Grail" layout using only Flexbox:
+        </p>
+        <ul class="requirements">
+          <li>Header that spans the full width at the top</li>
+          <li>Main content area in the center that grows to fill space</li>
+          <li>Sidebar on the left (fixed width around 200px)</li>
+          <li>Sidebar on the right (fixed width around 200px)</li>
+          <li>Footer that spans the full width at the bottom</li>
+          <li>The layout should fill the viewport height</li>
+          <li>Main content should be scrollable if it overflows</li>
+        </ul>
+
+        <div class="holy-grail">
+          <header class="hg-header">Header</header>
+          <div class="hg-main-wrapper">
+            <aside class="hg-sidebar-left">Left Sidebar</aside>
+            <main class="hg-content">
+              <h3>Main Content</h3>
+              <p>
+                This is the main content area. It should grow to fill available
+                space.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </main>
+            <aside class="hg-sidebar-right">Right Sidebar</aside>
+          </div>
+          <footer class="hg-footer">Footer</footer>
+        </div>
+      </section>
+
+      <!-- Project: Responsive Navbar -->
+      <section id="proj2" class="exercise project">
+        <div class="exercise-header">
+          <h2>🎯 Project: Responsive Navbar</h2>
+          <button class="mark-complete" data-exercise="11">
+            Mark Complete ✓
+          </button>
+        </div>
+        <p class="instructions">
+          Create a responsive navigation bar that adapts to different screen
+          sizes:
+        </p>
+        <ul class="requirements">
+          <li>Logo on the left side</li>
+          <li>Navigation links in the center</li>
+          <li>User actions (Search, Profile) on the right</li>
+          <li>All items should be vertically centered</li>
+          <li>Use flexbox for all alignment and spacing</li>
+          <li>Add appropriate gap between items</li>
+        </ul>
+
+        <nav class="responsive-navbar">
+          <div class="navbar-logo">MyBrand</div>
+          <ul class="navbar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="navbar-actions">
+            <button class="btn-search">Search</button>
+            <button class="btn-profile">Profile</button>
+          </div>
+        </nav>
+      </section>
+    </main>
+
+    <script>
+      // Progress tracking with localStorage
+      const STORAGE_KEY = "flexbox-progress";
+
+      function loadProgress() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : {};
+      }
+
+      function saveProgress(exercise, completed) {
+        const progress = loadProgress();
+        progress[exercise] = completed;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      }
+
+      function updateUI() {
+        const progress = loadProgress();
+        Object.keys(progress).forEach((ex) => {
+          if (progress[ex]) {
+            const tocLink = document.querySelector(`[data-exercise="${ex}"]`);
+            const button = document.querySelector(
+              `.mark-complete[data-exercise="${ex}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+            if (button) {
+              button.textContent = "Completed ✓";
+              button.classList.add("completed");
+            }
+          }
+        });
+      }
+
+      // Mark complete buttons
+      document.querySelectorAll(".mark-complete").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const exercise = e.target.dataset.exercise;
+          const isCompleted = e.target.classList.contains("completed");
+
+          if (isCompleted) {
+            // Unmark
+            saveProgress(exercise, false);
+            e.target.textContent = "Mark Complete ✓";
+            e.target.classList.remove("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "☐";
+              tocLink.classList.remove("completed");
+            }
+          } else {
+            // Mark complete
+            saveProgress(exercise, true);
+            e.target.textContent = "Completed ✓";
+            e.target.classList.add("completed");
+            const tocLink = document.querySelector(
+              `[data-exercise="${exercise}"]`
+            );
+            if (tocLink) {
+              tocLink.querySelector(".check").textContent = "✓";
+              tocLink.classList.add("completed");
+            }
+          }
+        });
+      });
+
+      // Dark mode toggle
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const DARK_MODE_KEY = "darkMode";
+
+      function loadDarkMode() {
+        return localStorage.getItem(DARK_MODE_KEY) === "true";
+      }
+
+      function setDarkMode(enabled) {
+        localStorage.setItem(DARK_MODE_KEY, enabled);
+        document.body.classList.toggle("dark-mode", enabled);
+        darkModeToggle.textContent = enabled ? "☀️" : "🌙";
+      }
+
+      darkModeToggle.addEventListener("click", () => {
+        setDarkMode(!loadDarkMode());
+      });
+
+      // Smooth scroll for TOC links
+      document.querySelectorAll(".toc-nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Theory modal
+      const theoryModal = document.getElementById("theoryModal");
+      const openTheoryBtn = document.getElementById("openTheoryBtn");
+      const closeTheoryBtn = document.querySelector(".theory-modal-close");
+
+      openTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.add("show");
+      });
+
+      closeTheoryBtn.addEventListener("click", () => {
+        theoryModal.classList.remove("show");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === theoryModal) {
+          theoryModal.classList.remove("show");
+        }
+      });
+
+      // Initialize
+      updateUI();
+      setDarkMode(loadDarkMode());
+    </script>
+  </body>
+</html>

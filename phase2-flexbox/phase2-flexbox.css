@@ -1,0 +1,797 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  display: flex;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .exercise {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body.dark-mode .instructions {
+  background: #1e3a5f;
+  color: #e0e0e0;
+}
+
+body.dark-mode .requirements {
+  background: #3a2f1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .toc {
+  background: #2d2d2d;
+  border-right: 1px solid #444;
+}
+
+body.dark-mode .toc-nav a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .toc-nav a:hover {
+  background: #3a3a3a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #5dade2;
+}
+
+/* TOC Sidebar */
+.toc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.toc-header {
+  padding: 20px;
+  border-bottom: 2px solid #3498db;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toc-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  background: #ecf0f1;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background: #3a3a3a;
+}
+
+.toc-nav {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.toc-nav a {
+  display: block;
+  padding: 12px 20px;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.toc-nav a:hover {
+  background: #ecf0f1;
+  border-left-color: #3498db;
+}
+
+.toc-nav a.completed {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.toc-nav a .check {
+  display: inline-block;
+  width: 20px;
+  font-weight: bold;
+  color: #95a5a6;
+}
+
+.toc-nav a.completed .check {
+  color: #27ae60;
+}
+
+.toc-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.home-link {
+  display: block;
+  padding: 12px 20px;
+  background: #95a5a6;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s;
+  margin-bottom: 10px;
+}
+
+.home-link:hover {
+  background: #7f8c8d;
+}
+
+.next-phase {
+  display: block;
+  padding: 12px 20px;
+  background: #3498db;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.next-phase:hover {
+  background: #2980b9;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 280px;
+  padding: 20px;
+  flex: 1;
+  max-width: 1200px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.exercise {
+  background: white;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  scroll-margin-top: 20px;
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.exercise-header h2 {
+  margin: 0;
+}
+
+.mark-complete {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.mark-complete:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.mark-complete.completed {
+  background: #27ae60;
+}
+
+.mark-complete.completed:hover {
+  background: #229954;
+}
+
+.exercise h2 {
+  color: #3498db;
+}
+
+.instructions {
+  background: #e8f4f8;
+  padding: 15px;
+  border-left: 4px solid #3498db;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.project {
+  border: 3px solid #f39c12;
+}
+
+.project h2 {
+  color: #f39c12;
+}
+
+.requirements {
+  background: #fef5e7;
+  padding: 15px 15px 15px 35px;
+  border-left: 4px solid #f39c12;
+  margin-bottom: 20px;
+}
+
+.requirements li {
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+/* Helper styles for visualization */
+.box {
+  background: #3498db;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.container {
+  background: #ecf0f1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+}
+
+.tall-container {
+  background: #ecf0f1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+  min-height: 200px;
+}
+
+/* Box size variants */
+.box.small {
+  height: 50px;
+}
+
+.box.medium {
+  height: 80px;
+}
+
+.box.large {
+  height: 120px;
+}
+
+/* ==========================================
+   TODO: Exercise 1 - Basic Flex Container
+   ========================================== */
+/* Make .nav-bar a flex container with horizontal layout
+   Add space between items and some gap
+   Style the links appropriately */
+
+.nav-bar {
+  display: flex;
+  gap: 2rem;
+  background: #2c3e50;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.nav-bar a:hover {
+  background: #34495e;
+}
+
+/* ==========================================
+   TODO: Exercise 2 - Flex Direction
+   ========================================== */
+/* Make .sidebar a vertical flex container
+   Add consistent spacing between menu items */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #34495e;
+  padding: 15px;
+  border-radius: 4px;
+  max-width: 250px;
+}
+
+.menu-item {
+  background: #2c3e50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #1a252f;
+}
+
+/* ==========================================
+   TODO: Exercise 3 - Justify Content
+   ========================================== */
+/* Apply different justify-content values to each container:
+   - .space-between: space-between
+   - .center: center
+   - .space-around: space-around */
+
+.space-between {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.space-around {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+/* ==========================================
+   TODO: Exercise 4 - Align Items
+   ========================================== */
+/* Apply different align-items values:
+   - .align-start: flex-start
+   - .align-center: center
+   - .align-end: flex-end */
+
+.align-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.align-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* ==========================================
+   TODO: Exercise 5 - Flex Wrap
+   ========================================== */
+/* Make .card-grid wrap items to multiple rows
+   Items should have consistent width and spacing
+   Aim for about 3 cards per row on desktop */
+
+.card-grid {
+  display: flex;
+  flex-flow: row wrap;
+  background: #ecf0f1;
+  padding: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+  gap: 1rem;
+}
+
+.card {
+  flex-basis: 220px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* ==========================================
+   TODO: Exercise 6 - Flex Properties
+   ========================================== */
+/* Set up flex containers and apply:
+   - flex-grow values (1 and 2)
+   - flex-shrink (prevent shrinking on .no-shrink)
+   - flex-basis for percentage-based sizing */
+
+.flex-container {
+  display: flex;
+  background: #ecf0f1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+}
+
+.item {
+  background: #9b59b6;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.grow-2 {
+  flex-grow: 2;
+}
+
+.grow-3 {
+  flex-grow: 1;
+}
+
+.flexible {
+  flex-shrink: 1;
+}
+.basis-small {
+  flex-basis: 25%;
+}
+
+.basis-medium {
+  flex-basis: 50%;
+}
+
+.fixed-width {
+  width: 200px;
+}
+
+/* ==========================================
+   TODO: Exercise 7 - Align Self
+   ========================================== */
+/* The container has align-items: center
+   Override individual items with align-self:
+   - .self-start
+   - .self-center
+   - .self-end
+   - .self-stretch */
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+/* ==========================================
+   TODO: Exercise 8 - Order Property
+   ========================================== */
+/* Make .ordered-container a flex container
+   Use the order property to rearrange items visually
+   Apply classes .order-1, .order-2, .order-3 */
+
+.ordered-container {
+  display: flex;
+  background: #ecf0f1;
+  padding: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+}
+
+.ordered-container .item {
+  background: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+/* ==========================================
+   TODO: Exercise 9 - Gap Property
+   ========================================== */
+/* Use the gap property for spacing instead of margins
+   Set both row-gap and column-gap
+   Make it wrap if needed */
+
+.gap-container {
+  display: flex;
+  gap: 2rem;
+  background: #ecf0f1;
+  padding: 20px;
+  border: 2px dashed #95a5a6;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   TODO: PROJECT - Holy Grail Layout
+   ========================================== */
+/* Create a full-height layout using flexbox:
+   1. .holy-grail should be a flex column taking full viewport height
+   2. Header and footer should have fixed heights
+   3. .hg-main-wrapper should be a flex row and grow to fill space
+   4. Left and right sidebars should have fixed widths (~200px)
+   5. .hg-content should grow to fill remaining space
+   6. Add appropriate colors and spacing */
+
+.holy-grail {
+  border: 2px solid #95a5a6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hg-header {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hg-main-wrapper {
+  display: flex;
+}
+
+.hg-sidebar-left {
+  background: #34495e;
+  color: white;
+  padding: 20px;
+  width: 200px;
+}
+
+.hg-sidebar-right {
+  background: #34495e;
+  color: white;
+  padding: 20px;
+  width: 100px;
+}
+
+.hg-content {
+  background: white;
+  padding: 20px;
+}
+
+.hg-footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ==========================================
+   TODO: PROJECT - Responsive Navbar
+   ========================================== */
+/* Create a responsive navbar:
+   1. Main container should space items appropriately
+   2. Logo on left, links in center, actions on right
+   3. Links should be horizontal with gap
+   4. All items vertically centered
+   5. Style buttons and links appropriately */
+
+.responsive-navbar {
+  background: #2c3e50;
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+.navbar-logo {
+  color: #3498db;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.navbar-links a:hover {
+  background: #34495e;
+}
+
+.navbar-actions button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navbar-actions button:hover {
+  background: #2980b9;
+}
+
+.btn-profile {
+  background: #27ae60 !important;
+}
+
+.btn-profile:hover {
+  background: #229954 !important;
+}
+
+/* Theory Modal Styles */
+.theory-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.theory-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.theory-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+.theory-modal.show .theory-modal-content {
+  transform: scale(1);
+}
+
+.theory-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.theory-modal-close:hover {
+  background: #c0392b;
+  transform: rotate(90deg);
+}
+
+.theory-modal-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.theory-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.theory-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.theory-btn:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.site-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}

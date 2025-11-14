@@ -1,0 +1,328 @@
+/* ====================================
+   Phase 1.1: CSS Selectors Exercises
+   ==================================== */
+
+/* Exercise 1: Basic Selectors */
+.selectors-blog-post {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.selectors-featured {
+  border-left: 4px solid #fa709a;
+}
+
+.selectors-post-title {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.selectors-post-meta {
+  display: flex;
+  gap: 1rem;
+  color: #7f8c8d;
+  font-size: 0.9em;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.selectors-author {
+  font-weight: 600;
+}
+
+.selectors-intro {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+
+.selectors-highlight {
+  background: linear-gradient(120deg, #fee140 0%, #fa709a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.selectors-blog-post blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #555;
+}
+
+/* Exercise 2: Attribute Selectors */
+.selectors-links-demo,
+.selectors-input-demo {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.selectors-links-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.selectors-links-demo a {
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #2c3e50;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s;
+}
+
+.selectors-links-demo a:hover {
+  border-color: #667eea;
+  transform: translateX(4px);
+}
+
+.selectors-input-demo {
+  display: grid;
+  gap: 1rem;
+}
+
+.selectors-input-demo input {
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.selectors-input-demo input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Exercise 3: Combinators */
+.selectors-parent,
+.selectors-sibling-demo {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.selectors-parent {
+  border: 2px dashed #667eea;
+}
+
+.selectors-parent p {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.selectors-child {
+  padding: 1rem;
+  background: #e8f4f8;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+  border: 2px solid #3498db;
+}
+
+.selectors-child p {
+  background: #d4e9f2;
+  border: 1px solid #3498db;
+}
+
+.selectors-sibling-demo h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.selectors-sibling-demo p,
+.selectors-sibling-demo div {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Exercise 4: Pseudo-classes */
+.selectors-button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.selectors-button-group button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.selectors-button-group button:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.selectors-button-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.selectors-item-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.selectors-item-list li {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s;
+}
+
+.selectors-demo-form {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.selectors-form-group {
+  margin-bottom: 1rem;
+}
+
+.selectors-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.selectors-form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* Exercise 5: Pseudo-elements */
+.selectors-drop-cap::first-letter {
+  font-size: 3em;
+  font-weight: bold;
+  float: left;
+  line-height: 1;
+  margin-right: 0.1em;
+  color: #fa709a;
+}
+
+.selectors-custom-list {
+  list-style: none;
+  padding: 0;
+}
+
+.selectors-custom-list li {
+  padding: 0.75rem 0.75rem 0.75rem 2rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.selectors-custom-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0.5rem;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.selectors-quote-box {
+  position: relative;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.selectors-quote-box::before,
+.selectors-quote-box::after {
+  position: absolute;
+  font-size: 4em;
+  font-family: Georgia, serif;
+  color: #fa709a;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.selectors-quote-box::before {
+  content: "\201C";
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.selectors-quote-box::after {
+  content: "\201D";
+  bottom: 0.5rem;
+  right: 0.5rem;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.selectors-quote-box p {
+  margin: 0;
+  font-style: italic;
+  color: #2c3e50;
+  position: relative;
+  z-index: 1;
+}
+
+/* Exercise 6: Specificity */
+.selectors-text {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  background: #f8f9fa;
+  transition: all 0.3s;
+}
+
+/* Specificity demonstration */
+p.selectors-text {
+  color: green;
+}
+
+.selectors-container .selectors-text {
+  color: purple;
+  font-weight: 600;
+}
+
+#selectors-special {
+  color: #e74c3c;
+  font-weight: bold;
+  background: #ffe5e5;
+}
+
+.selectors-container {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+}

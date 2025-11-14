@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Selectors & Specificity - Theory Guide</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .content {
+        padding: 3rem 2.5rem;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        border-left: 4px solid #667eea;
+      }
+
+      .toc h2 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .toc ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .toc li a {
+        color: #495057;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        border-radius: 6px;
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .toc li a:hover {
+        background: #667eea;
+        color: white;
+        transform: translateX(4px);
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      section:last-child {
+        margin-bottom: 0;
+      }
+
+      h2 {
+        color: #667eea;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #667eea;
+      }
+
+      h3 {
+        color: #495057;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+      }
+
+      h4 {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+      }
+
+      code {
+        background: #f8f9fa;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        color: #e83e8c;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border-left: 4px solid #667eea;
+        line-height: 1.6;
+      }
+
+      pre code {
+        background: none;
+        padding: 0;
+        color: #ecf0f1;
+        font-size: 0.95rem;
+      }
+
+      .tip {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .tip strong {
+        color: #856404;
+        font-size: 1.1rem;
+      }
+
+      .tip p {
+        margin-top: 0.5rem;
+        color: #856404;
+      }
+
+      .example {
+        background: #e7f3ff;
+        border-left: 4px solid #2196f3;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+      }
+
+      .example h4 {
+        color: #1976d2;
+        margin-top: 0;
+      }
+
+      ul,
+      ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        color: #495057;
+        font-weight: 600;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #e9ecef;
+        margin: 3rem 0;
+      }
+
+      .highlight {
+        background: #fffacd;
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #495057;
+      }
+
+      .spec-table {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 CSS Selectors & Specificity</h1>
+        <p>Essential Theory Guide</p>
+      </div>
+
+      <div class="content">
+        <div class="toc">
+          <h2>📚 Table of Contents</h2>
+          <ul>
+            <li><a href="#basic-selectors">Basic Selectors</a></li>
+            <li><a href="#attribute-selectors">Attribute Selectors</a></li>
+            <li><a href="#combinators">Combinators</a></li>
+            <li><a href="#pseudo-classes">Pseudo-classes</a></li>
+            <li><a href="#pseudo-elements">Pseudo-elements</a></li>
+            <li><a href="#specificity">Specificity</a></li>
+            <li><a href="#cascade">The Cascade</a></li>
+          </ul>
+        </div>
+
+        <section id="basic-selectors">
+          <h2>Basic Selectors</h2>
+
+          <h3>Element Selector</h3>
+          <p>Targets all elements of a specific type.</p>
+          <pre><code>p { color: blue; }  /* All paragraphs */
+h1 { font-size: 2rem; }  /* All h1 headings */</code></pre>
+
+          <h3>Class Selector</h3>
+          <p>
+            Targets elements with a specific class. Uses <code>.</code> prefix.
+          </p>
+          <pre><code>.highlight { background: yellow; }
+.btn { padding: 10px; }</code></pre>
+
+          <div class="tip">
+            <strong>⚠️ Best Practice:</strong>
+            <p>
+              Use classes for styling, IDs for JavaScript hooks and anchors.
+            </p>
+          </div>
+
+          <h3>ID Selector</h3>
+          <p>
+            Targets a single element with a specific ID. Uses
+            <code>#</code> prefix.
+          </p>
+          <pre><code>#header { background: navy; }
+#main-content { width: 80%; }</code></pre>
+
+          <h3>Universal Selector</h3>
+          <p>Targets all elements. Use sparingly.</p>
+          <pre><code>* { box-sizing: border-box; }</code></pre>
+
+          <h3>Multiple Selectors</h3>
+          <p>Apply same styles to multiple selectors.</p>
+          <pre><code>h1, h2, h3 {
+  font-family: Georgia, serif;
+}</code></pre>
+        </section>
+
+        <hr />
+
+        <section id="attribute-selectors">
+          <h2>Attribute Selectors</h2>
+          <p>Target elements based on their attributes.</p>
+
+          <h3>Presence Selector</h3>
+          <pre><code>[disabled] { opacity: 0.5; }
+[required] { border-left: 3px solid red; }</code></pre>
+
+          <h3>Exact Match</h3>
+          <pre><code>[type="text"] { border: 1px solid gray; }</code></pre>
+
+          <h3>Starts With (^)</h3>
+          <pre><code>[href^="https"] { color: green; }  /* Starts with https */
+[href^="mailto:"] { color: red; }  /* Email links */</code></pre>
+
+          <h3>Ends With ($)</h3>
+          <pre><code>[href$=".pdf"] { /* Links to PDF files */ }
+[src$=".png"] { /* PNG images */ }</code></pre>
+
+          <h3>Contains (*)</h3>
+          <pre><code>[href*="google"] { /* Contains "google" anywhere */ }
+[class*="btn"] { /* Contains "btn" anywhere */ }</code></pre>
+
+          <div class="example">
+            <h4>Practical Examples</h4>
+            <pre><code>/* Style external links */
+a[href^="http"] { color: blue; }
+
+/* Style different file types */
+a[href$=".pdf"]::after { content: " 📄"; }
+
+/* Required fields */
+input[required] { border-color: orange; }</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="combinators">
+          <h2>Combinators</h2>
+          <p>Combinators define relationships between selectors.</p>
+
+          <h3>Descendant Combinator (space)</h3>
+          <p>Selects all descendants (children, grandchildren, etc.)</p>
+          <pre><code>div p { color: blue; }  /* All p inside div */</code></pre>
+
+          <h3>Child Combinator (>)</h3>
+          <p>Selects only direct children.</p>
+          <pre><code>div > p { color: red; }  /* Direct children only */</code></pre>
+
+          <h3>Adjacent Sibling (+)</h3>
+          <p>Selects the immediately following sibling.</p>
+          <pre><code>h2 + p { font-weight: bold; }  /* First p after h2 */</code></pre>
+
+          <h3>General Sibling (~)</h3>
+          <p>Selects all following siblings.</p>
+          <pre><code>h2 ~ p { color: gray; }  /* All p after h2 */</code></pre>
+
+          <div class="example">
+            <h4>Practical Examples</h4>
+            <pre><code>/* Style paragraphs only inside articles */
+article p { line-height: 1.8; }
+
+/* Style direct list items only */
+.menu > li { display: inline-block; }
+
+/* First paragraph after headings */
+h1 + p, h2 + p { font-size: 1.1em; }</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="pseudo-classes">
+          <h2>Pseudo-classes</h2>
+          <p>Select elements based on their state or position.</p>
+
+          <h3>Interactive States</h3>
+          <pre><code>a:hover { color: red; }     /* Mouse over */
+a:active { color: blue; }   /* Being clicked */
+a:focus { outline: 2px; }   /* Keyboard focus */
+a:visited { color: purple; } /* Already visited */</code></pre>
+
+          <h3>Form States</h3>
+          <pre><code>input:disabled { opacity: 0.5; }
+input:checked { /* Checkboxes/radios */ }
+input:required { border-left: 3px solid orange; }
+input:valid { border-color: green; }
+input:invalid { border-color: red; }</code></pre>
+
+          <h3>Structural Pseudo-classes</h3>
+          <pre><code>li:first-child { /* First child */ }
+li:last-child { /* Last child */ }
+li:nth-child(3) { /* 3rd item */ }
+li:nth-child(odd) { /* 1st, 3rd, 5th... */ }
+li:nth-child(even) { /* 2nd, 4th, 6th... */ }
+li:nth-child(3n) { /* Every 3rd: 3, 6, 9... */ }</code></pre>
+
+          <div class="tip">
+            <strong>💡 nth-child vs nth-of-type:</strong>
+            <p>
+              <code>:nth-child</code> counts all siblings,
+              <code>:nth-of-type</code> counts only elements of the same type.
+            </p>
+          </div>
+
+          <h3>Other Useful Pseudo-classes</h3>
+          <pre><code>:not(selector) { /* Negation */ }
+:empty { /* No children */ }
+:target { /* URL fragment target */ }</code></pre>
+
+          <div class="example">
+            <h4>Zebra Striping</h4>
+            <pre><code>tr:nth-child(even) { background: #f5f5f5; }
+
+/* All items except last */
+li:not(:last-child) { border-bottom: 1px solid; }</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="pseudo-elements">
+          <h2>Pseudo-elements</h2>
+          <p>Create virtual elements that don't exist in HTML.</p>
+
+          <h3>::before and ::after</h3>
+          <p>Insert content before or after an element.</p>
+          <pre><code>.icon::before {
+  content: "→ ";
+  color: blue;
+}
+
+.external-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+}</code></pre>
+
+          <div class="tip">
+            <strong>⚠️ Important:</strong>
+            <p>
+              Must have <code>content</code> property (even if empty:
+              <code>content: "";</code>)
+            </p>
+          </div>
+
+          <h3>::first-letter</h3>
+          <p>Styles the first letter of a block element.</p>
+          <pre><code>p::first-letter {
+  font-size: 3em;
+  float: left;
+  line-height: 1;
+}</code></pre>
+
+          <h3>::first-line</h3>
+          <pre><code>p::first-line {
+  font-weight: bold;
+  color: #333;
+}</code></pre>
+
+          <h3>::selection</h3>
+          <p>Styles highlighted/selected text.</p>
+          <pre><code>::selection {
+  background: yellow;
+  color: black;
+}</code></pre>
+
+          <div class="example">
+            <h4>Custom Bullet Points</h4>
+            <pre><code>.custom-list {
+  list-style: none;
+}
+.custom-list li::before {
+  content: "✓ ";
+  color: green;
+  font-weight: bold;
+}</code></pre>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="specificity">
+          <h2>Specificity</h2>
+          <p>
+            Determines which CSS rule wins when multiple rules target the same
+            element.
+          </p>
+
+          <h3>Specificity Calculation</h3>
+          <div class="spec-table">
+            <table>
+              <tr>
+                <th>Selector Type</th>
+                <th>Weight</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>Inline styles</td>
+                <td><strong>1,0,0,0</strong></td>
+                <td><code>style="color: red;"</code></td>
+              </tr>
+              <tr>
+                <td>IDs</td>
+                <td><strong>0,1,0,0</strong></td>
+                <td><code>#header</code></td>
+              </tr>
+              <tr>
+                <td>Classes, attributes, pseudo-classes</td>
+                <td><strong>0,0,1,0</strong></td>
+                <td>
+                  <code>.btn</code>, <code>[type]</code>, <code>:hover</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Elements, pseudo-elements</td>
+                <td><strong>0,0,0,1</strong></td>
+                <td><code>p</code>, <code>::before</code></td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Examples</h3>
+          <pre><code>p                    /* 0,0,0,1 */
+.text                /* 0,0,1,0 */
+#special             /* 0,1,0,0 */
+p.text               /* 0,0,1,1 */
+div p.text           /* 0,0,1,2 */
+#special.text        /* 0,1,1,0 */</code></pre>
+
+          <h3>Specificity Rules</h3>
+          <ol>
+            <li><strong>Higher specificity wins</strong></li>
+            <li>
+              If equal specificity, <strong>last rule wins</strong> (cascade)
+            </li>
+            <li>
+              <code>!important</code> overrides everything (use sparingly!)
+            </li>
+            <li>Universal selector (*) has 0 specificity</li>
+          </ol>
+
+          <div class="tip">
+            <strong>✅ Best Practices:</strong>
+            <ul style="margin-left: 0; list-style: none">
+              <li>✓ Keep specificity low</li>
+              <li>✓ Use classes for styling</li>
+              <li>✓ Avoid IDs for styling</li>
+              <li>✓ Avoid <code>!important</code></li>
+            </ul>
+          </div>
+        </section>
+
+        <hr />
+
+        <section id="cascade">
+          <h2>The Cascade</h2>
+          <p>
+            Determines which styles apply when multiple rules target the same
+            element.
+          </p>
+
+          <h3>Cascade Order (What Wins?)</h3>
+          <ol>
+            <li>
+              <strong>Origin & Importance</strong> (user agent → user → author
+              styles)
+            </li>
+            <li><strong>Specificity</strong> (within same origin)</li>
+            <li><strong>Source Order</strong> (when specificity is equal)</li>
+          </ol>
+
+          <h3>Inheritance</h3>
+          <p><strong>Inherited by default:</strong></p>
+          <ul>
+            <li><code>color</code></li>
+            <li>
+              <code>font-family</code>, <code>font-size</code>,
+              <code>font-weight</code>
+            </li>
+            <li><code>line-height</code></li>
+            <li><code>text-align</code>, <code>text-transform</code></li>
+          </ul>
+
+          <p><strong>Not inherited:</strong></p>
+          <ul>
+            <li><code>margin</code>, <code>padding</code></li>
+            <li><code>border</code></li>
+            <li><code>background</code></li>
+            <li><code>width</code>, <code>height</code></li>
+          </ul>
+
+          <h3>Controlling Inheritance</h3>
+          <pre><code>p {
+  color: inherit;   /* Force inheritance */
+  margin: initial;  /* Use default value */
+  border: unset;    /* Inherit if possible, else initial */
+}</code></pre>
+        </section>
+
+        <hr />
+
+        <div
+          class="tip"
+          style="background: #e7f3ff; border-left-color: #2196f3"
+        >
+          <strong>🚀 Ready to Practice?</strong>
+          <p>
+            Now that you understand the theory, open your
+            <code>phase1-selectors.css</code> file and start solving the
+            exercises. Use your browser's DevTools to test and verify your
+            selectors!
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

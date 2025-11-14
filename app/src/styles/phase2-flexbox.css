@@ -1,0 +1,600 @@
+/* ============================================
+   PHASE 2.2: FLEXBOX EXERCISES
+   ============================================
+   
+   PHILOSOPHY: Students practice ONLY flexbox properties.
+   All colors, padding, backgrounds, etc. are pre-filled.
+   
+   Students add:
+   - display: flex
+   - flex-direction
+   - justify-content
+   - align-items
+   - flex-wrap
+   - flex-grow, flex-shrink, flex-basis
+   - align-self
+   - gap
+   
+   ============================================ */
+
+/* ============================================
+   EXERCISE 1: Basic Flex Container
+   ============================================
+   
+   GOAL: Create your first flex container
+   CONCEPT: display: flex transforms a container's layout
+   
+   WHY THIS MATTERS: This is the foundation of all flexbox layouts.
+   Simply adding display: flex changes how child elements behave.
+   
+   YOUR TASK:
+   1. Make .flex-basic-container a flex container
+   
+   HINT: You only need one property!
+   ============================================ */
+
+.flex-basic-container {
+  /* ✅ Pre-filled - not the learning target */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+
+  /* TODO: Add display property here */
+  /* HINT: display: flex; */
+}
+
+.flex-basic-item {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 2: Flex Direction
+   ============================================
+   
+   GOAL: Change the main axis from horizontal to vertical
+   CONCEPT: flex-direction controls the flow direction
+   
+   WHY THIS MATTERS: Flexbox can arrange items in rows or columns.
+   This is fundamental for building different layouts.
+   
+   YOUR TASK:
+   1. Make items stack vertically
+   2. Add gap between items
+   
+   HINT: flex-direction: column; gap: 12px;
+   ============================================ */
+
+.flex-direction-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+
+  /* TODO: Add flex-direction here */
+  /* TODO: Add gap here */
+}
+
+.flex-direction-item {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 3: Justify Content
+   ============================================
+   
+   GOAL: Distribute items along the main axis
+   CONCEPT: justify-content controls spacing and alignment on main axis
+   
+   WHY THIS MATTERS: This is how you create space between navigation
+   items, center buttons, or distribute cards evenly.
+   
+   YOUR TASK:
+   1. Use space-between to push items apart
+   
+   HINT: justify-content: space-between;
+   TRY THIS: After solving, try space-around and space-evenly!
+   ============================================ */
+
+.flex-justify-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+
+  /* TODO: Add justify-content here */
+}
+
+.flex-justify-item {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #fee140;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 4: Align Items
+   ============================================
+   
+   GOAL: Align items along the cross axis
+   CONCEPT: align-items controls alignment perpendicular to main axis
+   
+   WHY THIS MATTERS: Items often have different heights. You need to
+   control whether they stretch, align to top/bottom, or center.
+   
+   YOUR TASK:
+   1. Center items vertically (cross axis)
+   2. Add gap between items
+   
+   HINT: align-items: center; gap: 12px;
+   ============================================ */
+
+.flex-align-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+
+  /* TODO: Add align-items here */
+  /* TODO: Add gap here */
+}
+
+.flex-align-item-short {
+  /* ✅ All styling pre-filled */
+  padding: 12px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+.flex-align-item-tall {
+  /* ✅ All styling pre-filled */
+  padding: 24px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 5: Perfect Centering
+   ============================================
+   
+   GOAL: Center content both horizontally and vertically
+   CONCEPT: Combining justify-content and align-items
+   
+   WHY THIS MATTERS: This is the classic flexbox trick! Perfect
+   centering was difficult before flexbox. Now it's two properties.
+   
+   YOUR TASK:
+   1. Center horizontally (main axis)
+   2. Center vertically (cross axis)
+   
+   HINT: justify-content: center; align-items: center;
+   ============================================ */
+
+.flex-center-container {
+  /* ✅ Pre-filled */
+  height: 200px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+
+  /* TODO: Add justify-content here */
+  /* TODO: Add align-items here */
+}
+
+.flex-center-box {
+  /* ✅ All styling pre-filled */
+  padding: 24px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 6: Flex Wrap
+   ============================================
+   
+   GOAL: Allow items to wrap to multiple rows
+   CONCEPT: flex-wrap controls wrapping behavior
+   
+   WHY THIS MATTERS: Without wrapping, items shrink or overflow.
+   Wrapping lets you create responsive layouts that adapt to width.
+   
+   YOUR TASK:
+   1. Enable wrapping
+   2. Add gap between items
+   
+   HINT: flex-wrap: wrap; gap: 12px;
+   ============================================ */
+
+.flex-wrap-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+
+  /* TODO: Add flex-wrap here */
+  /* TODO: Add gap here */
+}
+
+.flex-wrap-item {
+  /* ✅ All styling pre-filled */
+  padding: 16px 24px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+/* ============================================
+   EXERCISE 7: Flex Grow
+   ============================================
+   
+   GOAL: Make one item grow to fill available space
+   CONCEPT: flex-grow controls how items expand
+   
+   WHY THIS MATTERS: Often you want one item (like a search bar)
+   to take up all extra space while others stay fixed.
+   
+   YOUR TASK:
+   1. Make the middle item grow to fill space
+   
+   HINT: flex-grow: 1; (on the item that should grow)
+   ============================================ */
+
+.flex-grow-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.flex-grow-fixed {
+  /* ✅ All styling pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+}
+
+.flex-grow-expand {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add flex-grow here */
+  /* HINT: flex-grow: 1; */
+}
+
+/* ============================================
+   EXERCISE 8: Flex Basis
+   ============================================
+   
+   GOAL: Set initial sizes before space distribution
+   CONCEPT: flex-basis sets the starting size of flex items
+   
+   WHY THIS MATTERS: You can create items with different starting
+   sizes that still grow/shrink proportionally.
+   
+   YOUR TASK:
+   1. Set different flex-basis values for each item
+   2. Allow items to grow equally
+   
+   HINT: flex-basis: 100px (or 200px, 150px); flex-grow: 1;
+   ============================================ */
+
+.flex-basis-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.flex-basis-small {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add flex-basis: 100px; */
+  /* TODO: Add flex-grow: 1; */
+}
+
+.flex-basis-large {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add flex-basis: 200px; */
+  /* TODO: Add flex-grow: 1; */
+}
+
+.flex-basis-medium {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fee140;
+  border-radius: 6px;
+
+  /* TODO: Add flex-basis: 150px; */
+  /* TODO: Add flex-grow: 1; */
+}
+
+/* ============================================
+   EXERCISE 9: Align Self
+   ============================================
+   
+   GOAL: Override alignment for individual items
+   CONCEPT: align-self lets items have different cross-axis alignment
+   
+   WHY THIS MATTERS: Sometimes you want most items aligned one way,
+   but specific items aligned differently (like a badge at top).
+   
+   YOUR TASK:
+   1. Position first item at top (flex-start)
+   2. Position second item at center
+   3. Position third item at bottom (flex-end)
+   
+   HINT: align-self: flex-start | center | flex-end;
+   ============================================ */
+
+.flex-self-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+  gap: 12px;
+}
+
+.flex-self-start {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add align-self here */
+  /* HINT: align-self: flex-start; */
+}
+
+.flex-self-center {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fa709a;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add align-self here */
+  /* HINT: align-self: center; */
+}
+
+.flex-self-end {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #fee140;
+  border-radius: 6px;
+
+  /* TODO: Add align-self here */
+  /* HINT: align-self: flex-end; */
+}
+
+/* ============================================
+   EXERCISE 10: Navigation Bar
+   ============================================
+   
+   GOAL: Build a realistic navigation bar
+   CONCEPT: Combining justify-content and align-items for real layouts
+   
+   WHY THIS MATTERS: Navigation bars are one of the most common
+   uses of flexbox. Logo left, menu right, everything centered.
+   
+   YOUR TASK:
+   1. Make navbar a flex container
+   2. Push logo and menu to opposite sides
+   3. Center items vertically
+   
+   HINT: display: flex; justify-content: space-between; align-items: center;
+   ============================================ */
+
+.flex-navbar {
+  /* ✅ Pre-filled */
+  padding: 16px 24px;
+  background: #667eea;
+  border-radius: 8px;
+
+  /* TODO: Add display here */
+  /* TODO: Add justify-content here */
+  /* TODO: Add align-items here */
+}
+
+.flex-navbar-logo {
+  /* ✅ All styling pre-filled */
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.flex-navbar-menu {
+  /* ✅ Pre-filled */
+  color: white;
+
+  /* TODO: Make this a flex container */
+  /* TODO: Add gap between menu items */
+  /* HINT: display: flex; gap: 20px; */
+}
+
+/* ============================================
+   EXERCISE 11: Card Layout
+   ============================================
+   
+   GOAL: Create responsive cards that wrap and grow
+   CONCEPT: Combining flex-wrap with flex-grow/shrink/basis
+   
+   WHY THIS MATTERS: This pattern creates cards that wrap to new
+   rows and resize to fill space - perfect for dashboards!
+   
+   YOUR TASK:
+   1. Enable wrapping
+   2. Add gap
+   3. Make cards grow/shrink with 250px minimum
+   
+   HINT: 
+   Container: display: flex; flex-wrap: wrap; gap: 20px;
+   Cards: flex: 1 1 250px; (grow shrink basis)
+   ============================================ */
+
+.flex-cards-container {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+
+  /* TODO: Add display here */
+  /* TODO: Add flex-wrap here */
+  /* TODO: Add gap here */
+}
+
+.flex-card {
+  /* ✅ Pre-filled */
+  padding: 20px;
+  background: #667eea;
+  color: white;
+  border-radius: 6px;
+
+  /* TODO: Add flex shorthand here */
+  /* HINT: flex: 1 1 250px; */
+}
+
+.flex-card h3 {
+  margin: 0 0 8px 0;
+}
+
+.flex-card p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ============================================
+   EXERCISE 12: Complete Dashboard
+   ============================================
+   
+   GOAL: Build a complete dashboard layout
+   CONCEPT: Nested flex containers and combining properties
+   
+   WHY THIS MATTERS: Real applications use nested flexbox.
+   This exercise shows how to combine everything you've learned.
+   
+   YOUR TASK:
+   1. Make dashboard a vertical flex container
+   2. Make header horizontal with space-between
+   3. Make body horizontal with growing content area
+   
+   This is the final boss! Combine all your flexbox knowledge.
+   ============================================ */
+
+.flex-dashboard {
+  /* ✅ Pre-filled */
+  height: 400px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+
+  /* TODO: Add display here */
+  /* TODO: Add flex-direction here */
+  /* HINT: display: flex; flex-direction: column; */
+}
+
+.flex-dashboard-header {
+  /* ✅ Pre-filled */
+  padding: 16px;
+  background: #667eea;
+  color: white;
+
+  /* TODO: Add display here */
+  /* TODO: Add justify-content here */
+  /* TODO: Add align-items here */
+  /* HINT: display: flex; justify-content: space-between; align-items: center; */
+}
+
+.flex-dashboard-logo {
+  /* ✅ All styling pre-filled */
+  font-weight: bold;
+}
+
+.flex-dashboard-user {
+  /* ✅ All styling pre-filled */
+}
+
+.flex-dashboard-body {
+  /* ✅ Pre-filled */
+
+  /* TODO: Add display here */
+  /* TODO: Add flex-grow here to fill remaining space */
+  /* HINT: display: flex; flex-grow: 1; */
+}
+
+.flex-dashboard-sidebar {
+  /* ✅ Pre-filled */
+  width: 200px;
+  padding: 20px;
+  background: #e9ecef;
+}
+
+.flex-dashboard-sidebar div {
+  margin-bottom: 12px;
+}
+
+.flex-dashboard-main {
+  /* ✅ Pre-filled */
+  padding: 20px;
+
+  /* TODO: Add flex-grow to fill remaining space */
+  /* HINT: flex-grow: 1; */
+}
+
+.flex-dashboard-main h2 {
+  margin-top: 0;
+}
+
+/* ============================================
+   CONGRATULATIONS!
+   ============================================
+   
+   You've completed all flexbox exercises! You now know:
+   
+   ✓ Creating flex containers (display: flex)
+   ✓ Changing direction (flex-direction)
+   ✓ Distributing space (justify-content)
+   ✓ Aligning items (align-items, align-self)
+   ✓ Wrapping (flex-wrap)
+   ✓ Growing and shrinking (flex-grow, flex-shrink, flex-basis)
+   ✓ Real-world patterns (navbars, cards, dashboards)
+   
+   NEXT STEPS:
+   - Try modifying the values to see how they change
+   - Build your own components using flexbox
+   - Combine flexbox with Grid for powerful layouts!
+   
+   ============================================ */
