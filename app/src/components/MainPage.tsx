@@ -68,7 +68,7 @@ function Hub() {
             </div>
           </div>
 
-          <div className="phase-card phase-card-active">
+          <div className="phase-card">
             <h2>Phase 2 — Layout Fundamentals</h2>
             <p>
               Master the three core layout systems: positioning, flexbox, and
