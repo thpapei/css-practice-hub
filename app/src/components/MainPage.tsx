@@ -212,6 +212,7 @@ export default function MainPage(): JSX.Element {
           </LessonLayout>
         }
       />
+      {/* test lesson route removed (created during script test) */}
     </Routes>
   );
 }

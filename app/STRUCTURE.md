@@ -186,6 +186,10 @@ import { ExpectedOutcome } from "../components";
 - Collapsed by default - doesn't clutter the page
 - Consistent green success styling when expanded
 
+IMPORTANT: The `<ExpectedOutcome>` component is an exercise-only helper and must NOT be
+used inside theory components (files named `*Theory.tsx`). Theory pages are reference
+material and should present plain inline examples and copyable snippets instead.
+
 #### Example Structure (see `styles/phase2-grid.css` for reference):
 
 - File header explaining the exercise set
@@ -250,6 +254,29 @@ To add a new lesson (e.g., Phase 1.2 Box Model):
    ```
 
 6. **Add to MainPage**: Import and render in `components/MainPage.tsx`
+
+### Scaffolding (automation)
+
+We provide a small scaffolding script to speed up new lesson creation:
+
+- Script: `app/scripts/createLesson.js`
+- NPM helper: `npm run scaffold:lesson` (pass args after `--`)
+
+Usage example:
+
+```bash
+cd app
+npm run scaffold:lesson -- Phase3-MyLesson "My Lesson Title"
+```
+
+What the script does:
+
+- Creates the lesson component and a matching `phase-*.css` file.
+- Appends an export to `app/src/lessons/index.ts` if missing.
+- Attempts to add the import and a `<Route>` entry into `app/src/components/MainPage.tsx`.
+
+Review the edits after running the script. If the script cannot safely modify `MainPage.tsx`,
+it will skip route wiring and print a warning — add the route manually in that case.
 
 ### 4. Exercise CSS Naming Convention
 

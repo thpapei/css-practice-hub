@@ -161,6 +161,11 @@ Every theory component must include:
 5. "Pro Tip" and "Best Practices" sections
 6. Interactive examples that students can resize/inspect
 
+IMPORTANT: Theory pages are reference material and must NOT use exercise helpers such as
+`<ExpectedOutcome>`. That component belongs only inside exercise lesson files where it
+shows the student's goal. Theory pages should use plain inline JSX examples and copyable
+code snippets instead.
+
 ### 🔄 Progress Tracking Pattern
 
 Required in every lesson:
@@ -181,7 +186,7 @@ Progress keys: `"phase[number]-[topic]"` (e.g., `"phase2-grid"`)
 
 **Checklist** (use this every time):
 
-```
+````
 □ Create lessons/Phase_Topic.tsx
 □ Create lessons/TopicTheory.tsx
 □ Create styles/phase_-topic.css (UNSOLVED + educational comments)
@@ -191,10 +196,43 @@ Progress keys: `"phase[number]-[topic]"` (e.g., `"phase2-grid"`)
 □ Implement progress tracking
 □ 8-12 exercises with progressive difficulty
 □ Each exercise has ExpectedOutcome component (collapsed by default)
+
+---
+
+## Scaffolding & Automation
+
+To speed up creating new lessons there's a small scaffolding script at
+`app/scripts/createLesson.js`. It will create the lesson component and a CSS file
+and can optionally append exports and wire a simple route in `MainPage.tsx`.
+
+Usage (pass arguments after `--`):
+
+```bash
+cd app
+npm run scaffold:lesson -- Phase3-MyLesson "My Lesson Title"
+````
+
+What the script does:
+
+- Creates `app/src/lessons/Phase3-MyLesson.tsx` and `app/src/styles/phase-phase3-mylesson.css`.
+- Appends an export to `app/src/lessons/index.ts` unless it already exists.
+- Attempts to add an import and a `<Route>` to `app/src/components/MainPage.tsx`.
+
+Notes & safety:
+
+- The script tries to avoid duplicate exports/routes but always review the changes
+  before committing.
+- If MainPage.tsx cannot be updated automatically, add the import and route manually.
+- The script is intentionally small and idempotent; you can run it repeatedly without
+  duplicating exports/routes.
+
+Best practice: run the script, review `git status`, and commit the new files and any
+automated edits together with a single, descriptive commit message.
 □ Only target concept left as TODO (all else pre-filled)
 □ Verify TypeScript compiles
 □ Test theory modal and mark complete buttons
-```
+
+````
 
 ## Communication Rules
 
@@ -217,7 +255,7 @@ cd app
 npm run dev          # Start dev server
 npm run build        # Build for production
 npx tsc --noEmit    # Check TypeScript errors
-```
+````
 
 ---
 
