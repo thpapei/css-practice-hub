@@ -6,6 +6,7 @@ import {
   Phase2Flexbox,
   Phase2Grid,
   Phase2Positioning,
+  Phase3MediaQueries,
 } from "../lessons";
 
 function LessonLayout({ children }: { children: React.ReactNode }) {
@@ -92,7 +93,9 @@ function Hub() {
               Media queries, responsive units, mobile-first approach, and fluid
               layouts.
             </p>
-            <button disabled>Coming Soon</button>
+            <div className="phase-card-buttons">
+              <button onClick={() => navigate("/phase3-mediaqueries")}>3.1 Media Queries</button>
+            </div>
           </div>
 
           <div className="phase-card">
@@ -184,6 +187,14 @@ export default function MainPage(): JSX.Element {
         element={
           <LessonLayout>
             <Phase2Grid />
+          </LessonLayout>
+        }
+      />
+      <Route
+        path="/phase3-mediaqueries"
+        element={
+          <LessonLayout>
+            <Phase3MediaQueries />
           </LessonLayout>
         }
       />

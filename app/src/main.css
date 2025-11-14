@@ -9,6 +9,7 @@
 @import "./styles/phase2-positioning.css";
 @import "./styles/phase2-flexbox.css";
 @import "./styles/phase2-grid.css";
+@import "./styles/phase3-mediaqueries.css";
 
 :root {
   --pink: #fa709a;
@@ -41,7 +42,6 @@ body {
   background: #f8f9fa;
   border-color: #fa709a;
   color: #fa709a;
-  transform: translateX(-2px);
 }
 
 .app-root {
@@ -139,7 +139,6 @@ body {
 .lesson-link:hover {
   background: #f8f9fa;
   border-left-color: #fee140;
-  transform: translateX(2px);
 }
 
 .lesson-link.active {
@@ -269,7 +268,6 @@ section h2 {
 .mark-complete-btn:hover {
   border-color: #fa709a;
   color: #fa709a;
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(250, 112, 154, 0.2);
 }
 
@@ -280,7 +278,6 @@ section h2 {
 }
 
 .mark-complete-btn.completed:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(250, 112, 154, 0.4);
 }
 .exercise-body {
@@ -363,7 +360,6 @@ section h2 {
 }
 
 .theory-btn:hover {
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
 }
 
@@ -477,7 +473,6 @@ section h2 {
 .theory-toc li a:hover {
   background: #fa709a;
   color: white;
-  transform: translateX(4px);
 }
 
 .theory-body section {
@@ -756,7 +751,6 @@ section h2 {
 }
 
 .phase-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   border-color: rgba(250, 112, 154, 0.3);
 }
@@ -800,7 +794,6 @@ section h2 {
 }
 
 .phase-card button:hover:not(:disabled) {
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
 }
 
